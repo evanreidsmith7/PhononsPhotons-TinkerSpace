@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ScratchFile FileVersion="3.1">
+  <FileVersion>3.1</FileVersion>
+  <Workspace>
+    <WorkspaceType>Single-project</WorkspaceType>
+    <WorkspacePath>C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\H7WorkSpace\PhononsPhotonsPrototype\</WorkspacePath>
+    <underRoot>true</underRoot>
+    <TrustZone>0</TrustZone>
+    <HAL_Driver>C:\Users\evanr\STM32Cube\Repository\STM32Cube_FW_H7_V1.11.1</HAL_Driver>
+    <CMSIS>Drivers/CMSIS</CMSIS>
+    <Toolchain>STM32CubeIDE</Toolchain>
+    <IocFile>PhononsPhotonsPrototype.ioc</IocFile>
+    <Project>
+          
+      <ProjectName>PhononsPhotonsPrototype_M4_CM4</ProjectName>
+           
+      <Excluded>false</Excluded>
+          
+      <ProjectNature>Cpp</ProjectNature>
+       
+      <Secure/>
+            
+      <filestoremove>                           </filestoremove>
+      <sourceEntriesToRemove>
+            
+        <sourceEntry>    </sourceEntry>
+      </sourceEntriesToRemove>
+      <configs>
+        <config>
+          <name>PhononsPhotonsPrototype_M4</name>
+          	 
+          <mainSourceRepo>CM4</mainSourceRepo>
+             
+          <sourceStructure>Advanced</sourceStructure>
+          <Context/>
+           
+          <device>STM32H745XIHx</device>
+          		         
+          <cpucore>ARM Cortex-M4</cpucore>
+                  
+          <fpu>DP</fpu>
+                
+          <memories>
+                       
+            <memory access="xrw" name="RAM_D2" size="294912" start="0x10000000"/>
+                    
+            <memory access="xrw" name="RAM_D3" size="65536" start="0x18000000"/>
+                    
+            <memory access="rx" name="FLASH" size="1048576" start="0x8100000"/>
+                    
+          </memories>
+              
+          <startup>C:\Users\evanr\STM32Cube\Repository\STM32Cube_FW_H7_V1.11.1\Drivers\CMSIS\Device\ST\STM32H7xx\Source\Templates\gcc\startup_stm32h745xx.s</startup>
+                
+          <LinkSettings>
+            	
+            <LinkAdditionalLibs>	</LinkAdditionalLibs>
+          </LinkSettings>
+              
+          <heapSize>0x200</heapSize>
+              
+          <stackSize>0x400</stackSize>
+              
+          <cpuclock>200</cpuclock>
+               
+          <board>custom</board>
+              
+          <optimization/>
+              
+          <Aincludes>
+                    
+            <include/>
+                    
+          </Aincludes>
+              
+          <Adefines>        </Adefines>
+                
+          <Cdefines>
+                    
+            <define>CORE_CM4</define>
+                    
+            <define>USE_HAL_DRIVER</define>
+                    
+            <define>STM32H745xx</define>
+                    
+          </Cdefines>
+              
+          <Ldefines>        </Ldefines>
+                  
+          <Cincludes>
+            		        
+            <include>CM4\Core\Inc</include>
+                    
+            <include>Drivers\STM32H7xx_HAL_Driver\Inc</include>
+                    
+            <include>Drivers\STM32H7xx_HAL_Driver\Inc\Legacy</include>
+                    
+            <include>Drivers\CMSIS\Device\ST\STM32H7xx\Include</include>
+                    
+            <include>Drivers\CMSIS\Include</include>
+                    
+            <include>Drivers\STM32H7xx_HAL_Driver\Inc</include>
+                    
+            <include>Drivers\STM32H7xx_HAL_Driver\Inc\Legacy</include>
+                    
+            <include>Drivers\CMSIS\Device\ST\STM32H7xx\Include</include>
+                    
+            <include>Drivers\CMSIS\Include</include>
+                    
+          </Cincludes>
+              
+          <definestoremove>
+                    
+            <Adefines>            </Adefines>
+                    
+            <Cdefines>            </Cdefines>
+                     
+            <Ldefines>            </Ldefines>
+                     
+          </definestoremove>
+              
+          <inctoremove>
+                    
+            <Aincludes>
+                          
+              <include/>
+                          
+            </Aincludes>
+                    
+            <Cincludes>            </Cincludes>
+                    
+          </inctoremove>
+                 
+        </config>
+      </configs>
+       
+      <copyAsReference>false</copyAsReference>
+           
+      <sourceEntries>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+        <sourceEntry>
+                                  
+          <name>CM4\Core\Src</name>
+                                  
+        </sourceEntry>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+        <sourceEntry>
+                      
+          <name>Common</name>
+                      
+        </sourceEntry>
+                 
+        <sourceEntry>
+                      
+          <name>Drivers</name>
+                  
+        </sourceEntry>
+                            	 	          
+      </sourceEntries>
+      <Groups>      </Groups>
+    </Project>
+    <Project>
+          
+      <ProjectName>PhononsPhotonsPrototype_M7_CM7</ProjectName>
+           
+      <Excluded>false</Excluded>
+          
+      <ProjectNature>Cpp</ProjectNature>
+       
+      <Secure/>
+            
+      <filestoremove>                           </filestoremove>
+      <sourceEntriesToRemove>
+            
+        <sourceEntry>    </sourceEntry>
+      </sourceEntriesToRemove>
+      <configs>
+        <config>
+          <name>PhononsPhotonsPrototype_M7</name>
+          	 
+          <mainSourceRepo>CM7</mainSourceRepo>
+             
+          <sourceStructure>Advanced</sourceStructure>
+          <Context/>
+           
+          <device>STM32H745XIHx</device>
+          		         
+          <cpucore>ARM Cortex-M7</cpucore>
+                  
+          <fpu>DP</fpu>
+                
+          <memories>
+                       
+            <memory access="xrw" name="DTCMRAM" size="131072" start="0x20000000"/>
+                    
+            <memory access="xrw" name="ITCMRAM" size="65536" start="0x00000000"/>
+                    
+            <memory access="xrw" name="RAM_D1" size="524288" start="0x24000000"/>
+                    
+            <memory access="rx" name="FLASH" size="1048576" start="0x8000000"/>
+                    
+          </memories>
+              
+          <startup>C:\Users\evanr\STM32Cube\Repository\STM32Cube_FW_H7_V1.11.1\Drivers\CMSIS\Device\ST\STM32H7xx\Source\Templates\gcc\startup_stm32h745xx.s</startup>
+                
+          <LinkSettings>
+            	
+            <LinkAdditionalLibs>	</LinkAdditionalLibs>
+          </LinkSettings>
+              
+          <heapSize>0x1000</heapSize>
+              
+          <stackSize>0x1000</stackSize>
+              
+          <cpuclock>200</cpuclock>
+               
+          <board>custom</board>
+              
+          <optimization/>
+              
+          <Aincludes>
+                    
+            <include/>
+                    
+          </Aincludes>
+              
+          <Adefines>        </Adefines>
+                
+          <Cdefines>
+                    
+            <define>CORE_CM7</define>
+                    
+            <define>USE_HAL_DRIVER</define>
+                    
+            <define>STM32H745xx</define>
+                    
+          </Cdefines>
+              
+          <Ldefines>        </Ldefines>
+                  
+          <Cincludes>
+            		        
+            <include>CM7\Core\Inc</include>
+                    
+            <include>CM7\TouchGFX\App</include>
+                    
+            <include>CM7\TouchGFX\target\generated</include>
+                    
+            <include>CM7\TouchGFX\target</include>
+                    
+            <include>Drivers\STM32H7xx_HAL_Driver\Inc</include>
+                    
+            <include>Drivers\STM32H7xx_HAL_Driver\Inc\Legacy</include>
+                    
+            <include>Middlewares\Third_Party\FreeRTOS\Source\include</include>
+                    
+            <include>Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2</include>
+                    
+            <include>Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F</include>
+                    
+            <include>Drivers\CMSIS\Device\ST\STM32H7xx\Include</include>
+                    
+            <include>Drivers\CMSIS\Include</include>
+                    
+            <include>Drivers\STM32H7xx_HAL_Driver\Inc</include>
+                    
+            <include>Drivers\STM32H7xx_HAL_Driver\Inc\Legacy</include>
+                    
+            <include>Middlewares\Third_Party\FreeRTOS\Source\include</include>
+                    
+            <include>Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2</include>
+                    
+            <include>Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F</include>
+                    
+            <include>Drivers\CMSIS\Device\ST\STM32H7xx\Include</include>
+                    
+            <include>Drivers\CMSIS\Include</include>
+                    
+          </Cincludes>
+              
+          <definestoremove>
+                    
+            <Adefines>            </Adefines>
+                    
+            <Cdefines>            </Cdefines>
+                     
+            <Ldefines>            </Ldefines>
+                     
+          </definestoremove>
+              
+          <inctoremove>
+                    
+            <Aincludes>
+                          
+              <include/>
+                          
+            </Aincludes>
+                    
+            <Cincludes>            </Cincludes>
+                    
+          </inctoremove>
+                 
+        </config>
+      </configs>
+       
+      <copyAsReference>false</copyAsReference>
+           
+      <sourceEntries>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+        <sourceEntry>
+                                  
+          <name>CM7\Core\Src</name>
+                                  
+        </sourceEntry>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+        <sourceEntry>
+                                  
+          <name>CM7\TouchGFX</name>
+                                  
+        </sourceEntry>
+                        
+        <sourceEntry>
+                      
+          <name>Common</name>
+                      
+        </sourceEntry>
+                 
+        <sourceEntry>
+                      
+          <name>Drivers</name>
+                  
+        </sourceEntry>
+                                        
+        <sourceEntry>
+                                 
+          <name>Middlewares</name>
+                              
+        </sourceEntry>
+                                                               
+        <sourceEntry>
+                                      
+          <name>CM7/</name>
+                                      
+        </sourceEntry>
+                                	 	          
+      </sourceEntries>
+      <Groups>      </Groups>
+    </Project>
+  </Workspace>
+</ScratchFile>
