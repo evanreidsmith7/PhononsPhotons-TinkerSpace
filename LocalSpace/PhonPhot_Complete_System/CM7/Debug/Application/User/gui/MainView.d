@@ -1,5 +1,5 @@
 Application/User/gui/MainView.o: \
- C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp \
  ../../TouchGFX/gui/include/gui/main_screen/MainView.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/main_screen/MainViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \

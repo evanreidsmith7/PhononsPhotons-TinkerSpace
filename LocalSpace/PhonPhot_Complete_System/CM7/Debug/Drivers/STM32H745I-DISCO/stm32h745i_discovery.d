@@ -1,7 +1,7 @@
 Drivers/STM32H745I-DISCO/stm32h745i_discovery.o: \
- C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.c \
- C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.h \
- C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.c \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.h \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -40,9 +40,9 @@ Drivers/STM32H745I-DISCO/stm32h745i_discovery.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
- C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h
-C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.h:
-C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h:
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.h:
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
@@ -81,4 +81,4 @@ C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/Drivers/
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
-C:/Users/evanr/MiniMachineSTM32Work/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h:
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h:
