@@ -1,0 +1,10 @@
+16:19:01 **** Incremental Build of configuration Debug for project Sonus_Complete_CM7 ****
+make -j8 all 
+arm-none-eabi-size  Sonus_Complete_CM7.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 626272	    404	  56188	 682864	  a6b70	Sonus_Complete_CM7.elf
+Finished building: default.size.stdout
+ 
+
+16:19:01 Build Finished. 0 errors, 0 warnings. (took 618ms)
+
