@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
+<workingSet editPageId="org.eclipse.cdt.ui.CElementWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1706588181112_1" label="WorkingSet" name="WorkingSet"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1706567043616_0" label="Window Working Set" name="Aggregate for window 1706567043616"/>
+<mruList name="WorkingSet"/>
 </workingSetManager>

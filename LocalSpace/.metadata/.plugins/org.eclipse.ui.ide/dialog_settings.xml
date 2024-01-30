@@ -7,6 +7,8 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Owner\MegaMachineSTM32Work\PhononsPhotons-TinkerSpace\LocalSpace\Sonus DSP Subsystem"/>
+			<item value="C:\Users\Owner\MegaMachineSTM32Work\PhononsPhotons-TinkerSpace\LocalSpace\PhonPhot_Complete_System"/>
 			<item value="C:\Users\evanr\MiniMachineSTM32Work\LocalSpace\Sonus DSP Subsystem"/>
 			<item value="C:\Users\evanr\MiniMachineSTM32Work\LocalSpace\DSP_Subsystem"/>
 			<item value="C:\Users\evanr\MiniMachineSTM32Work\LocalSpace\Team_Sonus_GUI"/>
@@ -21,5 +23,13 @@
 		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="619"/>
+		<item key="DIALOG_Y_ORIGIN" value="337"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
 	</section>
 </section>
