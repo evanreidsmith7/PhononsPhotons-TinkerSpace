@@ -1,8 +1,0 @@
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:167:13:touchgfx::Font::~Font()	1
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:167:13:virtual touchgfx::Font::~Font()	1
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/ConstFont.hpp:35:7:touchgfx::ConstFont::~ConstFont()	1
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/ConstFont.hpp:35:7:virtual touchgfx::ConstFont::~ConstFont()	1
-../../TouchGFX/generated/fonts/include/fonts/GeneratedFont.hpp:17:7:touchgfx::GeneratedFont::~GeneratedFont()	1
-../../TouchGFX/generated/fonts/include/fonts/GeneratedFont.hpp:17:7:virtual touchgfx::GeneratedFont::~GeneratedFont()	1
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/generated/fonts/src/Table_verdanab_10_4bpp.cpp:50:165:void __tcf_0()	1
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/generated/fonts/src/Table_verdanab_10_4bpp.cpp:48:26:touchgfx::GeneratedFont& getFont_verdanab_10_4bpp()	3

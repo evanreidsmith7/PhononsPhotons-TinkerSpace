@@ -1714,3 +1714,210 @@ java.util.ConcurrentModificationException
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-01-31 12:45:42.666
 !MESSAGE Indexed 'PhonPhot_Complete_System_CM7' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2024-01-31 12:56:13.088 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-01-31 12:56:30.701
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-01-31 12:56:30.702
+!MESSAGE Log4j2 initialized with config file C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 12:56:33.039
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328.8845227"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 12:56:33.040
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257.2032187309"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 12:56:33.040
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022.1497122627"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 12:56:33.041
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188.1620388759"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 12:56:33.041
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157.1570193934"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 12:56:33.041
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369.1639782494"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 12:56:33.042
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941.2096740761"
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-01-31 12:56:33.697
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\evanr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-01-31 12:56:35.992
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:04:28.166
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:04:28.166
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:04:28.166
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM7 overlaps the location of another project: 'PhonPhot_Complete_System_CM7'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:04:28.166
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:04:29.321
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:04:29.321
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:04:29.321
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM4 overlaps the location of another project: 'PhonPhot_Complete_System_CM4'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:04:29.322
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:06:52.230
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:06:52.230
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:06:52.230
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM4 overlaps the location of another project: 'PhonPhot_Complete_System_CM4'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:06:52.231
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:07:09.443
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:07:09.443
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:07:09.443
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM7 overlaps the location of another project: 'PhonPhot_Complete_System_CM7'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:07:09.444
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:07:34.092
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:07:34.092
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:07:34.092
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM4 overlaps the location of another project: 'PhonPhot_Complete_System_CM4'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:07:34.093
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:07:34.681
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:07:34.681
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:07:34.681
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM7 overlaps the location of another project: 'PhonPhot_Complete_System_CM7'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:07:34.682
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-31 13:07:44.731
+!MESSAGE Indexed 'PhonPhot_Complete_System_CM7' (0 sources, 0 headers) in 0.204 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:07:47.377
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:07:47.377
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:07:47.377
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM4 overlaps the location of another project: 'PhonPhot_Complete_System_CM4'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:07:47.378
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:07:51.145
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:07:51.145
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:07:51.145
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM7 overlaps the location of another project: 'PhonPhot_Complete_System_CM7'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:07:51.146
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-31 13:07:51.213
+!MESSAGE Indexed 'PhonPhot_Complete_System_CM4' (3 sources, 67 headers) in 1.55 sec: 6,170 declarations; 12,151 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:07:57.153
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:07:57.153
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:07:57.153
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM4 overlaps the location of another project: 'PhonPhot_Complete_System_CM4'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:07:57.153
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:08:03.720
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:08:03.720
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:08:03.720
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM4 overlaps the location of another project: 'PhonPhot_Complete_System_CM4'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:08:03.722
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-01-31 13:08:10.894
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-01-31 13:08:10.894
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-01-31 13:08:10.894
+!MESSAGE C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM4 overlaps the location of another project: 'PhonPhot_Complete_System_CM4'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-01-31 13:08:10.895
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:38.977
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328.8845227"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:38.979
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257.2032187309"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:38.979
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022.1497122627"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:38.980
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188.1620388759"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:38.981
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157.1570193934"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:38.981
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369.1639782494"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:38.982
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941.2096740761"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:39.878
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328.8845227"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:39.878
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257.2032187309"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:39.879
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022.1497122627"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:39.880
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188.1620388759"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:39.880
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157.1570193934"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:39.881
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369.1639782494"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-01-31 13:11:39.881
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941.2096740761"
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-31 13:11:45.079
+!MESSAGE Indexed 'PhonPhot_Complete_CM4' (45 sources, 129 headers) in 3.78 sec: 14,102 declarations; 100,753 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0017%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-31 13:11:55.883
+!MESSAGE Indexed 'PhonPhot_Complete_CM7' (113 sources, 344 headers) in 10.8 sec: 30,950 declarations; 135,423 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0012%)
