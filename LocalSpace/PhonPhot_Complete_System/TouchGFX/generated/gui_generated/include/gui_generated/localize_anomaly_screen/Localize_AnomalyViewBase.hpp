@@ -18,14 +18,19 @@ class Localize_AnomalyViewBase : public touchgfx::View<Localize_AnomalyPresenter
 {
 public:
     Localize_AnomalyViewBase();
-    virtual ~Localize_AnomalyViewBase() {}
+    virtual ~Localize_AnomalyViewBase();
     virtual void setupScreen();
     virtual void afterTransition();
+    virtual void handleTickEvent();
 
     /*
      * Virtual Action Handlers
      */
     virtual void function1()
+    {
+        // Override and implement this function in Localize_Anomaly
+    }
+    virtual void draw_predicted_region()
     {
         // Override and implement this function in Localize_Anomaly
     }
@@ -68,6 +73,12 @@ private:
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+
+    /*
+     * Tick Counter Declarations
+     */
+    static const uint32_t TICK_INTERACTION2_INTERVAL = 10;
+    uint32_t frameCountInteraction2Interval;
 
 };
 

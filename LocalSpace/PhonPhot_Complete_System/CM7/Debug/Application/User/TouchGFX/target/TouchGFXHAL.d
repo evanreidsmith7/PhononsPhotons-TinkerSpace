@@ -1,10 +1,13 @@
 Application/User/TouchGFX/target/TouchGFXHAL.o: \
- C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/target/TouchGFXHAL.cpp \
+ C:/Projects/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/target/TouchGFXHAL.cpp \
  ../../TouchGFX/target/TouchGFXHAL.hpp \
  ../../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/platform/driver/button/ButtonController.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/ClickEvent.hpp \
@@ -22,15 +25,15 @@ Application/User/TouchGFX/target/TouchGFXHAL.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TextProvider.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TextureMapTypes.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/DebugPrinter.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/platform/driver/button/ButtonController.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/DebugPrinter.hpp
 ../../TouchGFX/target/TouchGFXHAL.hpp:
 ../../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:
+../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:
+../../Middlewares/ST/touchgfx/framework/include/platform/driver/button/ButtonController.hpp:
+../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/ClickEvent.hpp:
@@ -49,6 +52,3 @@ Application/User/TouchGFX/target/TouchGFXHAL.o: \
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TextProvider.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TextureMapTypes.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/DebugPrinter.hpp:
-../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp:
-../../Middlewares/ST/touchgfx/framework/include/platform/driver/button/ButtonController.hpp:
-../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp:

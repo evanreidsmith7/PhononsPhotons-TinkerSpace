@@ -7,18 +7,19 @@
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 
+// Remap all strings
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
-    225, // T___SingleUse_P64J
-    94, // T___SingleUse_2Q8N
-    201, // T___SingleUse_0Y28
-    114, // T___SingleUse_BBOL
-    168, // T___SingleUse_V6ST
-    185, // T___SingleUse_LNSV
-    0, // T___SingleUse_RLM0
-    40, // T___SingleUse_6CIV
-    133, // T___SingleUse_HV8G
-    215, // T___SingleUse_F9M9
-    151, // T___SingleUse_GO11
-    68 // T___SingleUse_RFKN
+    225, // T___SINGLEUSE_P64J: "Toggle"
+    94,  // T___SINGLEUSE_2Q8N: "Voice Communication"
+    201, // T___SINGLEUSE_0Y28: "Message Board"
+    114, // T___SINGLEUSE_BBOL: "Anomaly Alert Mute"
+    168, // T___SINGLEUSE_V6ST: "Localize Anomaly"
+    185, // T___SINGLEUSE_LNSV: "\nVoice \nComm\nOn"
+    0,   // T___SINGLEUSE_RLM0: "*******\nAlert \nAnomaly\nDetected\n*******"
+    40,  // T___SINGLEUSE_6CIV: "Return to Main Control Menu"
+    133, // T___SINGLEUSE_HV8G: "Anomaly Direction"
+    215, // T___SINGLEUSE_F9M9: "Volume <>%"
+    151, // T___SINGLEUSE_GO11: "\nVoice \nComm\nOff"
+    68   // T___SINGLEUSE_RFKN: "\nAlert \nAnomaly\nDetected\n"
 };

@@ -1,0 +1,8 @@
+../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	1
+../../CM7/../../CM7/Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
+../../CM7/../../CM7/TouchGFX/generated/gui_generated/include/gui_generated/localize_anomaly_screen/Localize_AnomalyViewBase.hpp:28:18:virtual void Localize_AnomalyViewBase::function1()	1
+../../CM7/../../CM7/TouchGFX/gui/include/gui/localize_anomaly_screen/Localize_AnomalyView.hpp:11:13:Localize_AnomalyView::~Localize_AnomalyView()	1
+C:/Projects/Team_Sonus_GUI/CM7/TouchGFX/gui/src/localize_anomaly_screen/Localize_AnomalyView.cpp:13:6:virtual void Localize_AnomalyView::tearDownScreen()	1
+C:/Projects/Team_Sonus_GUI/CM7/TouchGFX/gui/src/localize_anomaly_screen/Localize_AnomalyView.cpp:8:6:virtual void Localize_AnomalyView::setupScreen()	1
+../../CM7/../../CM7/TouchGFX/gui/include/gui/localize_anomaly_screen/Localize_AnomalyView.hpp:11:13:virtual Localize_AnomalyView::~Localize_AnomalyView()	1
+C:/Projects/Team_Sonus_GUI/CM7/TouchGFX/gui/src/localize_anomaly_screen/Localize_AnomalyView.cpp:3:1:Localize_AnomalyView::Localize_AnomalyView()	1

@@ -1,20 +1,24 @@
 Application/User/gui/Model.o: \
- C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/gui/src/model/Model.cpp \
+ C:/Projects/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/gui/src/model/Model.cpp \
  ../../TouchGFX/gui/include/gui/model/Model.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp \
  ../../TouchGFX/gui/include/gui/model/ModelListener.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Application.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/UIEventListener.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/ClickEvent.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Event.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/DragEvent.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/GestureEvent.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/UIEventListener.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/LCD.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \
@@ -24,21 +28,18 @@ Application/User/gui/Model.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Container.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/platform/driver/button/ButtonController.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/BlitOp.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/DMA.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Atomic.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FrameBufferAllocator.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Gestures.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/platform/driver/button/ButtonController.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp \
- C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/CM7/Application/User/gui/Definitions.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
+ C:/Projects/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/CM7/Application/User/gui/Definitions.hpp \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -81,19 +82,23 @@ Application/User/gui/Model.o: \
  ../Application/User/Core/Inc/common.h
 ../../TouchGFX/gui/include/gui/model/Model.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:
 ../../TouchGFX/gui/include/gui/model/ModelListener.hpp:
 ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
 ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:
+../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:
+../../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp:
+../../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Application.hpp:
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/UIEventListener.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/ClickEvent.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Event.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/DragEvent.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/GestureEvent.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/UIEventListener.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/LCD.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:
@@ -103,21 +108,18 @@ Application/User/gui/Model.o: \
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Container.hpp:
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:
+../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp:
+../../Middlewares/ST/touchgfx/framework/include/platform/driver/button/ButtonController.hpp:
+../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/BlitOp.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/DMA.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Atomic.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FrameBufferAllocator.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Gestures.hpp:
-../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp:
-../../Middlewares/ST/touchgfx/framework/include/platform/driver/button/ButtonController.hpp:
-../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/Transition.hpp:
-../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:
-../../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp:
-../../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/CM7/Application/User/gui/Definitions.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:
+C:/Projects/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/CM7/Application/User/gui/Definitions.hpp:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:

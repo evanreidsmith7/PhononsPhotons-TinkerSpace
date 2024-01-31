@@ -13,22 +13,22 @@ class FlashDataReader;
 
 struct Typography
 {
-    static const touchgfx::FontId DEFAULT = 0;
-    static const touchgfx::FontId LARGE = 1;
-    static const touchgfx::FontId SMALL = 2;
-    static const touchgfx::FontId TYPOGRAPHY_00 = 3;
-    static const touchgfx::FontId TYPOGRAPHY_01 = 4;
-    static const touchgfx::FontId TYPOGRAPHY_02 = 5;
+    static const touchgfx::FontId SMALL = 0;
+    static const touchgfx::FontId TYPOGRAPHY_00 = 1;
+    static const touchgfx::FontId TYPOGRAPHY_02 = 2;
+    static const touchgfx::FontId DEFAULT = 3;
+    static const touchgfx::FontId LARGE = 4;
+    static const touchgfx::FontId TYPOGRAPHY_01 = 5;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0;       // verdana_20_4bpp
-    static const touchgfx::FontId LARGE = 1;         // verdana_40_4bpp
-    static const touchgfx::FontId SMALL = 2;         // verdanab_8_4bpp
-    static const touchgfx::FontId TYPOGRAPHY_00 = 3; // verdanab_10_4bpp
-    static const touchgfx::FontId TYPOGRAPHY_01 = 0; // verdana_20_4bpp
-    static const touchgfx::FontId TYPOGRAPHY_02 = 4; // verdanab_12_4bpp
+    static const touchgfx::FontId SMALL = 0;         // verdanab_8_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_00 = 1; // verdanab_10_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_02 = 2; // verdanab_12_4bpp
+    static const touchgfx::FontId DEFAULT = 3;       // verdana_20_4bpp
+    static const touchgfx::FontId LARGE = 4;         // verdana_40_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_01 = 3; // verdana_20_4bpp
     static const uint16_t NUMBER_OF_FONTS = 5;
 };
 
@@ -37,9 +37,10 @@ class ApplicationFontProvider : public touchgfx::FontProvider
 public:
     virtual touchgfx::Font* getFont(touchgfx::FontId typography);
 
-    static void setFlashReader(touchgfx::FlashDataReader* /* flashReader */)
+    static void setFlashReader(touchgfx::FlashDataReader* /*flashReader*/)
     {
     }
+
     static touchgfx::FlashDataReader* getFlashReader()
     {
         return 0;

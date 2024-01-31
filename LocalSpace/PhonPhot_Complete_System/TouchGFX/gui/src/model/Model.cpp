@@ -12,6 +12,7 @@ Model::Model() : modelListener(0)
 
 }
 
+
 bool swStatus = false;
 bool swFilter = false;
 

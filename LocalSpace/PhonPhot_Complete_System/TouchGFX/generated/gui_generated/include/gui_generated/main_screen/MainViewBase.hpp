@@ -21,7 +21,7 @@ class MainViewBase : public touchgfx::View<MainPresenter>
 {
 public:
     MainViewBase();
-    virtual ~MainViewBase() {}
+    virtual ~MainViewBase();
     virtual void setupScreen();
     virtual void handleKeyEvent(uint8_t key);
 
@@ -32,22 +32,18 @@ public:
     {
         // Override and implement this function in Main
     }
-
     virtual void update_anomaly_alert()
     {
         // Override and implement this function in Main
     }
-
     virtual void toggle_voice()
     {
         // Override and implement this function in Main
     }
-
     virtual void alert_mute_pressed()
     {
         // Override and implement this function in Main
     }
-
     virtual void set_volume_encoder()
     {
         // Override and implement this function in Main
@@ -113,14 +109,14 @@ private:
     /*
      * Callback Declarations
      */
-    touchgfx::Callback<MainViewBase, const touchgfx::AbstractButton&> buttonCallback;
     touchgfx::Callback<MainViewBase, const touchgfx::Slider&, int> sliderValueChangedCallback;
+    touchgfx::Callback<MainViewBase, const touchgfx::AbstractButton&> buttonCallback;
 
     /*
      * Callback Handler Declarations
      */
-    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
     void sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value);
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

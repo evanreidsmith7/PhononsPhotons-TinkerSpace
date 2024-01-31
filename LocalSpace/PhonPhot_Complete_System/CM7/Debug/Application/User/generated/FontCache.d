@@ -1,10 +1,10 @@
 Application/User/generated/FontCache.o: \
- C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/generated/fonts/src/FontCache.cpp \
+ C:/Projects/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/generated/fonts/src/FontCache.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TextProvider.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp \
  ../../TouchGFX/generated/fonts/include/fonts/CachedFont.hpp \
@@ -17,10 +17,10 @@ Application/User/generated/FontCache.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/ConstFont.hpp \
  ../../TouchGFX/generated/texts/include/texts/TypedTextDatabase.hpp
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TextProvider.hpp:
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Bitmap.hpp:
 ../../TouchGFX/generated/fonts/include/fonts/CachedFont.hpp:

@@ -84,7 +84,7 @@
                         "X": 7,
                         "Y": 5,
                         "Width": 122,
-                        "Height": 13,
+                        "Height": 12,
                         "TextId": "__SingleUse_2Q8N",
                         "TextRotation": "0",
                         "Color": {
@@ -162,7 +162,7 @@
                         "Name": "Toggle_Text",
                         "X": 4,
                         "Y": 3,
-                        "Width": 30,
+                        "Width": 31,
                         "Height": 10,
                         "TextId": "__SingleUse_P64J",
                         "TextRotation": "0",
@@ -298,8 +298,8 @@
                         "Name": "MessageBoard_Text_1",
                         "X": 7,
                         "Y": 5,
-                        "Width": 85,
-                        "Height": 13,
+                        "Width": 86,
+                        "Height": 12,
                         "TextId": "__SingleUse_0Y28",
                         "TextRotation": "0",
                         "Color": {
@@ -351,8 +351,8 @@
                         "Name": "VoiceCommMess_Text_On",
                         "X": 36,
                         "Y": 13,
-                        "Width": 42,
-                        "Height": 60,
+                        "Width": 43,
+                        "Height": 56,
                         "TextId": "__SingleUse_LNSV",
                         "TextRotation": "0",
                         "Color": {
@@ -367,8 +367,8 @@
                         "Name": "VoiceCommMess_Text_Off",
                         "X": 36,
                         "Y": 13,
-                        "Width": 42,
-                        "Height": 60,
+                        "Width": 43,
+                        "Height": 56,
                         "Visible": false,
                         "TextId": "__SingleUse_GO11",
                         "TextRotation": "0",
@@ -421,8 +421,8 @@
                         "Name": "MessageBoard_Message_1",
                         "X": 29,
                         "Y": 13,
-                        "Width": 60,
-                        "Height": 75,
+                        "Width": 63,
+                        "Height": 70,
                         "TextId": "__SingleUse_RLM0",
                         "TextRotation": "0",
                         "Color": {
@@ -437,8 +437,8 @@
                         "Name": "MessageBoard_Message_Muted",
                         "X": 30,
                         "Y": 13,
-                        "Width": 60,
-                        "Height": 75,
+                        "Width": 59,
+                        "Height": 70,
                         "Visible": false,
                         "TextId": "__SingleUse_RFKN",
                         "TextRotation": "0",
@@ -481,8 +481,8 @@
                 "Name": "AnomalyDetection_Text_1_1",
                 "X": 9,
                 "Y": 5,
-                "Width": 111,
-                "Height": 13,
+                "Width": 112,
+                "Height": 12,
                 "TextId": "__SingleUse_BBOL",
                 "TextRotation": "0",
                 "Color": {
@@ -559,7 +559,7 @@
                 "X": 15,
                 "Y": 5,
                 "Width": 98,
-                "Height": 13,
+                "Height": 12,
                 "TextId": "__SingleUse_V6ST",
                 "TextRotation": "0",
                 "Color": {
@@ -749,8 +749,8 @@
                     "Name": "AnomalyDetection_Text",
                     "X": 7,
                     "Y": 5,
-                    "Width": 162,
-                    "Height": 13,
+                    "Width": 160,
+                    "Height": 12,
                     "TextId": "__SingleUse_6CIV",
                     "TextRotation": "0",
                     "Color": {
@@ -854,7 +854,7 @@
                         "X": 4,
                         "Y": 5,
                         "Width": 104,
-                        "Height": 13,
+                        "Height": 12,
                         "TextId": "__SingleUse_HV8G",
                         "TextRotation": "0",
                         "Color": {
@@ -894,6 +894,17 @@
               "ScreenTransitionDirection": "South",
               "ActionComponent": "Main"
             }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 10
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "draw_predicted_region"
+            }
           }
         ]
       }
@@ -907,7 +918,6 @@
     "SelectedColorDepth": 16,
     "StartupScreenName": "Main",
     "SelectedStartupLanguage": "GB",
-    "Skin": "Blue",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",
     "AvailableColorDepths": [
@@ -947,6 +957,6 @@
     "DisplayOrientation": "Landscape",
     "Family": "STM32H7"
   },
-  "Version": "4.18.1",
+  "Version": "4.22.1",
   "CreatedBy": "4.18.1"
 }

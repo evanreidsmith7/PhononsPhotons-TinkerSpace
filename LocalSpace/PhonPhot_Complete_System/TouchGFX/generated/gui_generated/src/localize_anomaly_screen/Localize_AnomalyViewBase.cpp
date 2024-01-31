@@ -3,21 +3,22 @@
 /*********************************************************************************/
 #include <gui_generated/localize_anomaly_screen/Localize_AnomalyViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <BitmapDatabase.hpp>
+#include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
 Localize_AnomalyViewBase::Localize_AnomalyViewBase() :
-    buttonCallback(this, &Localize_AnomalyViewBase::buttonCallbackHandler)
+    buttonCallback(this, &Localize_AnomalyViewBase::buttonCallbackHandler),
+    frameCountInteraction2Interval(0)
 {
-
     __background.setPosition(0, 0, 480, 272);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    add(__background);
 
     Main_Background.setXY(0, 0);
     Main_Background.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_1_ID));
+    add(Main_Background);
 
     Button_Panel.setPosition(10, 187, 460, 77);
-
     Button_Panel_Background.setPosition(0, 0, 460, 77);
     Button_Panel_Background.setColor(touchgfx::Color::getColorFromRGB(78, 137, 174));
     Button_Panel_Background.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -25,16 +26,15 @@ Localize_AnomalyViewBase::Localize_AnomalyViewBase() :
     Button_Panel.add(Button_Panel_Background);
 
     Anomaly_Detection_Panel.setPosition(5, 4, 450, 73);
-
     Anomaly_Detection_Background.setPosition(0, 1, 450, 67);
     Anomaly_Detection_Background.setColor(touchgfx::Color::getColorFromRGB(67, 101, 139));
     Anomaly_Detection_Background.setBorderColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     Anomaly_Detection_Background.setBorderSize(2);
     Anomaly_Detection_Panel.add(Anomaly_Detection_Background);
+
     Button_Panel.add(Anomaly_Detection_Panel);
 
     Alarm_Mute_Indicator_Textbox_1_1_1.setPosition(142, 47, 177, 20);
-
     AnomalyDetection_Border_1_1_1_1.setPosition(0, 3, 177, 17);
     AnomalyDetection_Border_1_1_1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     AnomalyDetection_Border_1_1_1_1.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -46,6 +46,7 @@ Localize_AnomalyViewBase::Localize_AnomalyViewBase() :
     AnomalyDetection_Text.setLinespacing(0);
     AnomalyDetection_Text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6CIV));
     Alarm_Mute_Indicator_Textbox_1_1_1.add(AnomalyDetection_Text);
+
     Button_Panel.add(Alarm_Mute_Indicator_Textbox_1_1_1);
 
     Localize_Button.setXY(188, 15);
@@ -53,8 +54,9 @@ Localize_AnomalyViewBase::Localize_AnomalyViewBase() :
     Localize_Button.setAction(buttonCallback);
     Button_Panel.add(Localize_Button);
 
-    Message_panel.setPosition(10, 8, 460, 194);
+    add(Button_Panel);
 
+    Message_panel.setPosition(10, 8, 460, 194);
     Button_Panel_Background_1.setPosition(0, 0, 460, 183);
     Button_Panel_Background_1.setColor(touchgfx::Color::getColorFromRGB(78, 137, 174));
     Button_Panel_Background_1.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -62,7 +64,6 @@ Localize_AnomalyViewBase::Localize_AnomalyViewBase() :
     Message_panel.add(Button_Panel_Background_1);
 
     Message_Board_Panel_1.setPosition(5, 4, 450, 175);
-
     MessageBoard_Background_1.setPosition(0, 0, 450, 175);
     MessageBoard_Background_1.setColor(touchgfx::Color::getColorFromRGB(67, 101, 139));
     MessageBoard_Background_1.setBorderColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -74,7 +75,6 @@ Localize_AnomalyViewBase::Localize_AnomalyViewBase() :
     Message_Board_Panel_1.add(Directional_Vector);
 
     Message_Board_Textbox_1.setPosition(167, 0, 117, 20);
-
     MessageBoard_Border_1_1.setPosition(0, 3, 117, 17);
     MessageBoard_Border_1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     MessageBoard_Border_1_1.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -86,27 +86,22 @@ Localize_AnomalyViewBase::Localize_AnomalyViewBase() :
     MessageBoard_Text_1.setLinespacing(0);
     MessageBoard_Text_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HV8G));
     Message_Board_Textbox_1.add(MessageBoard_Text_1);
+
     Message_Board_Panel_1.add(Message_Board_Textbox_1);
+
     Message_panel.add(Message_Board_Panel_1);
 
-    add(__background);
-    add(Main_Background);
-    add(Button_Panel);
     add(Message_panel);
+}
+
+Localize_AnomalyViewBase::~Localize_AnomalyViewBase()
+{
+
 }
 
 void Localize_AnomalyViewBase::setupScreen()
 {
 
-}
-
-//Called when the screen transition ends
-void Localize_AnomalyViewBase::afterTransition()
-{
-    //Interaction1
-    //When screen transition ends call virtual function
-    //Call function1
-    function1();
 }
 
 void Localize_AnomalyViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -117,5 +112,28 @@ void Localize_AnomalyViewBase::buttonCallbackHandler(const touchgfx::AbstractBut
         //When Localize_Button clicked change screen to Main
         //Go to Main with screen transition towards South
         application().gotoMainScreenWipeTransitionSouth();
+    }
+}
+
+void Localize_AnomalyViewBase::afterTransition()
+{
+    //Interaction1
+    //When screen transition ends call virtual function
+    //Call function1
+    function1();
+}
+
+void Localize_AnomalyViewBase::handleTickEvent()
+{
+    frameCountInteraction2Interval++;
+    if(frameCountInteraction2Interval == TICK_INTERACTION2_INTERVAL)
+    {
+        //Interaction2
+        //When every N tick call virtual function
+        //Call draw_predicted_region
+    	int i = 0;
+    	i++;
+        draw_predicted_region();
+        frameCountInteraction2Interval = 0;
     }
 }

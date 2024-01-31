@@ -1,0 +1,2 @@
+Definitions.cpp:10:11:boolean_t getUserButtonState()	8	static
+Definitions.cpp:15:6:void setUserLED1State(boolean_t)	16	static

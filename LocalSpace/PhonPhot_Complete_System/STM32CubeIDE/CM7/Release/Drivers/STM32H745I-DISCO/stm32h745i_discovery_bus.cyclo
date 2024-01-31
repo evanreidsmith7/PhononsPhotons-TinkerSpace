@@ -1,0 +1,9 @@
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:239:9:BSP_I2C4_DeInit	3
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:267:26:MX_I2C4_Init	3
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:188:9:BSP_I2C4_Init	24
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:313:9:BSP_I2C4_WriteReg	2
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:350:9:BSP_I2C4_ReadReg	2
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:387:9:BSP_I2C4_WriteReg16	2
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:424:9:BSP_I2C4_ReadReg16	2
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:460:9:BSP_I2C4_IsReady	1
+C:/Projects/Team_Sonus_GUI/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_bus.c:482:9:BSP_GetTick	1

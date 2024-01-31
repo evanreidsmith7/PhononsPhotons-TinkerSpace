@@ -3,22 +3,22 @@
 /*********************************************************************************/
 #include <gui_generated/main_screen/MainViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <BitmapDatabase.hpp>
+#include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
 MainViewBase::MainViewBase() :
-    buttonCallback(this, &MainViewBase::buttonCallbackHandler),
-    sliderValueChangedCallback(this, &MainViewBase::sliderValueChangedCallbackHandler)
+    sliderValueChangedCallback(this, &MainViewBase::sliderValueChangedCallbackHandler),
+    buttonCallback(this, &MainViewBase::buttonCallbackHandler)
 {
-
     __background.setPosition(0, 0, 480, 272);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    add(__background);
 
     Main_Background.setXY(0, 0);
     Main_Background.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_1_ID));
+    add(Main_Background);
 
     Button_Panel.setPosition(10, 94, 460, 170);
-
     Button_Panel_Background.setPosition(0, 18, 460, 153);
     Button_Panel_Background.setColor(touchgfx::Color::getColorFromRGB(78, 137, 174));
     Button_Panel_Background.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -26,7 +26,6 @@ MainViewBase::MainViewBase() :
     Button_Panel.add(Button_Panel_Background);
 
     Voice_Comm_Panel.setPosition(5, 84, 450, 82);
-
     Voice_Comm_Background.setPosition(0, 0, 450, 82);
     Voice_Comm_Background.setColor(touchgfx::Color::getColorFromRGB(67, 101, 139));
     Voice_Comm_Background.setBorderColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -34,7 +33,6 @@ MainViewBase::MainViewBase() :
     Voice_Comm_Panel.add(Voice_Comm_Background);
 
     Voicecomm_Textbox.setPosition(157, 0, 137, 20);
-
     Voicecomm_Border.setPosition(-1, 3, 138, 17);
     Voicecomm_Border.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     Voicecomm_Border.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -46,10 +44,10 @@ MainViewBase::MainViewBase() :
     Voicecomm_Text.setLinespacing(0);
     Voicecomm_Text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2Q8N));
     Voicecomm_Textbox.add(Voicecomm_Text);
+
     Voice_Comm_Panel.add(Voicecomm_Textbox);
 
     Volume_Textbox.setPosition(143, 58, 70, 16);
-
     Volume_Text_Border.setPosition(0, 0, 70, 16);
     Volume_Text_Border.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     Volume_Text_Border.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -60,15 +58,14 @@ MainViewBase::MainViewBase() :
     textProgress1.setProgressIndicatorPosition(0, 0, 64, 20);
     textProgress1.setRange(0, 100);
     textProgress1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    textProgress1.setNumberOfDecimals(0);
     textProgress1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F9M9));
     textProgress1.setBackground(touchgfx::Bitmap(BITMAP_VOLUME_BACKGROUND2_ID));
     textProgress1.setValue(50);
     Volume_Textbox.add(textProgress1);
+
     Voice_Comm_Panel.add(Volume_Textbox);
 
     Toggle_Textbox.setPosition(388, 58, 39, 17);
-
     Toggle_Text_Border.setPosition(0, 0, 38, 16);
     Toggle_Text_Border.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     Toggle_Text_Border.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -80,6 +77,7 @@ MainViewBase::MainViewBase() :
     Toggle_Text.setLinespacing(0);
     Toggle_Text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_P64J));
     Toggle_Textbox.add(Toggle_Text);
+
     Voice_Comm_Panel.add(Toggle_Textbox);
 
     Volume_Slider.setXY(8, 25);
@@ -94,19 +92,21 @@ MainViewBase::MainViewBase() :
     Voice_Toggle_Button.setBitmaps(touchgfx::Bitmap(BITMAP_TOGGLE_BUTTON_ON2_ID), touchgfx::Bitmap(BITMAP_TOGGLE_BUTTON_OFF2_ID));
     Voice_Toggle_Button.setAction(buttonCallback);
     Voice_Comm_Panel.add(Voice_Toggle_Button);
+
     Button_Panel.add(Voice_Comm_Panel);
 
     Anomaly_Detection_Panel.setPosition(5, 23, 450, 67);
-
     Anomaly_Detection_Background.setPosition(0, 0, 450, 63);
     Anomaly_Detection_Background.setColor(touchgfx::Color::getColorFromRGB(67, 101, 139));
     Anomaly_Detection_Background.setBorderColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     Anomaly_Detection_Background.setBorderSize(2);
     Anomaly_Detection_Panel.add(Anomaly_Detection_Background);
+
     Button_Panel.add(Anomaly_Detection_Panel);
 
-    Message_panel.setPosition(10, 8, 460, 109);
+    add(Button_Panel);
 
+    Message_panel.setPosition(10, 8, 460, 109);
     Button_Panel_Background_1.setPosition(0, 0, 460, 109);
     Button_Panel_Background_1.setColor(touchgfx::Color::getColorFromRGB(78, 137, 174));
     Button_Panel_Background_1.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -114,7 +114,6 @@ MainViewBase::MainViewBase() :
     Message_panel.add(Button_Panel_Background_1);
 
     Message_Board_Panel_1.setPosition(5, 4, 450, 100);
-
     MessageBoard_Background_1.setPosition(0, 0, 450, 100);
     MessageBoard_Background_1.setColor(touchgfx::Color::getColorFromRGB(67, 101, 139));
     MessageBoard_Background_1.setBorderColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -122,7 +121,6 @@ MainViewBase::MainViewBase() :
     Message_Board_Panel_1.add(MessageBoard_Background_1);
 
     Message_Board_Textbox_1.setPosition(176, 0, 99, 20);
-
     MessageBoard_Border_1_1.setPosition(0, 3, 99, 17);
     MessageBoard_Border_1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     MessageBoard_Border_1_1.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -134,10 +132,10 @@ MainViewBase::MainViewBase() :
     MessageBoard_Text_1.setLinespacing(0);
     MessageBoard_Text_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0Y28));
     Message_Board_Textbox_1.add(MessageBoard_Text_1);
+
     Message_Board_Panel_1.add(Message_Board_Textbox_1);
 
     VoiceComm_Textbox_1.setPosition(294, 0, 114, 98);
-
     VoiceCommMess_Background.setPosition(2, 2, 112, 96);
     VoiceCommMess_Background.setColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
     VoiceCommMess_Background.setBorderColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -157,15 +155,15 @@ MainViewBase::MainViewBase() :
     VoiceComm_Textbox_1.add(VoiceCommMess_Text_On);
 
     VoiceCommMess_Text_Off.setXY(36, 13);
-    VoiceCommMess_Text_Off.setVisible(false);
     VoiceCommMess_Text_Off.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     VoiceCommMess_Text_Off.setLinespacing(0);
     VoiceCommMess_Text_Off.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GO11));
+    VoiceCommMess_Text_Off.setVisible(false);
     VoiceComm_Textbox_1.add(VoiceCommMess_Text_Off);
+
     Message_Board_Panel_1.add(VoiceComm_Textbox_1);
 
     AnomalyWarning_Textbox_1_1.setPosition(42, 0, 117, 98);
-
     MessageBoard_Border_1_1_1_2.setPosition(2, 2, 115, 96);
     MessageBoard_Border_1_1_1_2.setColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
     MessageBoard_Border_1_1_1_2.setBorderColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -185,16 +183,19 @@ MainViewBase::MainViewBase() :
     AnomalyWarning_Textbox_1_1.add(MessageBoard_Message_1);
 
     MessageBoard_Message_Muted.setXY(30, 13);
-    MessageBoard_Message_Muted.setVisible(false);
     MessageBoard_Message_Muted.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     MessageBoard_Message_Muted.setLinespacing(0);
     MessageBoard_Message_Muted.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RFKN));
+    MessageBoard_Message_Muted.setVisible(false);
     AnomalyWarning_Textbox_1_1.add(MessageBoard_Message_Muted);
+
     Message_Board_Panel_1.add(AnomalyWarning_Textbox_1_1);
+
     Message_panel.add(Message_Board_Panel_1);
 
-    Alarm_Mute_Indicator_Textbox_1_1.setPosition(64, 117, 129, 20);
+    add(Message_panel);
 
+    Alarm_Mute_Indicator_Textbox_1_1.setPosition(64, 117, 129, 20);
     AnomalyDetection_Border_1_1_1.setPosition(0, 3, 129, 17);
     AnomalyDetection_Border_1_1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     AnomalyDetection_Border_1_1_1.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -207,22 +208,27 @@ MainViewBase::MainViewBase() :
     AnomalyDetection_Text_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BBOL));
     Alarm_Mute_Indicator_Textbox_1_1.add(AnomalyDetection_Text_1_1);
 
+    add(Alarm_Mute_Indicator_Textbox_1_1);
+
     Disabled_Button2.setXY(92, 140);
     Disabled_Button2.setBitmap(touchgfx::Bitmap(BITMAP_RECT_BUTTON_PRESSED_ID));
+    add(Disabled_Button2);
 
     Disabled_Button1.setXY(309, 141);
     Disabled_Button1.setBitmap(touchgfx::Bitmap(BITMAP_RECT_BUTTON_PRESSED_ID));
+    add(Disabled_Button1);
 
     Alert_Mute_Button.setXY(92, 140);
     Alert_Mute_Button.setBitmaps(touchgfx::Bitmap(BITMAP_RECT_BUTTON_UNPRESSED_ID), touchgfx::Bitmap(BITMAP_RECT_BUTTON_PRESSED_ID));
     Alert_Mute_Button.setAction(buttonCallback);
+    add(Alert_Mute_Button);
 
     Localize_Button.setXY(309, 140);
     Localize_Button.setBitmaps(touchgfx::Bitmap(BITMAP_RECT_BUTTON_UNPRESSED_ID), touchgfx::Bitmap(BITMAP_RECT_BUTTON_PRESSED_ID));
     Localize_Button.setAction(buttonCallback);
+    add(Localize_Button);
 
     Alarm_Mute_Indicator_Textbox_1_1_1.setPosition(283, 117, 129, 20);
-
     AnomalyDetection_Border_1_1_1_1.setPosition(0, 3, 129, 17);
     AnomalyDetection_Border_1_1_1_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     AnomalyDetection_Border_1_1_1_1.setBorderColor(touchgfx::Color::getColorFromRGB(237, 102, 99));
@@ -235,79 +241,17 @@ MainViewBase::MainViewBase() :
     AnomalyDetection_Text_1_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_V6ST));
     Alarm_Mute_Indicator_Textbox_1_1_1.add(AnomalyDetection_Text_1_1_1);
 
-    add(__background);
-    add(Main_Background);
-    add(Button_Panel);
-    add(Message_panel);
-    add(Alarm_Mute_Indicator_Textbox_1_1);
-    add(Disabled_Button2);
-    add(Disabled_Button1);
-    add(Alert_Mute_Button);
-    add(Localize_Button);
     add(Alarm_Mute_Indicator_Textbox_1_1_1);
+}
+
+MainViewBase::~MainViewBase()
+{
+
 }
 
 void MainViewBase::setupScreen()
 {
 
-}
-
-//Handles when a key is pressed
-void MainViewBase::handleKeyEvent(uint8_t key)
-{
-    if(87 == key)
-    {
-        //Anomaly_Alert_Handler
-        //When hardware button 87 clicked call virtual function
-        //Call update_anomaly_alert
-        update_anomaly_alert();
-    }
-    if(88 == key)
-    {
-        //Set_Volume_Rotary_Encoder
-        //When hardware button 88 clicked call virtual function
-        //Call set_volume_encoder
-        set_volume_encoder();
-    }
-    if(89 == key)
-    {
-        //Toggle_Voice_SW
-        //When hardware button 89 clicked call virtual function
-        //Call toggle_voice
-        toggle_voice();
-    }
-    if(90 == key)
-    {
-        //Alert_Mute_Pressed_Button
-        //When hardware button 90 clicked call virtual function
-        //Call alert_mute_pressed
-        alert_mute_pressed();
-    }
-}
-
-void MainViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
-{
-    if (&src == &Voice_Toggle_Button)
-    {
-        //Toggle_Voice
-        //When Voice_Toggle_Button clicked call virtual function
-        //Call toggle_voice
-        toggle_voice();
-    }
-    else if (&src == &Alert_Mute_Button)
-    {
-        //Alert_Mute_Pressed
-        //When Alert_Mute_Button clicked call virtual function
-        //Call alert_mute_pressed
-        alert_mute_pressed();
-    }
-    else if (&src == &Localize_Button)
-    {
-        //Switch_To_Anomaly_Screen
-        //When Localize_Button clicked change screen to Localize_Anomaly
-        //Go to Localize_Anomaly with screen transition towards North
-        application().gotoLocalize_AnomalyScreenWipeTransitionNorth();
-    }
 }
 
 void MainViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& src, int value)
@@ -318,5 +262,69 @@ void MainViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slider& src
         //When Volume_Slider value changed call virtual function
         //Call set_volume_slider
         set_volume_slider(value);
+    }
+}
+
+void MainViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &Localize_Button)
+    {
+        //Switch_To_Anomaly_Screen
+        //When Localize_Button clicked change screen to Localize_Anomaly
+        //Go to Localize_Anomaly with screen transition towards North
+        application().gotoLocalize_AnomalyScreenWipeTransitionNorth();
+    }
+    if (&src == &Voice_Toggle_Button)
+    {
+        //Toggle_Voice
+        //When Voice_Toggle_Button clicked call virtual function
+        //Call toggle_voice
+        toggle_voice();
+    }
+    if (&src == &Alert_Mute_Button)
+    {
+        //Alert_Mute_Pressed
+        //When Alert_Mute_Button clicked call virtual function
+        //Call alert_mute_pressed
+        alert_mute_pressed();
+    }
+}
+
+void MainViewBase::handleKeyEvent(uint8_t key)
+{
+    if(87 == key)
+    {
+        //Anomaly_Alert_Handler
+        //When hardware button 87 clicked call virtual function
+        //Call update_anomaly_alert
+        update_anomaly_alert();
+    
+    }
+
+    if(88 == key)
+    {
+        //Set_Volume_Rotary_Encoder
+        //When hardware button 88 clicked call virtual function
+        //Call set_volume_encoder
+        set_volume_encoder();
+    
+    }
+
+    if(89 == key)
+    {
+        //Toggle_Voice_SW
+        //When hardware button 89 clicked call virtual function
+        //Call toggle_voice
+        toggle_voice();
+    
+    }
+
+    if(90 == key)
+    {
+        //Alert_Mute_Pressed_Button
+        //When hardware button 90 clicked call virtual function
+        //Call alert_mute_pressed
+        alert_mute_pressed();
+    
     }
 }

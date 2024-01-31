@@ -47,6 +47,6 @@ touchgfx::GeneratedFont& getFont_verdanab_10_4bpp();
 
 touchgfx::GeneratedFont& getFont_verdanab_10_4bpp()
 {
-    static touchgfx::GeneratedFont verdanab_10_4bpp(glyphs_verdanab_10_4bpp, 26, 10, 2, 4, 1, 0, 1, unicodes_verdanab_10_4bpp, kerning_verdanab_10_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont verdanab_10_4bpp(glyphs_verdanab_10_4bpp, 26, 12, 10, 0, 0, 4, 1, 0, 1, unicodes_verdanab_10_4bpp, kerning_verdanab_10_4bpp, 63, 0, 0, 0);
     return verdanab_10_4bpp;
 }

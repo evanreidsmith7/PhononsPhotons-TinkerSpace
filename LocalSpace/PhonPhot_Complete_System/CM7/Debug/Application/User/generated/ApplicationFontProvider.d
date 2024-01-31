@@ -1,11 +1,11 @@
 Application/User/generated/ApplicationFontProvider.o: \
- C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/generated/fonts/src/ApplicationFontProvider.cpp \
+ C:/Projects/PhononsPhotons-TinkerSpace/LocalSpace/PhonPhot_Complete_System/TouchGFX/generated/fonts/src/ApplicationFontProvider.cpp \
  ../../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \
  ../../TouchGFX/generated/fonts/include/fonts/GeneratedFont.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/ConstFont.hpp \
  ../../TouchGFX/generated/texts/include/texts/TypedTextDatabase.hpp \
@@ -14,9 +14,9 @@ Application/User/generated/ApplicationFontProvider.o: \
 ../../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp:
 ../../TouchGFX/generated/fonts/include/fonts/GeneratedFont.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/ConstFont.hpp:
 ../../TouchGFX/generated/texts/include/texts/TypedTextDatabase.hpp:
