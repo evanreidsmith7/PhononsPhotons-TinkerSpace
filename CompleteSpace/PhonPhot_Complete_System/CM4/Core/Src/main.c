@@ -108,10 +108,10 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_ADC1_Init();
-  MX_ADC3_Init();
-  MX_USART3_UART_Init();
   MX_TIM3_Init();
+  MX_USART3_UART_Init();
+  MX_ADC3_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 
   dspEntry( );
@@ -177,4 +177,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
