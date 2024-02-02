@@ -7,9 +7,9 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Owner\MegaMachineSTM32Work\PhononsPhotons-TinkerSpace\LocalSpace\PhonPhot_Complete_System"/>
 			<item value="C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\LocalSpace\PhonPhot_Complete_System"/>
 			<item value="C:\Users\Owner\MegaMachineSTM32Work\PhononsPhotons-TinkerSpace\LocalSpace\Sonus DSP Subsystem"/>
-			<item value="C:\Users\Owner\MegaMachineSTM32Work\PhononsPhotons-TinkerSpace\LocalSpace\PhonPhot_Complete_System"/>
 			<item value="C:\Users\evanr\MiniMachineSTM32Work\LocalSpace\Sonus DSP Subsystem"/>
 			<item value="C:\Users\evanr\MiniMachineSTM32Work\LocalSpace\DSP_Subsystem"/>
 			<item value="C:\Users\evanr\MiniMachineSTM32Work\LocalSpace\Team_Sonus_GUI"/>
