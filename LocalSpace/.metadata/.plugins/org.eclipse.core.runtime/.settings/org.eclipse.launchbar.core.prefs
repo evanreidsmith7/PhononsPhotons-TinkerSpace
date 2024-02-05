@@ -2,7 +2,7 @@ LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
 activeLaunchTarget=null\:---
-configDescList=
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:DigitalMEMSIntro_CM7 Debug,org.eclipse.launchbar.core.descriptorType.default\:DigitalMEMSIntro_CM4 Debug
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_CM4\ Debug\ (1)/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_CM4\ Debug\ (1)/activeLaunchTarget=null\:---
@@ -16,6 +16,9 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_System/active
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_System/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Sonus_Complete_CM4\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Sonus_Complete_CM4\ Debug/activeLaunchTarget=null\:---
+org.eclipse.launchbar.core.descriptorType.default\:DigitalMEMSIntro_CM4\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:DigitalMEMSIntro_CM7\ Debug/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:DigitalMEMSIntro_CM7\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:ExampleDigitalMEMSH7_CM4\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:ExampleDigitalMEMSH7_CM4\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:PhonPhot_Complete_CM7\ Debug\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
