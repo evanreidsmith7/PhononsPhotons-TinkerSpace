@@ -19,17 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "dma.h"
-#include "eth.h"
-#include "fdcan.h"
 #include "i2s.h"
-#include "ltdc.h"
-#include "quadspi.h"
-#include "sai.h"
-#include "sdmmc.h"
-#include "usart.h"
-#include "usb_otg.h"
-#include "gpio.h"
-#include "fmc.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -58,6 +48,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+int16_t data_i2s[100];
+volatile int16_t sample_i2s;
 
 /* USER CODE END PV */
 
@@ -110,20 +102,11 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init();
   MX_DMA_Init();
-  MX_FDCAN1_Init();
-  MX_FDCAN2_Init();
-  MX_FMC_Init();
-  MX_LTDC_Init();
-  MX_QUADSPI_Init();
-  MX_SAI2_Init();
-  MX_SDMMC1_MMC_Init();
-  MX_USART3_UART_Init();
-  MX_USB_OTG_FS_PCD_Init();
-  MX_I2S2_Init();
-  MX_ETH_Init();
+  MX_I2S3_Init();
   /* USER CODE BEGIN 2 */
+  // we will always fill data_i2s
+  HAL_I2S_Receive_DMA(&hi2s3, (uint16_t*)data_i2s, sizeof(data_i2s)/2);
 
   /* USER CODE END 2 */
 
@@ -150,6 +133,10 @@ int _write(int file, char *ptr, int len)
 		ITM_SendChar(*ptr++);
 	}
 	return len;
+}
+void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s3)
+{
+	sample_i2s = data_i2s[1];
 }
 /* USER CODE END 4 */
 
