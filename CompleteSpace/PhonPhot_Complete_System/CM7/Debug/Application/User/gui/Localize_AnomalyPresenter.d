@@ -1,5 +1,5 @@
 Application/User/gui/Localize_AnomalyPresenter.o: \
- C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/localize_anomaly_screen/Localize_AnomalyPresenter.cpp \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/localize_anomaly_screen/Localize_AnomalyPresenter.cpp \
  ../../TouchGFX/gui/include/gui/localize_anomaly_screen/Localize_AnomalyView.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/localize_anomaly_screen/Localize_AnomalyViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
