@@ -11,15 +11,14 @@ This file will show the steps needed to generate the necessary models for loadin
 Open project .ioc file in STM32CubeIDE or CubeMX .ioc file and go to **Middleware and Software Packs**  
   
 
-![](https://i.ibb.co/Sc48M7w/msware.png)![photo](https://i.ibb.co/Sc48M7w/msware.png)  
+![](https://i.ibb.co/Sc48M7w/msware.png)
   
 
 Scroll down and find X-CUBE-AI and select it. Install AI and Device Application  
 Afterwards, enable the core and select **Application Template** under Device Application, press OK.  
   
 
-![](https://i.ibb.co/yqGmt4R/install.png)![photo](https://i.ibb.co/yqGmt4R/install.png)  
-  
+![](https://i.ibb.co/yqGmt4R/install.png)
   
 
 ## Generating Model Files  
