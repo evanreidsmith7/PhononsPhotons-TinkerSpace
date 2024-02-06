@@ -207,7 +207,7 @@ def build_model(X,y_encoded,model_name):
     
     print("Training the model...")
 
-    history = model.fit(X_train_scaled, y_train, epochs=1, batch_size=64, validation_data =(X_test_scaled, y_test), verbose=1)
+    history = model.fit(X_train_scaled, y_train, epochs=100, batch_size=64, validation_data =(X_test_scaled, y_test), verbose=1)
     
     # ----------------------------------- #
     #  Save the model

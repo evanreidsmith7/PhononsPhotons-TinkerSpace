@@ -1,2 +1,2 @@
-*.npy
-*.tflite
+ML_Workspace/Datasets
+ML_Workspace/Output
