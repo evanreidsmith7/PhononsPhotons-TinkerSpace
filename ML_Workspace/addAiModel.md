@@ -39,7 +39,7 @@ Model and Validation files will be output to *ML_Workspace/Output/Models* and *M
 ## Adding Model to STM32CubeIDE/MX  
   
 
-Return to the X-CUBE-AI under middlewares and software packs and select **Add new Model**    
+Return to the X-CUBE-AI under middlewares and software packs and select **Add network**    
   
 
 Fill out the information as below, add your model and validation inputs (validation outputs currently not working).   
