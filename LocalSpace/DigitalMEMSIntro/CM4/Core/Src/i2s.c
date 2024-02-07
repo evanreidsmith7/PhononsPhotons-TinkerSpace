@@ -41,9 +41,9 @@ void MX_I2S3_Init(void)
   hi2s3.Instance = SPI3;
   hi2s3.Init.Mode = I2S_MODE_MASTER_RX;
   hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
-  hi2s3.Init.DataFormat = I2S_DATAFORMAT_16B_EXTENDED;
+  hi2s3.Init.DataFormat = I2S_DATAFORMAT_16B;
   hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
-  hi2s3.Init.AudioFreq = I2S_AUDIOFREQ_22K;
+  hi2s3.Init.AudioFreq = I2S_AUDIOFREQ_8K;
   hi2s3.Init.CPOL = I2S_CPOL_LOW;
   hi2s3.Init.FirstBit = I2S_FIRSTBIT_MSB;
   hi2s3.Init.WSInversion = I2S_WS_INVERSION_DISABLE;
@@ -82,21 +82,13 @@ void HAL_I2S_MspInit(I2S_HandleTypeDef* i2sHandle)
     /* I2S3 clock enable */
     __HAL_RCC_SPI3_CLK_ENABLE();
 
-    __HAL_RCC_GPIOC_CLK_ENABLE();
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
     /**I2S3 GPIO Configuration
-    PC10     ------> I2S3_CK
     PA15 (JTDI)     ------> I2S3_WS
     PB4 (NJTRST)     ------> I2S3_SDI
+    PB3 (JTDO/TRACESWO)     ------> I2S3_CK
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_10;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
-    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
     GPIO_InitStruct.Pin = GPIO_PIN_15;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -104,7 +96,7 @@ void HAL_I2S_MspInit(I2S_HandleTypeDef* i2sHandle)
     GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_4;
+    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_3;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -121,7 +113,7 @@ void HAL_I2S_MspInit(I2S_HandleTypeDef* i2sHandle)
     hdma_spi3_rx.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
     hdma_spi3_rx.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
     hdma_spi3_rx.Init.Mode = DMA_CIRCULAR;
-    hdma_spi3_rx.Init.Priority = DMA_PRIORITY_HIGH;
+    hdma_spi3_rx.Init.Priority = DMA_PRIORITY_LOW;
     hdma_spi3_rx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
     if (HAL_DMA_Init(&hdma_spi3_rx) != HAL_OK)
     {
@@ -148,15 +140,13 @@ void HAL_I2S_MspDeInit(I2S_HandleTypeDef* i2sHandle)
     __HAL_RCC_SPI3_CLK_DISABLE();
 
     /**I2S3 GPIO Configuration
-    PC10     ------> I2S3_CK
     PA15 (JTDI)     ------> I2S3_WS
     PB4 (NJTRST)     ------> I2S3_SDI
+    PB3 (JTDO/TRACESWO)     ------> I2S3_CK
     */
-    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_10);
-
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_15);
 
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_4);
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_4|GPIO_PIN_3);
 
     /* I2S3 DMA DeInit */
     HAL_DMA_DeInit(i2sHandle->hdmarx);
