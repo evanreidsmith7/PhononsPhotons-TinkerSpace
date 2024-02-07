@@ -606,7 +606,7 @@
         }
     ],
     "c_activations_count": 1,
-    "date_time": "Tue Feb  6 13:06:48 2024",
+    "date_time": "Wed Feb  7 10:38:22 2024",
     "model_name": "node_02_06_125748_ann_762",
     "tool_version": {
         "major": 1,
@@ -698,9 +698,12 @@
             0,
             0
         ],
-        "series": "generic",
+        "series": "stm32h7",
         "activations": 6096,
-        "weights": 818720
+        "toolchain_flash": 640,
+        "toolchain_ram": 0,
+        "weights": 818720,
+        "toolchain": "arm-none-eabi-gcc (GNU Tools for STM32 11.3.rel1.20230912-1600) 11.3.1 20220712"
     },
     "version": "1.2",
     "tool_api_version": {

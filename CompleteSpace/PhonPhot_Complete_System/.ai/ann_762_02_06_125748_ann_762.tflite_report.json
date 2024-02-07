@@ -1,7 +1,7 @@
 {
     "_allocate_inputs": 4,
     "_allocate_outputs": 4,
-    "cli_parameters": "generate --name ann_762 -m C:/Projects/PhononsPhotons-TinkerSpace/ML_Workspace/Output/Models/ann_762/02_06_125748_ann_762.tflite --type tflite --compression low --verbosity 1 --workspace C:\\Users\\agrahm\\AppData\\Local\\Temp\\mxAI_workspace556333223530014153175649705795555 --output C:\\Users\\agrahm\\.stm32cubemx\\network_output --allocate-inputs --series stm32h7 --allocate-outputs",
+    "cli_parameters": "analyze --name ann_762 -m C:/Projects/PhononsPhotons-TinkerSpace/ML_Workspace/Output/Models/ann_762/02_06_125748_ann_762.tflite --type tflite --compression low --verbosity 1 --workspace C:\\Users\\agrahm\\AppData\\Local\\Temp\\mxAI_workspace830561959111009256446320240318409 --output C:\\Users\\agrahm\\.stm32cubemx\\network_output --allocate-inputs --series stm32h7 --allocate-outputs",
     "cli_version": {
         "major": 1,
         "micro": 0,
@@ -17,10 +17,10 @@
             "gemm_2_weights": 4.0
         }
     },
-    "date_time": "Tue Feb  6 13:06:48 2024",
+    "date_time": "Wed Feb  7 10:38:22 2024",
     "error": 0,
     "error_str": [],
-    "exec_cmd": "generate",
+    "exec_cmd": "analyze",
     "exec_duration": 0.0,
     "hash": "70e24fec5aad3d8cf8b1617009cfeb67",
     "inputs": [
