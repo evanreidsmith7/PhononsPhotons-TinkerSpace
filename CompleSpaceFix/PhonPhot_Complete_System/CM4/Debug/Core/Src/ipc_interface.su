@@ -1,0 +1,13 @@
+../Core/Src/ipc_interface.c:49:6:IPCInitialize	0	static
+../Core/Src/ipc_interface.c:61:7:IPCGetVoiceVolumeNormalized	0	static
+../Core/Src/ipc_interface.c:66:6:IPCSetVoiceVolumeNormalized	0	static
+../Core/Src/ipc_interface.c:71:11:IPCGetVoiceMuteState	0	static
+../Core/Src/ipc_interface.c:76:6:IPCSetVoiceMuteState	0	static
+../Core/Src/ipc_interface.c:81:11:IPCGetAnomalyDetectState	0	static
+../Core/Src/ipc_interface.c:86:6:IPCSetAnomalyDetectState	0	static
+../Core/Src/ipc_interface.c:91:7:IPCGetAnomalyFrequency	0	static
+../Core/Src/ipc_interface.c:96:6:IPCSetAnomalyFrequency	0	static
+../Core/Src/ipc_interface.c:101:7:IPCGetAnomalyMagnitudedB	0	static
+../Core/Src/ipc_interface.c:106:6:IPCSetAnomalyMagnitudedB	0	static
+../Core/Src/ipc_interface.c:111:11:IPCGetAlarmMuteState	0	static
+../Core/Src/ipc_interface.c:116:6:IPCSetAlarmMuteState	0	static
