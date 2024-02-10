@@ -23,6 +23,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h \
@@ -36,7 +38,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../Core/Inc/common.h ../Core/Inc/adc.h ../Core/Inc/main.h \
  ../Core/Inc/dma.h ../Core/Inc/tim.h ../Core/Inc/usart.h \
- ../Core/Inc/gpio.h ../Core/Inc/dsp.h
+ ../Core/Inc/gpio.h \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/CM4/X-CUBE-AI/App/app_x-cube-ai.h \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Middlewares/ST/AI/Inc/ai_platform.h \
+ ../Core/Inc/dsp.h
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -62,6 +67,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h:
@@ -80,4 +87,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/tim.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/gpio.h:
+C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/CM4/X-CUBE-AI/App/app_x-cube-ai.h:
+C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Middlewares/ST/AI/Inc/ai_platform.h:
 ../Core/Inc/dsp.h:

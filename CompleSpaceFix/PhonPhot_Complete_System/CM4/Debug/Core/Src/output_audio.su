@@ -1,2 +1,2 @@
 ../Core/Src/output_audio.c:66:6:alarminit	32	static
-../Core/Src/output_audio.c:77:6:playAudio	88	static
+../Core/Src/output_audio.c:77:6:playAudio	56	static

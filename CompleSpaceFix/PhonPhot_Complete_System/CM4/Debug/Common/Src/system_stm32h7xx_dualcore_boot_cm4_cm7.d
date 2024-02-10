@@ -1,5 +1,5 @@
 Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o: \
- C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.c \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h745xx.h \
  ../../Drivers/CMSIS/Include/core_cm4.h \
@@ -24,6 +24,8 @@ Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h \
@@ -59,6 +61,8 @@ Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h:
