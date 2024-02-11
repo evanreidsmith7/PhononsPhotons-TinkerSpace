@@ -1,0 +1,6 @@
+../Core/Src/common.c:10:6:limituint16_t	3
+../Core/Src/common.c:21:6:limituint32_t	3
+../Core/Src/common.c:32:6:limituint8_t	3
+../Core/Src/common.c:43:6:limitFloatPointer	3
+../Core/Src/common.c:56:7:limitFloat	2
+../Core/Src/common.c:70:10:getMaxDayOfMonth	4

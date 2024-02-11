@@ -96,8 +96,8 @@ all: main-build
 main-build: PhonPhot_Complete_CM7.elf secondary-outputs
 
 # Tool invocations
-PhonPhot_Complete_CM7.elf PhonPhot_Complete_CM7.map: $(OBJS) $(USER_OBJS) C:\Users\Owner\MegaMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM7\STM32H745XIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "PhonPhot_Complete_CM7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\Owner\MegaMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM7\STM32H745XIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhonPhot_Complete_CM7.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+PhonPhot_Complete_CM7.elf PhonPhot_Complete_CM7.map: $(OBJS) $(USER_OBJS) C:\Projects\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM7\STM32H745XIHX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "PhonPhot_Complete_CM7.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Projects\PhononsPhotons-TinkerSpace\CompleteSpace\PhonPhot_Complete_System\CM7\STM32H745XIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhonPhot_Complete_CM7.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

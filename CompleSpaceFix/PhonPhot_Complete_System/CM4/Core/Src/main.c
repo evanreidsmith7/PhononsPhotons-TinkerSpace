@@ -25,6 +25,7 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "app_x-cube-ai.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -112,6 +113,8 @@ int main(void)
   MX_USART3_UART_Init();
   MX_ADC3_Init();
   MX_ADC1_Init();
+  MX_X_CUBE_AI_Init();
+
   /* USER CODE BEGIN 2 */
 
   dspEntry( );
@@ -123,6 +126,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
+	MX_X_CUBE_AI_Process();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

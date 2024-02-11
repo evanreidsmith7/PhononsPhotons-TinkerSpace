@@ -1,7 +1,7 @@
 Drivers/STM32H745I-DISCO/stm32h745i_discovery_qspi.o: \
- C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_qspi.c \
- C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_qspi.h \
- C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_qspi.c \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_qspi.h \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -40,11 +40,11 @@ Drivers/STM32H745I-DISCO/stm32h745i_discovery_qspi.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
- C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h \
- C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/../Components/mt25tl01g/mt25tl01g.h \
- C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/../Components/mt25tl01g/mt25tl01g_conf.h
-C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_qspi.h:
-C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h:
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/../Components/mt25tl01g/mt25tl01g.h \
+ C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/../Components/mt25tl01g/mt25tl01g_conf.h
+C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_qspi.h:
+C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
@@ -83,6 +83,6 @@ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/Ph
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
-C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h:
-C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/../Components/mt25tl01g/mt25tl01g.h:
-C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/../Components/mt25tl01g/mt25tl01g_conf.h:
+C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h:
+C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/../Components/mt25tl01g/mt25tl01g.h:
+C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/../Components/mt25tl01g/mt25tl01g_conf.h:
