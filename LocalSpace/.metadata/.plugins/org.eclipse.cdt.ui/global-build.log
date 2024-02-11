@@ -1,28 +1,7 @@
-12:10:32 **** Incremental Build of configuration Debug for project DigitalMEMSIntro_CM7 ****
+13:42:33 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
 make -j8 all 
-arm-none-eabi-size  DigitalMEMSIntro_CM7.elf 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
-   6748	     24	   1568	   8340	   2094	DigitalMEMSIntro_CM7.elf
-Finished building: default.size.stdout
- 
-12:10:38 **** Incremental Build of configuration Debug for project DigitalMEMSIntro_CM4 ****
-make -j8 all 
-arm-none-eabi-size  DigitalMEMSIntro_CM4.elf 
-   text	   data	    bss	    dec	    hex	filename
-  28312	    116	   2316	  30744	   7818	DigitalMEMSIntro_CM4.elf
-Finished building: default.size.stdout
- 
-12:10:39 **** Incremental Build of configuration Debug for project DigitalMEMSIntro_CM7 ****
-make -j8 all 
-arm-none-eabi-size  DigitalMEMSIntro_CM7.elf 
-   text	   data	    bss	    dec	    hex	filename
-   6748	     24	   1568	   8340	   2094	DigitalMEMSIntro_CM7.elf
-Finished building: default.size.stdout
- 
-12:10:55 **** Incremental Build of configuration Debug for project DigitalMEMSIntro_CM4 ****
-make -j8 all 
-arm-none-eabi-size  DigitalMEMSIntro_CM4.elf 
-   text	   data	    bss	    dec	    hex	filename
-  28312	    116	   2316	  30744	   7818	DigitalMEMSIntro_CM4.elf
+ 143216	    592	 102040	 245848	  3c058	PhonPhot_Complete_CM4.elf
 Finished building: default.size.stdout
  
