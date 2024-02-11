@@ -1,14 +1,14 @@
 Drivers/STM32H745I-DISCO/stm32h745i_discovery.o: \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.c \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.h \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.c \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.h \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h745xx.h \
- ../../Drivers/CMSIS/Include/core_cm4.h \
+ ../../Drivers/CMSIS/Include/core_cm7.h \
  ../../Drivers/CMSIS/Include/cmsis_version.h \
  ../../Drivers/CMSIS/Include/cmsis_compiler.h \
  ../../Drivers/CMSIS/Include/cmsis_gcc.h \
@@ -40,16 +40,16 @@ Drivers/STM32H745I-DISCO/stm32h745i_discovery.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h
-C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.h:
-C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h:
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery.h:
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h745xx.h:
-../../Drivers/CMSIS/Include/core_cm4.h:
+../../Drivers/CMSIS/Include/core_cm7.h:
 ../../Drivers/CMSIS/Include/cmsis_version.h:
 ../../Drivers/CMSIS/Include/cmsis_compiler.h:
 ../../Drivers/CMSIS/Include/cmsis_gcc.h:
@@ -81,4 +81,4 @@ C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Dr
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
-C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h:
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_errno.h:

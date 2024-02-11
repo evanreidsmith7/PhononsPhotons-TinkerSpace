@@ -1,5 +1,5 @@
 CMSIS/stream_buffer.o: \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Application/User/Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \

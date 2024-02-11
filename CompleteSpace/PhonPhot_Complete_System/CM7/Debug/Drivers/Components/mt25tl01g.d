@@ -1,10 +1,10 @@
 Drivers/Components/mt25tl01g.o: \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.c \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.h \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g_conf.h \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.c \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.h \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g_conf.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h745xx.h \
- ../../Drivers/CMSIS/Include/core_cm4.h \
+ ../../Drivers/CMSIS/Include/core_cm7.h \
  ../../Drivers/CMSIS/Include/cmsis_version.h \
  ../../Drivers/CMSIS/Include/cmsis_compiler.h \
  ../../Drivers/CMSIS/Include/cmsis_gcc.h \
@@ -40,11 +40,11 @@ Drivers/Components/mt25tl01g.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h
-C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.h:
-C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g_conf.h:
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.h:
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g_conf.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h745xx.h:
-../../Drivers/CMSIS/Include/core_cm4.h:
+../../Drivers/CMSIS/Include/core_cm7.h:
 ../../Drivers/CMSIS/Include/cmsis_version.h:
 ../../Drivers/CMSIS/Include/cmsis_compiler.h:
 ../../Drivers/CMSIS/Include/cmsis_gcc.h:

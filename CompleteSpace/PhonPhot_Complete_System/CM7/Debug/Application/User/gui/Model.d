@@ -1,5 +1,5 @@
 Application/User/gui/Model.o: \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/model/Model.cpp \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/model/Model.cpp \
  ../../TouchGFX/gui/include/gui/model/Model.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
@@ -38,7 +38,7 @@ Application/User/gui/Model.o: \
  ../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/CM7/Application/User/gui/Definitions.hpp \
+ C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/CM7/Application/User/gui/Definitions.hpp \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -117,7 +117,7 @@ Application/User/gui/Model.o: \
 ../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPHeap.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/mvp/Presenter.hpp:
-C:/Projects/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/CM7/Application/User/gui/Definitions.hpp:
+C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/CM7/Application/User/gui/Definitions.hpp:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
