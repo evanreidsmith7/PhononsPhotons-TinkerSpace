@@ -106,7 +106,7 @@ void Localize_AnomalyViewBase::afterTransition()
     //Interaction1
     //When screen transition ends call virtual function
     //Call function1
-    function1();
+    //function1();
 }
 
 void Localize_AnomalyViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
@@ -119,3 +119,14 @@ void Localize_AnomalyViewBase::buttonCallbackHandler(const touchgfx::AbstractBut
         application().gotoMainScreenWipeTransitionSouth();
     }
 }
+
+
+void Localize_AnomalyViewBase::handleKeyEvent(uint8_t key)
+{
+	if (82 == key)
+	{
+		update_image();
+	}
+}
+
+

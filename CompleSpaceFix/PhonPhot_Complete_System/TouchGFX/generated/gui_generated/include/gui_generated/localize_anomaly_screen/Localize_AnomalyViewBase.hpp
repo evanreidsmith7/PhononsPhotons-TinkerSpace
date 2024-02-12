@@ -21,11 +21,12 @@ public:
     virtual ~Localize_AnomalyViewBase() {}
     virtual void setupScreen();
     virtual void afterTransition();
+    virtual void handleKeyEvent(uint8_t key);
 
     /*
      * Virtual Action Handlers
      */
-    virtual void function1()
+    virtual void update_image()
     {
         // Override and implement this function in Localize_Anomaly
     }
