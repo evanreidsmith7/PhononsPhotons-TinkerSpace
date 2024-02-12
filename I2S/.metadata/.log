@@ -20,3 +20,34 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-11 13:44:12.066
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-02-12 12:50:06.327 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2024-02-12 12:50:09.435
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-12 12:50:13.721
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-12 12:50:13.722
+!MESSAGE Log4j2 initialized with config file C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\I2S\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-02-12 12:50:14.481
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\evanr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-12 12:50:16.206
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-12 12:52:55.801
+!MESSAGE Indexed 'OnBoardMEMS_CM4' (42 sources, 106 headers) in 6.66 sec: 13,442 declarations; 108,074 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0016%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-12 12:52:58.446
+!MESSAGE Indexed 'OnBoardMEMS_CM7' (42 sources, 85 headers) in 2.64 sec: 7,840 declarations; 57,065 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0031%)
