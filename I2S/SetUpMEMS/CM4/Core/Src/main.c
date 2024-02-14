@@ -57,6 +57,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+uint8_t data_sai[100];
+volatile uint8_t sample_sai;
 
 /* USER CODE END PV */
 
@@ -123,7 +125,7 @@ int main(void)
   MX_SAI4_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_SAI_Receive_DMA(&hsai_BlockA4, (uint8_t*)data_sai, sizeof(data_sai));
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -148,6 +150,11 @@ int _write(int file, char *ptr, int len)
 		ITM_SendChar(*ptr++);
 	}
 	return len;
+}
+
+void HAL_SAI_RxCpltCallback(SAI_HandleTypeDef *hsai_BlockA4)
+{
+	sample_sai = data_sai[0];
 }
 /* USER CODE END 4 */
 
