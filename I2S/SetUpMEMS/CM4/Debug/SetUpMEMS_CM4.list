@@ -2488,8 +2488,8 @@ int main(void)
 	  printf("hey \n");
  810142a:	4808      	ldr	r0, [pc, #32]	; (810144c <main+0xc8>)
  810142c:	f00a f88c 	bl	810b548 <puts>
-	  HAL_Delay(100);
- 8101430:	2064      	movs	r0, #100	; 0x64
+	  HAL_Delay(10);
+ 8101430:	200a      	movs	r0, #10
  8101432:	f000 fead 	bl	8102190 <HAL_Delay>
 	  printf("hey \n");
  8101436:	e7f8      	b.n	810142a <main+0xa6>

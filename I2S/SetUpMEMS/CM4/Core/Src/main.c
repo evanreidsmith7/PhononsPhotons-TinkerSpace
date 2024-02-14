@@ -133,7 +133,7 @@ int main(void)
   while (1)
   {
 	  printf("hey \n");
-	  HAL_Delay(100);
+	  HAL_Delay(10);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
