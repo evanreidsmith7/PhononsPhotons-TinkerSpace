@@ -133,7 +133,7 @@ void MX_SAI4_Init(void)
   hsai_BlockA4.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLE;
   hsai_BlockA4.Init.NoDivider = SAI_MASTERDIVIDER_ENABLE;
   hsai_BlockA4.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
-  hsai_BlockA4.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_192K;
+  hsai_BlockA4.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_22K;
   hsai_BlockA4.Init.MonoStereoMode = SAI_MONOMODE;
   hsai_BlockA4.Init.CompandingMode = SAI_NOCOMPANDING;
   hsai_BlockA4.Init.PdmInit.Activation = ENABLE;
@@ -275,8 +275,8 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* saiHandle)
     hdma_sai4_a.Init.Direction = DMA_PERIPH_TO_MEMORY;
     hdma_sai4_a.Init.PeriphInc = DMA_PINC_DISABLE;
     hdma_sai4_a.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_sai4_a.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
-    hdma_sai4_a.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_sai4_a.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+    hdma_sai4_a.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
     hdma_sai4_a.Init.Mode = DMA_CIRCULAR;
     hdma_sai4_a.Init.Priority = DMA_PRIORITY_HIGH;
     if (HAL_DMA_Init(&hdma_sai4_a) != HAL_OK)

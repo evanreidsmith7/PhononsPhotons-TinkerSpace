@@ -123,14 +123,25 @@ int main(void)
   MX_SAI4_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
+  HAL_Delay(1000);
   HAL_SAI_Receive_DMA(&hsai_BlockA4, (uint8_t*)data_sai, sizeof(data_sai));
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_Delay(1000);
   while (1)
   {
-
+	  if (HAL_SAI_GetError(&hsai_BlockA4) != HAL_SAI_ERROR_NONE)
+	  {
+		  // Handle SAI errors here
+		  unsigned int sair_error = HAL_SAI_GetError(&hsai_BlockA4);
+		  // You can use the error code to identify the specific error condition
+		  // or print it for debugging purposes.
+		  printf("SAI Error: 0x%08X\n", sair_error);
+		  // Clear the error flags if needed
+		  //HAL_SAI_ClearError(&hsai_BlockA4);
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
