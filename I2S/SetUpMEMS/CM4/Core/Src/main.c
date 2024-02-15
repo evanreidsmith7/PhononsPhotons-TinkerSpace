@@ -24,7 +24,6 @@
 #include "ltdc.h"
 #include "quadspi.h"
 #include "sai.h"
-#include "sdmmc.h"
 #include "usart.h"
 #include "usb_otg.h"
 #include "gpio.h"
@@ -119,7 +118,6 @@ int main(void)
   MX_LTDC_Init();
   MX_QUADSPI_Init();
   MX_SAI2_Init();
-  //MX_SDMMC1_MMC_Init();
   MX_ETH_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_SAI4_Init();
@@ -132,8 +130,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  printf("hey \n");
-	  HAL_Delay(10);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

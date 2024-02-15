@@ -278,7 +278,7 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* saiHandle)
     hdma_sai4_a.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
     hdma_sai4_a.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
     hdma_sai4_a.Init.Mode = DMA_CIRCULAR;
-    hdma_sai4_a.Init.Priority = DMA_PRIORITY_LOW;
+    hdma_sai4_a.Init.Priority = DMA_PRIORITY_HIGH;
     if (HAL_DMA_Init(&hdma_sai4_a) != HAL_OK)
     {
       Error_Handler();
