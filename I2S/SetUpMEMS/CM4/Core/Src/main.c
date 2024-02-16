@@ -56,7 +56,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint16_t data_sai[100];
+uint16_t data_sai[10];
 volatile uint16_t sample_sai;
 
 /* USER CODE END PV */
@@ -141,10 +141,6 @@ int main(void)
 		  printf("SAI Error: 0x%08X\n", sair_error);
 		  // Clear the error flags if needed
 		  //HAL_SAI_ClearError(&hsai_BlockA4);
-	  }
-	  else
-	  {
-		  printf("none\n");
 	  }
     /* USER CODE END WHILE */
 
