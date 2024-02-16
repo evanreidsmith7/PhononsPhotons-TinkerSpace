@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "bdma.h"
-#include "eth.h"
 #include "fdcan.h"
 #include "ltdc.h"
 #include "quadspi.h"
@@ -118,7 +117,6 @@ int main(void)
   MX_LTDC_Init();
   MX_QUADSPI_Init();
   MX_SAI2_Init();
-  MX_ETH_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_SAI4_Init();
   MX_USART3_UART_Init();
