@@ -8210,3 +8210,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-16 00:18:56.072
 !MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 10666666; CPU: 64000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-16 00:33:55.369
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 10666666; CPU: 64000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-16 00:33:58.473
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 10666666; CPU: 64000000; div: 6

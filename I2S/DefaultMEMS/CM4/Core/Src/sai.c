@@ -54,7 +54,7 @@ void MX_SAI2_Init(void)
   hsai_BlockA2.Init.Synchro = SAI_ASYNCHRONOUS;
   hsai_BlockA2.Init.OutputDrive = SAI_OUTPUTDRIVE_DISABLE;
   hsai_BlockA2.Init.NoDivider = SAI_MASTERDIVIDER_ENABLE;
-  hsai_BlockA2.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_EMPTY;
+  hsai_BlockA2.Init.FIFOThreshold = SAI_FIFOTHRESHOLD_1QF;
   hsai_BlockA2.Init.AudioFrequency = SAI_AUDIO_FREQUENCY_192K;
   hsai_BlockA2.Init.SynchroExt = SAI_SYNCEXT_DISABLE;
   hsai_BlockA2.Init.MonoStereoMode = SAI_STEREOMODE;
@@ -160,8 +160,11 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef* saiHandle)
     hdma_sai2_a.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
     hdma_sai2_a.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
     hdma_sai2_a.Init.Mode = DMA_CIRCULAR;
-    hdma_sai2_a.Init.Priority = DMA_PRIORITY_LOW;
-    hdma_sai2_a.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
+    hdma_sai2_a.Init.Priority = DMA_PRIORITY_HIGH;
+    hdma_sai2_a.Init.FIFOMode = DMA_FIFOMODE_ENABLE;
+    hdma_sai2_a.Init.FIFOThreshold = DMA_FIFO_THRESHOLD_FULL;
+    hdma_sai2_a.Init.MemBurst = DMA_MBURST_SINGLE;
+    hdma_sai2_a.Init.PeriphBurst = DMA_PBURST_SINGLE;
     if (HAL_DMA_Init(&hdma_sai2_a) != HAL_OK)
     {
       Error_Handler();
