@@ -1,9 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    bdma.c
-  * @brief   This file provides code for the configuration
-  *          of all the requested memory to memory DMA transfers.
+  * @file    dma.h
+  * @brief   This file contains all the function prototypes for
+  *          the dma.c file
   ******************************************************************************
   * @attention
   *
@@ -17,34 +17,36 @@
   ******************************************************************************
   */
 /* USER CODE END Header */
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __DMA_H__
+#define __DMA_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "bdma.h"
+#include "main.h"
 
-/* USER CODE BEGIN 0 */
+/* DMA memory to memory transfer handles -------------------------------------*/
 
-/* USER CODE END 0 */
+/* USER CODE BEGIN Includes */
 
-/*----------------------------------------------------------------------------*/
-/* Configure DMA                                                              */
-/*----------------------------------------------------------------------------*/
+/* USER CODE END Includes */
 
-/* USER CODE BEGIN 1 */
+/* USER CODE BEGIN Private defines */
 
-/* USER CODE END 1 */
+/* USER CODE END Private defines */
 
-/**
-  * Enable DMA controller clock
-  */
-void MX_BDMA_Init(void)
-{
+void MX_DMA_Init(void);
 
-  /* DMA controller clock enable */
-  __HAL_RCC_BDMA_CLK_ENABLE();
+/* USER CODE BEGIN Prototypes */
 
+/* USER CODE END Prototypes */
+
+#ifdef __cplusplus
 }
+#endif
 
-/* USER CODE BEGIN 2 */
-
-/* USER CODE END 2 */
+#endif /* __DMA_H__ */
 

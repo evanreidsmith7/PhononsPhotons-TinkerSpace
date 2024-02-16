@@ -18,7 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "bdma.h"
+#include "dma.h"
 #include "fdcan.h"
 #include "ltdc.h"
 #include "quadspi.h"
@@ -110,19 +110,18 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_BDMA_Init();
-  MX_FDCAN1_Init();
-  MX_FDCAN2_Init();
+  MX_DMA_Init();
   MX_FMC_Init();
   MX_LTDC_Init();
   MX_QUADSPI_Init();
   MX_SAI2_Init();
+  MX_FDCAN1_Init();
   MX_USB_OTG_FS_PCD_Init();
-  MX_SAI4_Init();
+  MX_FDCAN2_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_Delay(1000);
-  HAL_SAI_Receive_DMA(&hsai_BlockA4, (uint8_t*)data_sai, sizeof(data_sai)/2);
+  HAL_SAI_Receive_DMA(&hsai_BlockA2, (uint8_t*)data_sai, sizeof(data_sai)/2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -130,10 +129,10 @@ int main(void)
   HAL_Delay(1000);
   while (1)
   {
-	  if (HAL_SAI_GetError(&hsai_BlockA4) != HAL_SAI_ERROR_NONE)
+	  if (HAL_SAI_GetError(&hsai_BlockA2) != HAL_SAI_ERROR_NONE)
 	  {
 		  // Handle SAI errors here
-		  unsigned int sair_error = HAL_SAI_GetError(&hsai_BlockA4);
+		  unsigned int sair_error = HAL_SAI_GetError(&hsai_BlockA2);
 		  // You can use the error code to identify the specific error condition
 		  // or print it for debugging purposes.
 		  printf("SAI Error: 0x%08X\n", sair_error);
