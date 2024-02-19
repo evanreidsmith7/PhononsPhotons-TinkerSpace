@@ -11,6 +11,7 @@ public:
     virtual ~Localize_AnomalyView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    virtual void update_image();
 protected:
 };
 

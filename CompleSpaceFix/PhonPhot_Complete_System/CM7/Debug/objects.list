@@ -57,6 +57,8 @@
 "./Application/User/generated/image_Toggle_Button_On2.o"
 "./Application/User/generated/image_Unpressed_Button.o"
 "./Application/User/generated/image_Volume_Background2.o"
+"./Application/User/generated/image_cat.o"
+"./Application/User/generated/image_keephernameoutyourmouth.o"
 "./Application/User/generated/image_vector_image.o"
 "./Application/User/gui/Definitions.o"
 "./Application/User/gui/FrontendApplication.o"
