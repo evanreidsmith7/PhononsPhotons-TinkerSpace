@@ -116,6 +116,7 @@ void MainView::toggle_voice() {
 void MainView::update_anomaly_alert() {
   // a direct cast to bool doesnt work here, need a conditional
 	state.anomalyDetected = (IPCGetAnomalyDetectState( ) != 0 ? true : false);
+	state.anomalyDetected = true;
 	state.alert = state.anomalyDetected;
 
 	//Set alert message

@@ -19,21 +19,29 @@ bool muteStatus = false;
 bool muteFilter = false;
 
 bool anomaly_detect_state_previous;
-bool anomaly_detect_state_current = false;
+bool anomaly_detect_state_current = true;
 
 uint16_t encoderCount = 0;
 void Model::tick()
 {
   // update anomaly detect state from IPC
-  anomaly_detect_state_previous = anomaly_detect_state_current;
+  //anomaly_detect_state_previous = anomaly_detect_state_current;
   // a direct cast to bool doesnt work here, need a conditional
-  anomaly_detect_state_current = ((int)IPCGetAnomalyDetectState( ) != 0 ? true : false);
+  //anomaly_detect_state_current = ((int)IPCGetAnomalyDetectState( ) != 0 ? true : false);
 
+  anomaly_detect_state_previous = true;
+  anomaly_detect_state_current = false;
   // only update GUI on change of state
   if ( anomaly_detect_state_current != anomaly_detect_state_previous )
   {
     static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(87);
   }
+
+  if ( HAL_GetTick( ) % 1000 < 500 && HAL_GetTick( ) % 1000 > 400)
+  {
+	  static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(82);
+  }
+
 
   // Actuate and toggle alarm LEDS
   // * Originally went for series LEDs with center tap by driving output, but they remain lit even without output active,
