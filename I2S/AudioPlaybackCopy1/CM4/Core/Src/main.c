@@ -26,12 +26,19 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef enum {
+  BUFFER_OFFSET_NONE = 0,
+  BUFFER_OFFSET_HALF,
+  BUFFER_OFFSET_FULL,
+} BUFFER_StateTypeDef;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define AUDIO_FREQUENCY       SAI_AUDIO_FREQUENCY_16K
+#define AUDIO_CHANNEL_NUMBER  2U
+#define AUDIO_BUFFER_SIZE     256U
+#define AUDIO_PCM_CHUNK_SIZE  32U
 #ifndef HSEM_ID_0
 #define HSEM_ID_0 (0U) /* HW semaphore 0*/
 #endif
@@ -40,7 +47,8 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+/* Audio PDM FS frequency = 128KHz = 8 * 16KHz = 8 * FS_Freq */
+#define AUDIO_PDM_GET_FS_FREQUENCY(FS)  (FS * 8)
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -60,6 +68,38 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
+static int32_t WM8994_Probe(void);
+/* Audio codec Handle */
+static AUDIO_Drv_t  *Audio_Drv = NULL;
+void *Audio_CompObj = NULL;
+WM8994_Init_t codec_init;
+/* Buffer containing the PDM samples */
+#if defined ( __CC_ARM )  /* !< ARM Compiler */
+  /* Buffer location should aligned to cache line size (32 bytes) */
+  ALIGN_32BYTES (uint16_t audioPdmBuf[AUDIO_BUFFER_SIZE]) __attribute__((section(".RAM_D3")));
+#elif defined ( __ICCARM__ )  /* !< ICCARM Compiler */
+  #pragma location=0x38000000
+  /* Buffer location should aligned to cache line size (32 bytes) */
+  ALIGN_32BYTES (uint16_t audioPdmBuf[AUDIO_BUFFER_SIZE]);
+#elif defined ( __GNUC__ )  /* !< GNU Compiler */
+  /* Buffer location should aligned to cache line size (32 bytes) */
+  ALIGN_32BYTES (uint16_t audioPdmBuf[AUDIO_BUFFER_SIZE]) __attribute__((section(".RAM_D3")));
+#endif
+
+
+/* Buffer containing the PCM samples
+ Buffer location should aligned to cache line size (32 bytes) */
+ALIGN_32BYTES (uint16_t audioPcmBuf[AUDIO_BUFFER_SIZE]);
+
+/* PDM Filters params */
+PDM_Filter_Handler_t  PDM_FilterHandler[2];
+PDM_Filter_Config_t   PDM_FilterConfig[2];
+
+/* Pointer to PCM data */
+__IO uint32_t pcmPtr;
+
+/* Buffer status variable */
+__IO BUFFER_StateTypeDef bufferStatus = BUFFER_OFFSET_NONE;
 
 /* USER CODE END PV */
 
@@ -75,7 +115,10 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_SAI4_Init(void);
 static void MX_USART3_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
+static void Playback_Init(void);
+static void AUDIO_IN_PDMToPCM_Init(uint32_t AudioFreq, uint32_t ChannelNumber); //sai4
+static void AUDIO_IN_PDMToPCM(uint16_t *PDMBuf, uint16_t *PCMBuf, uint32_t ChannelNumber);
+static void CPU_CACHE_Enable(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -110,6 +153,7 @@ int main(void)
   /* Clear HSEM flag */
   __HAL_HSEM_CLEAR_FLAG(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
 
+  CPU_CACHE_Enable();
 /* USER CODE END Boot_Mode_Sequence_1 */
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -140,6 +184,45 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  Playback_Init();
+    WM8994_Init_t codec_init;
+
+    codec_init.Resolution   = 0;
+
+    /* Fill codec_init structure */
+    codec_init.Frequency    = 16000;
+    codec_init.InputDevice  = WM8994_IN_NONE;
+    codec_init.OutputDevice = AUDIO_OUT_DEVICE_HEADPHONE;
+
+    /* Convert volume before sending to the codec */
+    codec_init.Volume       = VOLUME_OUT_CONVERT(60);
+
+    /* Start the playback */
+    if(Audio_Drv->Init(Audio_CompObj, &codec_init) != 0)
+    {
+      Error_Handler();
+    }
+
+    /* Start the playback */
+    if(Audio_Drv->Play(Audio_CompObj) < 0)
+    {
+      Error_Handler();
+    }
+
+    /* Start the PDM data reception process */
+    if(HAL_OK != HAL_SAI_Receive_DMA(&SaiInputHandle, (uint8_t*)audioPdmBuf, AUDIO_BUFFER_SIZE))
+    {
+      Error_Handler();
+    }
+
+    /* Start the PCM data transmission process */
+    if(HAL_OK != HAL_SAI_Transmit_DMA(&SaiOutputHandle, (uint8_t *)audioPcmBuf, AUDIO_BUFFER_SIZE))
+    {
+      Error_Handler();
+    }
+
+    /* Initialize Rx buffer status */
+    bufferStatus &= BUFFER_OFFSET_NONE;
   while (1)
   {
     /* USER CODE END WHILE */
@@ -541,6 +624,128 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+/**
+* @brief  CPU L1-Cache enable.
+* @param  None
+* @retval None
+*/
+static void CPU_CACHE_Enable(void)
+{
+  /* Enable I-Cache */
+  SCB_EnableICache();
+
+  /* Enable D-Cache */
+  SCB_EnableDCache();
+}
+static void Playback_Init()
+{
+	/* Enable SAI to generate clock used by audio driver */
+	__HAL_SAI_ENABLE(&SaiOutputHandle);
+	WM8994_Probe();
+
+	/* Init PDM Filters */
+	AUDIO_IN_PDMToPCM_Init(AUDIO_FREQUENCY, AUDIO_CHANNEL_NUMBER);
+
+}
+/**
+  * @brief  Register Bus IOs if component ID is OK
+  * @retval error status
+  */
+static int32_t WM8994_Probe(void)
+{
+  int32_t ret = BSP_ERROR_NONE;
+  WM8994_IO_t              IOCtx;
+  static WM8994_Object_t   WM8994Obj;
+  uint32_t id;
+
+  /* Configure the audio driver */
+  IOCtx.Address     = AUDIO_I2C_ADDRESS;
+  IOCtx.Init        = BSP_I2C4_Init;
+  IOCtx.DeInit      = BSP_I2C4_DeInit;
+  IOCtx.ReadReg     = BSP_I2C4_ReadReg16;
+  IOCtx.WriteReg    = BSP_I2C4_WriteReg16;
+  IOCtx.GetTick     = BSP_GetTick;
+
+  if(WM8994_RegisterBusIO (&WM8994Obj, &IOCtx) != WM8994_OK)
+  {
+    ret = BSP_ERROR_BUS_FAILURE;
+  }
+  else
+  {
+    /* Reset the codec */
+    if(WM8994_Reset(&WM8994Obj) != WM8994_OK)
+    {
+      ret = BSP_ERROR_COMPONENT_FAILURE;
+    }
+    else if(WM8994_ReadID(&WM8994Obj, &id) != WM8994_OK)
+    {
+      ret = BSP_ERROR_COMPONENT_FAILURE;
+    }
+    else if(id != WM8994_ID)
+    {
+      ret = BSP_ERROR_UNKNOWN_COMPONENT;
+    }
+    else
+    {
+      Audio_Drv = (AUDIO_Drv_t *) &WM8994_Driver;
+      Audio_CompObj = &WM8994Obj;
+    }
+  }
+  return ret;
+}
+/**
+* @brief  Init PDM Filters.
+* @param  AudioFreq: Audio sampling frequency
+* @param  ChannelNumber: Number of audio channels in the PDM buffer.
+* @retval None
+*/
+static void AUDIO_IN_PDMToPCM_Init(uint32_t AudioFreq, uint32_t ChannelNumber)
+{
+  uint32_t index = 0;
+
+  /* Enable CRC peripheral to unlock the PDM library */
+  __HAL_RCC_CRC_CLK_ENABLE();
+
+  for(index = 0; index < ChannelNumber; index++)
+  {
+    /* Init PDM filters */
+    PDM_FilterHandler[index].bit_order  = PDM_FILTER_BIT_ORDER_MSB;
+    PDM_FilterHandler[index].endianness = PDM_FILTER_ENDIANNESS_LE;
+    PDM_FilterHandler[index].high_pass_tap = 2122358088;
+    PDM_FilterHandler[index].out_ptr_channels = ChannelNumber;
+    PDM_FilterHandler[index].in_ptr_channels  = ChannelNumber;
+    PDM_Filter_Init((PDM_Filter_Handler_t *)(&PDM_FilterHandler[index]));
+
+    /* Configure PDM filters */
+    PDM_FilterConfig[index].output_samples_number = AudioFreq/1000;
+    PDM_FilterConfig[index].mic_gain = 24;
+    PDM_FilterConfig[index].decimation_factor = PDM_FILTER_DEC_FACTOR_64;
+    PDM_Filter_setConfig((PDM_Filter_Handler_t *)&PDM_FilterHandler[index], &PDM_FilterConfig[index]);
+  }
+}
+
+/**
+  * @brief  Convert audio format from PDM to PCM.
+  * @param  PDMBuf: Pointer to PDM buffer data
+  * @param  PCMBuf: Pointer to PCM buffer data
+  * @param  ChannelNumber: PDM Channels number.
+  * @retval None
+*/
+static void AUDIO_IN_PDMToPCM(uint16_t *PDMBuf, uint16_t *PCMBuf, uint32_t ChannelNumber)
+{
+  uint32_t index = 0;
+
+  /* Invalidate Data Cache to get the updated content of the SRAM*/
+  SCB_InvalidateDCache_by_Addr((uint32_t *)PDMBuf, AUDIO_BUFFER_SIZE);
+
+  for(index = 0; index < ChannelNumber; index++)
+  {
+    PDM_Filter(&((uint8_t*)(PDMBuf))[index], (uint16_t*)&(PCMBuf[index]), &PDM_FilterHandler[index]);
+  }
+
+  /* Clean Data Cache to update the content of the SRAM */
+  SCB_CleanDCache_by_Addr((uint32_t*)PCMBuf, AUDIO_PCM_CHUNK_SIZE*2);
+}
 /* USER CODE END 4 */
 
 /* MPU Configuration */

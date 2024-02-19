@@ -87,8 +87,8 @@ __IO BUFFER_StateTypeDef bufferStatus = BUFFER_OFFSET_NONE;
 /* Private function prototypes -----------------------------------------------*/
 static void MPU_Config(void);
 static void SystemClock_Config(void);
-static void Playback_Init(void); //sai2
-static void AUDIO_IN_PDMToPCM_Init(uint32_t AudioFreq, uint32_t ChannelNumber); //sai4
+static void Playback_Init(void);
+static void AUDIO_IN_PDMToPCM_Init(uint32_t AudioFreq, uint32_t ChannelNumber);
 static void AUDIO_IN_PDMToPCM(uint16_t *PDMBuf, uint16_t *PCMBuf, uint32_t ChannelNumber);
 static void CPU_CACHE_Enable(void);
 

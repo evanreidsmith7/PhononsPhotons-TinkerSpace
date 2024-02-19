@@ -31,7 +31,12 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stm32h745i_discovery.h"
+#include "stm32h745i_discovery_bus.h"
+#include "stm32h745i_discovery_audio.h"
+#include "audio.h"
+#include "../Components/wm8994/wm8994.h"
+#include "pdm2pcm_glo.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

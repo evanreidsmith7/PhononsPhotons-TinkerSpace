@@ -56,17 +56,17 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef *hsai)
   if(hsai->Instance == AUDIO_IN_SAI_PDMx)
   {
     /* Enable SAI clock */
-    AUDIO_IN_SAI_PDMx_CLK_ENABLE(); //__HAL_RCC_SAI4_CLK_ENABLE()
+    AUDIO_IN_SAI_PDMx_CLK_ENABLE();
 
-    AUDIO_IN_SAI_PDMx_CLK_IN_ENABLE(); //__HAL_RCC_GPIOE_CLK_ENABLE
-    AUDIO_IN_SAI_PDMx_DATA_IN_ENABLE(); //__HAL_RCC_GPIOE_CLK_ENABLE
+    AUDIO_IN_SAI_PDMx_CLK_IN_ENABLE();
+    AUDIO_IN_SAI_PDMx_DATA_IN_ENABLE();
 
-    GPIO_Init.Pin = AUDIO_IN_SAI_PDMx_CLK_IN_PIN; //GPIO_PIN_5
+    GPIO_Init.Pin = AUDIO_IN_SAI_PDMx_CLK_IN_PIN;
     GPIO_Init.Mode = GPIO_MODE_AF_PP;
     GPIO_Init.Pull = GPIO_NOPULL;
     GPIO_Init.Speed = GPIO_SPEED_FREQ_HIGH;
-    GPIO_Init.Alternate = AUDIO_IN_SAI_PDMx_DATA_CLK_AF; //GPIO_AF10_SAI4
-    HAL_GPIO_Init(AUDIO_IN_SAI_PDMx_CLK_IN_PORT, &GPIO_Init); //GPIOE
+    GPIO_Init.Alternate = AUDIO_IN_SAI_PDMx_DATA_CLK_AF;
+    HAL_GPIO_Init(AUDIO_IN_SAI_PDMx_CLK_IN_PORT, &GPIO_Init);
 
     GPIO_Init.Pull = GPIO_PULLUP;
     GPIO_Init.Speed = GPIO_SPEED_FREQ_MEDIUM;
@@ -74,15 +74,15 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef *hsai)
     HAL_GPIO_Init(AUDIO_IN_SAI_PDMx_DATA_IN_PORT, &GPIO_Init);
 
     /* Enable the DMA clock */
-    AUDIO_IN_SAI_PDMx_DMAx_CLK_ENABLE(); //__HAL_RCC_BDMA_CLK_ENABLE
+    AUDIO_IN_SAI_PDMx_DMAx_CLK_ENABLE();
 
     /* Configure the hdma_sai_rx handle parameters */
-    SaiInputDmaHandle.Init.Request             = AUDIO_IN_SAI_PDMx_DMAx_REQUEST; //BDMA_REQUEST_SAI4_A
+    SaiInputDmaHandle.Init.Request             = AUDIO_IN_SAI_PDMx_DMAx_REQUEST;
     SaiInputDmaHandle.Init.Direction           = DMA_PERIPH_TO_MEMORY;
     SaiInputDmaHandle.Init.PeriphInc           = DMA_PINC_DISABLE;
     SaiInputDmaHandle.Init.MemInc              = DMA_MINC_ENABLE;
-    SaiInputDmaHandle.Init.PeriphDataAlignment = AUDIO_IN_SAI_PDMx_DMAx_PERIPH_DATA_SIZE; //DMA_PDATAALIGN_HALFWORD
-    SaiInputDmaHandle.Init.MemDataAlignment    = AUDIO_IN_SAI_PDMx_DMAx_MEM_DATA_SIZE; //DMA_MDATAALIGN_HALFWORD
+    SaiInputDmaHandle.Init.PeriphDataAlignment = AUDIO_IN_SAI_PDMx_DMAx_PERIPH_DATA_SIZE;
+    SaiInputDmaHandle.Init.MemDataAlignment    = AUDIO_IN_SAI_PDMx_DMAx_MEM_DATA_SIZE;
     SaiInputDmaHandle.Init.Mode                = DMA_CIRCULAR;
     SaiInputDmaHandle.Init.Priority            = DMA_PRIORITY_HIGH;
     SaiInputDmaHandle.Init.FIFOMode            = DMA_FIFOMODE_DISABLE;
@@ -90,7 +90,7 @@ void HAL_SAI_MspInit(SAI_HandleTypeDef *hsai)
     SaiInputDmaHandle.Init.MemBurst            = DMA_MBURST_SINGLE;
     SaiInputDmaHandle.Init.PeriphBurst         = DMA_MBURST_SINGLE;
 
-    SaiInputDmaHandle.Instance = AUDIO_IN_SAI_PDMx_DMAx_STREAM; //BDMA_Channel1
+    SaiInputDmaHandle.Instance = AUDIO_IN_SAI_PDMx_DMAx_STREAM;
 
     /* Associate the DMA handle */
     __HAL_LINKDMA(&SaiInputHandle, hdmarx, SaiInputDmaHandle);
