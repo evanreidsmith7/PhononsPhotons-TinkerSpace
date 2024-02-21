@@ -50,7 +50,8 @@ Application/User/gui/Localize_AnomalyView.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp \
- ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp \
+ ../../TouchGFX/generated/images/include/BitmapDatabase.hpp
 ../../TouchGFX/gui/include/gui/localize_anomaly_screen/Localize_AnomalyView.hpp:
 ../../TouchGFX/generated/gui_generated/include/gui_generated/localize_anomaly_screen/Localize_AnomalyViewBase.hpp:
 ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
@@ -102,3 +103,4 @@ Application/User/gui/Localize_AnomalyView.o: \
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Button.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/AbstractButton.hpp:
+../../TouchGFX/generated/images/include/BitmapDatabase.hpp:

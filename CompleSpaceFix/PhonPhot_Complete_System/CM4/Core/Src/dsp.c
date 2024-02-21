@@ -388,6 +388,7 @@ void dspEntry( void )
 
     if ( fft_samples_ready )
     {
+      //HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_SET );
       performFFT( );
       anomalyDetectionLogic( );
       fft_results_ready = TRUE;
@@ -395,6 +396,7 @@ void dspEntry( void )
       anomalyLocalizationLogic( );
       localization_data_ready = TRUE;
       anomalyUpdateCharacteristics( );
+      //HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_RESET );
     }
 
     // update button states
@@ -459,12 +461,12 @@ void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
   uint32_t _channel_offset[6] = {0,0,0,0,0,0};
   for ( int index = 0; index < ADC_BUFFER_SAMPLES_PER_CHANNEL / 2; index++ )
   {
-    // microphone 0 -> adc1 buffer index 0
-    // microphone 1 -> adc3 buffer index 0
-    // microphone 2 -> adc1 buffer index 1
-    // microphone 3 -> adc1 buffer index 2
-    // microphone 4 -> adc3 buffer index 1
-    // microphone 5 -> adc3 buffer index 2
+    // microphone 1 -> adc1 buffer index 0
+    // microphone 2 -> adc3 buffer index 0
+    // microphone 3 -> adc1 buffer index 1
+    // microphone 4 -> adc1 buffer index 2
+    // microphone 5 -> adc3 buffer index 1
+    // microphone 6 -> adc3 buffer index 2
 
     // mix and average the six channels into one stream, change to floating point and expected offset
     // TODO - use only valid channels for voice?

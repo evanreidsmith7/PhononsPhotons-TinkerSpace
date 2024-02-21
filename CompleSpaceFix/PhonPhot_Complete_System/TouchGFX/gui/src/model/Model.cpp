@@ -37,10 +37,11 @@ void Model::tick()
     static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(87);
   }
 
-  if ( HAL_GetTick( ) % 1000 < 500 && HAL_GetTick( ) % 1000 > 400)
-  {
-	  static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(82);
-  }
+  // Test code for update_image()
+  //if ( HAL_GetTick( ) % 1000 < 500 && HAL_GetTick( ) % 1000 > 400)
+  //{
+  //	  static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(82);
+  //}
 
 
   // Actuate and toggle alarm LEDS
