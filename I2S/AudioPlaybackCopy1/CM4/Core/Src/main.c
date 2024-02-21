@@ -69,6 +69,8 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
 static int32_t WM8994_Probe(void);
+extern SAI_HandleTypeDef SaiInputHandle;
+extern SAI_HandleTypeDef SaiOutputHandle;
 /* Audio codec Handle */
 static AUDIO_Drv_t  *Audio_Drv = NULL;
 void *Audio_CompObj = NULL;
@@ -637,15 +639,123 @@ static void CPU_CACHE_Enable(void)
   /* Enable D-Cache */
   SCB_EnableDCache();
 }
-static void Playback_Init()
+static void Playback_Init(void)
 {
-	/* Enable SAI to generate clock used by audio driver */
-	__HAL_SAI_ENABLE(&SaiOutputHandle);
-	WM8994_Probe();
+  RCC_PeriphCLKInitTypeDef RCC_PeriphCLKInitStruct;
 
-	/* Init PDM Filters */
-	AUDIO_IN_PDMToPCM_Init(AUDIO_FREQUENCY, AUDIO_CHANNEL_NUMBER);
+  /* Configure PLLSAI1 prescalers */
+  /* PLLSAI_VCO: VCO_512M
+     SAI_CLK(first level) = PLLSAI_VCO/PLLSAIP = 512/125 = 4.096 Mhz */
+  RCC_PeriphCLKInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SAI2;
+  RCC_PeriphCLKInitStruct.Sai23ClockSelection = RCC_SAI2CLKSOURCE_PLL2;
+  RCC_PeriphCLKInitStruct.PLL2.PLL2P = 125;
+  RCC_PeriphCLKInitStruct.PLL2.PLL2Q = 1;
+  RCC_PeriphCLKInitStruct.PLL2.PLL2R = 1;
+  RCC_PeriphCLKInitStruct.PLL2.PLL2N = 512;
+  RCC_PeriphCLKInitStruct.PLL2.PLL2FRACN = 0;
+  RCC_PeriphCLKInitStruct.PLL2.PLL2M = 25;
 
+  if(HAL_RCCEx_PeriphCLKConfig(&RCC_PeriphCLKInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Configure PLLSAI4A prescalers */
+  RCC_PeriphCLKInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SAI4A;
+  RCC_PeriphCLKInitStruct.Sai4AClockSelection = RCC_SAI4ACLKSOURCE_PLL2;
+  if(HAL_RCCEx_PeriphCLKConfig(&RCC_PeriphCLKInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* SAI PDM Input init */
+  __HAL_SAI_RESET_HANDLE_STATE(&SaiInputHandle);
+
+  SaiInputHandle.Instance                 = AUDIO_IN_SAI_PDMx;
+  SaiInputHandle.Init.AudioMode           = SAI_MODEMASTER_RX;
+  SaiInputHandle.Init.Synchro             = SAI_ASYNCHRONOUS;
+  SaiInputHandle.Init.SynchroExt          = SAI_SYNCEXT_DISABLE;
+  SaiInputHandle.Init.OutputDrive         = SAI_OUTPUTDRIVE_DISABLE;
+  SaiInputHandle.Init.NoDivider           = SAI_MASTERDIVIDER_DISABLE;
+  SaiInputHandle.Init.FIFOThreshold       = SAI_FIFOTHRESHOLD_HF;
+  SaiInputHandle.Init.AudioFrequency      = AUDIO_PDM_GET_FS_FREQUENCY(AUDIO_FREQUENCY);
+  SaiInputHandle.Init.Mckdiv              = 0;
+  SaiInputHandle.Init.MckOverSampling     = SAI_MCK_OVERSAMPLING_DISABLE;
+  SaiInputHandle.Init.MonoStereoMode      = SAI_STEREOMODE;
+  SaiInputHandle.Init.CompandingMode      = SAI_NOCOMPANDING;
+  SaiInputHandle.Init.TriState            = SAI_OUTPUT_NOTRELEASED;
+  SaiInputHandle.Init.PdmInit.Activation  = ENABLE;
+  SaiInputHandle.Init.PdmInit.MicPairsNbr = 2;
+  SaiInputHandle.Init.PdmInit.ClockEnable = SAI_PDM_CLOCK2_ENABLE;
+  SaiInputHandle.Init.Protocol            = SAI_FREE_PROTOCOL;
+  SaiInputHandle.Init.DataSize            = SAI_DATASIZE_16;
+  SaiInputHandle.Init.FirstBit            = SAI_FIRSTBIT_LSB;
+  SaiInputHandle.Init.ClockStrobing       = SAI_CLOCKSTROBING_FALLINGEDGE;
+
+  SaiInputHandle.FrameInit.FrameLength       = 32;
+  SaiInputHandle.FrameInit.ActiveFrameLength = 1;
+  SaiInputHandle.FrameInit.FSDefinition      = SAI_FS_STARTFRAME;
+  SaiInputHandle.FrameInit.FSPolarity        = SAI_FS_ACTIVE_HIGH;
+  SaiInputHandle.FrameInit.FSOffset          = SAI_FS_FIRSTBIT;
+
+  SaiInputHandle.SlotInit.FirstBitOffset = 0;
+  SaiInputHandle.SlotInit.SlotSize       = SAI_SLOTSIZE_DATASIZE;
+  SaiInputHandle.SlotInit.SlotNumber     = 2;
+  SaiInputHandle.SlotInit.SlotActive     = SAI_SLOTACTIVE_1;
+
+  /* DeInit SAI PDM input */
+  HAL_SAI_DeInit(&SaiInputHandle);
+
+  /* Init SAI PDM input */
+  if(HAL_OK != HAL_SAI_Init(&SaiInputHandle))
+  {
+    Error_Handler();
+  }
+
+  /* Enable SAI to generate clock used by audio driver */
+  __HAL_SAI_ENABLE(&SaiInputHandle);
+
+  /* SAI PCM Output init */
+  __HAL_SAI_RESET_HANDLE_STATE(&SaiOutputHandle);
+
+  SaiOutputHandle.Instance            = AUDIO_OUT_SAIx;
+  SaiOutputHandle.Init.AudioMode      = SAI_MODEMASTER_TX;
+  SaiOutputHandle.Init.Synchro        = SAI_ASYNCHRONOUS;
+  SaiOutputHandle.Init.OutputDrive    = SAI_OUTPUTDRIVE_ENABLE;
+  SaiOutputHandle.Init.NoDivider      = SAI_MASTERDIVIDER_ENABLE;
+  SaiOutputHandle.Init.FIFOThreshold  = SAI_FIFOTHRESHOLD_1QF;
+  SaiOutputHandle.Init.AudioFrequency = AUDIO_FREQUENCY;
+  SaiOutputHandle.Init.Protocol       = SAI_FREE_PROTOCOL;
+  SaiOutputHandle.Init.DataSize       = SAI_DATASIZE_16;
+  SaiOutputHandle.Init.FirstBit       = SAI_FIRSTBIT_MSB;
+  SaiOutputHandle.Init.ClockStrobing  = SAI_CLOCKSTROBING_FALLINGEDGE;
+
+  SaiOutputHandle.FrameInit.FrameLength       = 128;
+  SaiOutputHandle.FrameInit.ActiveFrameLength = 64;
+  SaiOutputHandle.FrameInit.FSDefinition      = SAI_FS_CHANNEL_IDENTIFICATION;
+  SaiOutputHandle.FrameInit.FSPolarity        = SAI_FS_ACTIVE_LOW;
+  SaiOutputHandle.FrameInit.FSOffset          = SAI_FS_BEFOREFIRSTBIT;
+
+  SaiOutputHandle.SlotInit.FirstBitOffset = 0;
+  SaiOutputHandle.SlotInit.SlotSize       = SAI_SLOTSIZE_DATASIZE;
+  SaiOutputHandle.SlotInit.SlotNumber     = 4;
+  SaiOutputHandle.SlotInit.SlotActive     = (SAI_SLOTACTIVE_0 | SAI_SLOTACTIVE_2);
+
+  /* DeInit SAI PCM input */
+  HAL_SAI_DeInit(&SaiOutputHandle);
+
+  /* Init SAI PCM input */
+  if(HAL_OK != HAL_SAI_Init(&SaiOutputHandle))
+  {
+    Error_Handler();
+  }
+
+  /* Enable SAI to generate clock used by audio driver */
+  __HAL_SAI_ENABLE(&SaiOutputHandle);
+    WM8994_Probe();
+
+  /* Init PDM Filters */
+  AUDIO_IN_PDMToPCM_Init(AUDIO_FREQUENCY, AUDIO_CHANNEL_NUMBER);
 }
 /**
   * @brief  Register Bus IOs if component ID is OK
