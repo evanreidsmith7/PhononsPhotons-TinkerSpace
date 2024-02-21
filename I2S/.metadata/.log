@@ -651,3 +651,21 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-02-21 11:03:48.493
 !MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 8000000; CPU: 16000000; div: 2
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-21 12:20:52.011
+!MESSAGE Indexed 'AudioPlaybackCopy1_CM4' (34 sources, 96 headers) in 2.37 sec: 10,423 declarations; 82,209 references; 6 unresolved inclusions; 1 syntax errors; 54 unresolved names (0.058%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-21 12:20:53.473
+!MESSAGE Indexed 'AudioPlaybackCopy1_CM7' (24 sources, 85 headers) in 1.46 sec: 7,850 declarations; 57,074 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0031%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-21 12:26:07.835
+!MESSAGE Indexed 'AudioPlaybackCopy1_CM4' (34 sources, 104 headers) in 2.03 sec: 11,918 declarations; 83,708 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0021%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-21 12:27:41.967
+!MESSAGE Indexed 'AudioPlaybackCopy1_CM4' (34 sources, 104 headers) in 2.08 sec: 11,918 declarations; 83,708 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0021%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-21 12:28:18.690
+!MESSAGE Indexed 'AudioPlaybackCopy1_CM4' (34 sources, 104 headers) in 1.85 sec: 11,918 declarations; 83,708 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0021%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-21 12:29:02.023
+!MESSAGE Indexed 'AudioPlaybackCopy1_CM4' (34 sources, 104 headers) in 1.92 sec: 11,918 declarations; 83,708 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0021%)
