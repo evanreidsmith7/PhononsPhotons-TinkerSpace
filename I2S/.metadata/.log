@@ -10263,3 +10263,75 @@ java.lang.ClassCastException: class org.eclipse.cdt.internal.core.pdom.PDOMProxy
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-02-19 11:55:21.790
 !MESSAGE Indexed 'AudioPlaybackCopy1_CM4' (48 sources, 116 headers) in 3.01 sec: 16,114 declarations; 106,041 references; 3 unresolved inclusions; 1 syntax errors; 505 unresolved names (0.41%)
+!SESSION 2024-02-19 17:08:01.409 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-19 17:08:45.469
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-19 17:08:45.478
+!MESSAGE Log4j2 initialized with config file C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\I2S\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-02-19 17:08:51.744
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\evanr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-19 17:08:59.430
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-19 17:08:59.911
+!MESSAGE Indexed 'SAI_AudioPlayback_CM4' (24 sources, 97 headers) in 7.93 sec: 11,673 declarations; 68,589 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0025%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-19 17:09:04.150
+!MESSAGE Indexed 'SAI_AudioPlayback_CM7' (24 sources, 100 headers) in 4.2 sec: 12,126 declarations; 71,064 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0024%)
+!SESSION 2024-02-19 17:54:12.705 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-19 17:54:58.731
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-19 17:54:58.747
+!MESSAGE Log4j2 initialized with config file C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\I2S\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-02-19 17:55:12.059
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\evanr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-19 17:55:18.469
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-02-21 09:41:01.994 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-21 09:41:25.065
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-21 09:41:25.075
+!MESSAGE Log4j2 initialized with config file C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\I2S\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-02-21 09:41:31.306
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\evanr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-21 09:41:37.772
+!MESSAGE Started RMI Server, listening on port 41337
