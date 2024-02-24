@@ -691,3 +691,51 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-23 21:57:33.383
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.292
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328.8845227"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.293
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257.2032187309"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.293
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022.1497122627"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.293
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188.1620388759"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.294
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157.1570193934"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.294
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369.1639782494"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.294
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941.2096740761"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.885
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328.8845227"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.886
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257.2032187309"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.887
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022.1497122627"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.887
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188.1620388759"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.888
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157.1570193934"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.888
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369.1639782494"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-02-24 00:16:10.888
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941.2096740761"
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-24 00:16:21.371
+!MESSAGE Indexed 'PhonPhot_Complete_CM4' (45 sources, 129 headers) in 4.53 sec: 14,133 declarations; 102,029 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0017%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-24 00:16:31.989
+!MESSAGE Indexed 'PhonPhot_Complete_CM7' (113 sources, 344 headers) in 10.6 sec: 30,969 declarations; 136,614 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0012%)
