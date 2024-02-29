@@ -1,6 +1,6 @@
 Application/User/TouchGFX/target/stm32h745i_touchcontroller.o: \
- C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/target/stm32h745i_touchcontroller.cpp \
- C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/target/stm32h745i_touchcontroller.hpp \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/target/stm32h745i_touchcontroller.cpp \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/target/stm32h745i_touchcontroller.hpp \
  ../../Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_ts.h \
  ../../Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
@@ -45,7 +45,7 @@ Application/User/TouchGFX/target/stm32h745i_touchcontroller.o: \
  ../../Drivers/BSP/STM32H745I-DISCO/../Components/ft5336/ft5336.h \
  ../../Drivers/BSP/STM32H745I-DISCO/../Components/ft5336/ft5336_reg.h \
  ../../Drivers/BSP/STM32H745I-DISCO/../Components/ft5336/ft5336_conf.h
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/target/stm32h745i_touchcontroller.hpp:
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/target/stm32h745i_touchcontroller.hpp:
 ../../Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_ts.h:
 ../../Drivers/BSP/STM32H745I-DISCO/stm32h745i_discovery_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:

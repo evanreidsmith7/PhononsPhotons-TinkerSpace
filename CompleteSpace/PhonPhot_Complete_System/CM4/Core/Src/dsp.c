@@ -440,6 +440,7 @@ uint32_t adc_dma_irq_count = 0;
 
 void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
 {
+	printf("hey\n");
   if ( debug_output_enable )
   {
     HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_SET );

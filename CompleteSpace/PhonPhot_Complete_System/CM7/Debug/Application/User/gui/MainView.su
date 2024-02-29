@@ -42,14 +42,14 @@
 ../../TouchGFX/generated/gui_generated/include/gui_generated/main_screen/MainViewBase.hpp:24:13:virtual MainViewBase::~MainViewBase()	16	static
 ../../TouchGFX/gui/include/gui/main_screen/MainView.hpp:21:13:MainView::~MainView()	16	static
 ../../TouchGFX/gui/include/gui/main_screen/MainView.hpp:21:13:virtual MainView::~MainView()	16	static
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:7:1:MainView::MainView()	16	static
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:11:6:virtual void MainView::setupScreen()	16	static
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:52:6:virtual void MainView::tearDownScreen()	16	static
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:56:6:virtual void MainView::set_volume_slider(int)	16	static
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:64:6:virtual void MainView::set_volume_encoder()	24	static
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:87:6:virtual void MainView::toggle_voice()	16	static
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:116:6:virtual void MainView::update_anomaly_alert()	16	static
-C:/Users/Owner/MegaMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:144:6:virtual void MainView::alert_mute_pressed()	16	static
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:7:1:MainView::MainView()	16	static
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:11:6:virtual void MainView::setupScreen()	16	static
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:52:6:virtual void MainView::tearDownScreen()	16	static
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:56:6:virtual void MainView::set_volume_slider(int)	16	static
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:64:6:virtual void MainView::set_volume_encoder()	24	static
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:87:6:virtual void MainView::toggle_voice()	16	static
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:116:6:virtual void MainView::update_anomaly_alert()	16	static
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleteSpace/PhonPhot_Complete_System/TouchGFX/gui/src/main_screen/MainView.cpp:144:6:virtual void MainView::alert_mute_pressed()	16	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Container.hpp:40:7:touchgfx::Container::~Container()	16	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/containers/Container.hpp:40:7:virtual touchgfx::Container::~Container()	16	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Image.hpp:38:7:touchgfx::Image::~Image()	16	static
