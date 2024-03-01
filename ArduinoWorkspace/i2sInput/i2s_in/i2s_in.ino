@@ -64,8 +64,8 @@ void loop() {
   // False print statements to "lock range" on serial plotter display
   // Change rangelimit value to adjust "sensitivity"
   
-  float rangelimit = 524000;
-  Serial.print(0);
+  float rangelimit = 131071;
+  Serial.print(-1 * rangelimit);
   Serial.print(" ");
   Serial.print(rangelimit);
   Serial.print(" ");
@@ -87,7 +87,9 @@ void loop() {
       // Check if sign extension is needed based on your processing requirements
       // Print the adjusted and masked sample value
       //Serial.println(rawSample);
-      mean+=((sBuffer[i] >> 8) & 0x3FFFF);
+      //mean+=((sBuffer[i] >> 8) & 0x3FFFF);
+      //mean += sBuffer[i];
+      mean += (sBuffer[i] >> 14);
 
 
 
@@ -96,27 +98,24 @@ void loop() {
     int samplesRead = (int)(bytesIn / sizeof(sBuffer[0]));
     mean /= samplesRead;
     Serial.println(mean);
-    /*
-    delay(500);
+    //Serial.print((int32_t)mean, BIN);
+    //Serial.println(sBuffer[0]);
+    
+    
+/*
+delay(500);
     Serial.println("og:");
     Serial.print(sBuffer[0], BIN);
     Serial.println();
-
-    Serial.println("shift and mask:");
-    Serial.print(((sBuffer[0] >> 8) & 0x3FFFF), BIN);
+    Serial.println("shift:");
+    Serial.print(sBuffer[0] >>= 14, BIN);
     Serial.println();
-
-    Serial.println("shift 16 only:");
-    Serial.print(sBuffer[0] >> 16, BIN);
-    Serial.println();
-
-    Serial.println("shift 15 then maskonly:");
-    Serial.print((sBuffer[0] >> 15) & 0x0000FFFF, BIN);
-    Serial.println();
+    
     delay(2000);
     Serial.print("\n\n\n\n");
+*/
 
-    */
+    
 
   }
   else
