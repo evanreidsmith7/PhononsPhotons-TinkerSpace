@@ -89,8 +89,8 @@ void loop() {
       //mean+=((sBuffer[i] >> 8) & 0x3FFFF);
       //mean += sBuffer[i];
 
-      sBuffer[i] >= 2;
-      sBuffer[i] &= 0x0003FFFF;
+      sBuffer[i] >>= 14;
+      //sBuffer[i] &= 0x0003FFFF;
       
       mean += sBuffer[i];
       sampler = sBuffer[i];
