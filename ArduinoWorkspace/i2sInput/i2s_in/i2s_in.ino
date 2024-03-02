@@ -1,4 +1,6 @@
 #include <driver/i2s.h>
+#include <string.h>
+#include <stdio.h>
 
 #define I2S_WS 25
 #define I2S_SD 33
@@ -7,8 +9,8 @@
 #define I2S_PORT I2S_NUM_0
 
 // Define input buffer length
-#define bufferLen 128
-int32_t sBuffer[bufferLen];
+#define bufferLen 512
+uint32_t sBuffer[bufferLen];
 
 void i2s_install() 
 {
@@ -64,11 +66,7 @@ void loop() {
   // False print statements to "lock range" on serial plotter display
   // Change rangelimit value to adjust "sensitivity"
   
-  float rangelimit = 131071;
-  Serial.print(-1 * rangelimit);
-  Serial.print(" ");
-  Serial.print(rangelimit);
-  Serial.print(" ");
+  
   
 
   // Get I2S data and place in data buffer
@@ -77,7 +75,8 @@ void loop() {
 
   if (result == ESP_OK)
   {
-    float mean = 0;
+    uint32_t mean = 0;
+    uint32_t sampler = 0;
     for(int i = 0; i < (int)(bytesIn / sizeof(sBuffer[0])); i++) 
     {
       // Shift right by 8 to align 24-bit data
@@ -89,15 +88,40 @@ void loop() {
       //Serial.println(rawSample);
       //mean+=((sBuffer[i] >> 8) & 0x3FFFF);
       //mean += sBuffer[i];
-      mean += (sBuffer[i] >> 14);
 
+      sBuffer[i] >= 2;
+      sBuffer[i] &= 0x0003FFFF;
+      
+      mean += sBuffer[i];
+      sampler = sBuffer[i];
+      
 
 
 
     }
-    int samplesRead = (int)(bytesIn / sizeof(sBuffer[0]));
+    uint32_t samplesRead = (uint32_t)(bytesIn / sizeof(sBuffer[0]));
     mean /= samplesRead;
-    Serial.println(mean);
+    findRange(262144, mean);
+    
+    /*
+    delay(500);
+    Serial.print("\noriginal:     ");
+    Serial.print(sampler);
+    Serial.print("\noriginalbin:  ");
+    Serial.print(sampler, BIN);
+
+    uint32_t twosComplement = ~sampler + 1; // Compute two's complementSerial.print("\noriginal:   ");
+    Serial.print("\ntwocomp:      ");
+    Serial.print(twosComplement);
+    Serial.print("\ntwocompbin:   ");
+    Serial.print(twosComplement, BIN);
+    Serial.println();
+    Serial.println();
+    Serial.println();
+    Serial.println();
+    */
+
+
     //Serial.print((int32_t)mean, BIN);
     //Serial.println(sBuffer[0]);
     
@@ -122,4 +146,14 @@ delay(500);
   {
     Serial.println("NOT OK");
   }
+}
+
+void findRange(int rangelimit, uint32_t samp)
+{
+  Serial.print(samp);
+  Serial.print(" ");  
+  Serial.print(-1);
+  Serial.print(" ");
+  Serial.print(rangelimit);
+  Serial.println();
 }
