@@ -88,7 +88,9 @@ void loop() {
     uint32_t twosComplement = ~mean + 1; // Compute two's complementSerial.print("\noriginal:   ");
     uint32_t actualSampleBufferAverage = twosComplement & 0x0003FFFF;
     
-    findRange(262144, actualSampleBufferAverage);
+    //findRange(262144, actualSampleBufferAverage);
+    Serial.println(actualSampleBufferAverage);
+    
     //findRange(262144, twosComplement);
     //printTwo(mean, twosComplement);
     
