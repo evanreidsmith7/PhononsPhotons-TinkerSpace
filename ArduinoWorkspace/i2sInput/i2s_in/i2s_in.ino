@@ -65,10 +65,6 @@ void loop() {
 
   // False print statements to "lock range" on serial plotter display
   // Change rangelimit value to adjust "sensitivity"
-  
-  
-  
-
   // Get I2S data and place in data buffer
   size_t bytesIn = 0;
   esp_err_t result = i2s_read(I2S_PORT, &sBuffer, sizeof(sBuffer), &bytesIn, portMAX_DELAY);
@@ -77,38 +73,27 @@ void loop() {
   {
     uint32_t mean = 0;
     uint32_t sampler = 0;
+
     for(int i = 0; i < (int)(bytesIn / sizeof(sBuffer[0])); i++) 
     {
-      // Shift right by 8 to align 24-bit data
-      //int32_t alignedSample = sBuffer[i] >> 8;
-      // Apply mask to isolate 18 bits
-      //int32_t rawSample = alignedSample & 0x3FFFF;
-      // Check if sign extension is needed based on your processing requirements
-      // Print the adjusted and masked sample value
-      //Serial.println(rawSample);
-      //mean+=((sBuffer[i] >> 8) & 0x3FFFF);
-      //mean += sBuffer[i];
-
       sBuffer[i] >>= 14;
       //sBuffer[i] &= 0x0003FFFF;
       
       mean += sBuffer[i];
       sampler = sBuffer[i];
-      
-
-
-
     }
+
     uint32_t samplesRead = (uint32_t)(bytesIn / sizeof(sBuffer[0]));
     mean /= samplesRead;
-
     uint32_t twosComplement = ~mean + 1; // Compute two's complementSerial.print("\noriginal:   ");
+    uint32_t actualSampleBufferAverage = twosComplement & 0x0003FFFF;
     
+    findRange(262144, actualSampleBufferAverage);
     //findRange(262144, twosComplement);
     //printTwo(mean, twosComplement);
     
     //findRangeMask(262144, mean);
-    findRangeMask(262144, twosComplement);
+    //findRangeMask(262144, twosComplement);
   }
   else
   {
