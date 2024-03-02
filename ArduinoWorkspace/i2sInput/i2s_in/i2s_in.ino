@@ -9,7 +9,7 @@
 #define I2S_PORT I2S_NUM_0
 
 // Define input buffer length
-#define bufferLen 1024
+#define bufferLen 128
 uint32_t sBuffer[bufferLen];
 
 void i2s_install() 
@@ -101,55 +101,43 @@ void loop() {
     }
     uint32_t samplesRead = (uint32_t)(bytesIn / sizeof(sBuffer[0]));
     mean /= samplesRead;
-    findRange(262144, mean);
-    
-    /*
-    delay(500);
-    Serial.print("\noriginal:     ");
-    Serial.print(sampler);
-    Serial.print("\noriginalbin:  ");
-    Serial.print(sampler, BIN);
 
-    uint32_t twosComplement = ~sampler + 1; // Compute two's complementSerial.print("\noriginal:   ");
-    Serial.print("\ntwocomp:      ");
-    Serial.print(twosComplement);
-    Serial.print("\ntwocompbin:   ");
-    Serial.print(twosComplement, BIN);
-    Serial.println();
-    Serial.println();
-    Serial.println();
-    Serial.println();
-    */
-
-
-    //Serial.print((int32_t)mean, BIN);
-    //Serial.println(sBuffer[0]);
+    uint32_t twosComplement = ~mean + 1; // Compute two's complementSerial.print("\noriginal:   ");
     
+    //findRange(262144, twosComplement);
+    //printTwo(mean, twosComplement);
     
-/*
-delay(500);
-    Serial.println("og:");
-    Serial.print(sBuffer[0], BIN);
-    Serial.println();
-    Serial.println("shift:");
-    Serial.print(sBuffer[0] >>= 14, BIN);
-    Serial.println();
-    
-    delay(2000);
-    Serial.print("\n\n\n\n");
-*/
-
-    
-
+    //findRangeMask(262144, mean);
+    findRangeMask(262144, twosComplement);
   }
   else
   {
     Serial.println("NOT OK");
   }
 }
-
+//*********************************************************************************************************************************
+//***************************************            FUNCTIONS               ******************************************************
+//*********************************************************************************************************************************
+void printTwo(uint32_t m, uint32_t t)
+{
+  Serial.print(m, BIN);
+  Serial.println();
+  Serial.print(t, BIN);
+  Serial.println();
+  Serial.println();
+}
 void findRange(int rangelimit, uint32_t samp)
 {
+  Serial.print(samp);
+  Serial.print(" ");  
+  Serial.print(-1);
+  Serial.print(" ");
+  Serial.print(rangelimit);
+  Serial.println();
+}
+void findRangeMask(int rangelimit, uint32_t samp)
+{
+  samp &= 0x0003FFFF;
   Serial.print(samp);
   Serial.print(" ");  
   Serial.print(-1);
