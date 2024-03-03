@@ -11,6 +11,8 @@
 // Define input buffer length
 #define bufferLen 128
 uint32_t sBuffer[bufferLen];
+uint32_t aBuffer[bufferLen];
+
 
 void i2s_install() 
 {
@@ -79,6 +81,7 @@ void loop() {
       sBuffer[i] >>= 14;
       //sBuffer[i] &= 0x0003FFFF;
       
+      
       mean += sBuffer[i];
       sampler = sBuffer[i];
     }
@@ -87,8 +90,11 @@ void loop() {
     mean /= samplesRead;
     uint32_t twosComplement = ~mean + 1; // Compute two's complementSerial.print("\noriginal:   ");
     uint32_t actualSampleBufferAverage = twosComplement & 0x0003FFFF;
+
+    uint32_t aTest = actualSample(mean);
     
-    findRange(262144, actualSampleBufferAverage);
+    findRange(262144, aTest);
+    //findRange(262144, actualSampleBufferAverage);
     //Serial.println(actualSampleBufferAverage);
     
     //findRange(262144, twosComplement);
@@ -105,6 +111,11 @@ void loop() {
 //*********************************************************************************************************************************
 //***************************************            FUNCTIONS               ******************************************************
 //*********************************************************************************************************************************
+uint32_t actualSample(uint32_t sample)
+{
+  uint32_t twoComp = ~sample + 1;
+  return twoComp & 0x0003FFFF;
+}
 void printTwo(uint32_t m, uint32_t t)
 {
   Serial.print(m, BIN);
