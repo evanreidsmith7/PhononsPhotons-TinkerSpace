@@ -137,7 +137,7 @@ void loop()
     uint32_t samplesRead = (uint32_t)(bytesIn / sizeof(sBuffer[0]));
     mean /= samplesRead;
     mean = actualSample(mean);
-    Serial.println(mean);
+    //Serial.println(mean);
     delay(500);
 
 
