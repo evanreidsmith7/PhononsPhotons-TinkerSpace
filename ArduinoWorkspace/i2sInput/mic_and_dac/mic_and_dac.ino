@@ -55,7 +55,7 @@ void i2s_install()
     .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_TX), // Set mode to I2S master and transmitter for audio output
     .sample_rate = 16000, // Match DAC sample rate with microphone (16kHz)
     .bits_per_sample = i2s_bits_per_sample_t(32), // Set bit depth according to DAC datasheet, 32 bits
-    .channel_format = I2S_CHANNEL_FMT_LEFT, // Configure for mono
+    .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT, // Configure for mono
     .communication_format = I2S_COMM_FORMAT_I2S_MSB, // Set communication format to I2S, MSB first
     .intr_alloc_flags = 0, // Default interrupt allocation flags
     .dma_buf_count = 8, // Number of DMA buffers for output
