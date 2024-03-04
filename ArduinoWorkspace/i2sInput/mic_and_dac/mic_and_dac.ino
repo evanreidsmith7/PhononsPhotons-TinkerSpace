@@ -34,15 +34,15 @@ void i2s_install()
 //******************************************************************************
   const i2s_config_t i2s_config = 
   {
-    .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX),
-    .sample_rate = 16000,
-    .bits_per_sample = i2s_bits_per_sample_t(32),
-    .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
-    .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_STAND_I2S),
-    .intr_alloc_flags = 0,
-    .dma_buf_count = 8,
-    .dma_buf_len = bufferLen,
-    .use_apll = false
+    .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX), // Set mode to I2S master and receiver to capture audio
+    .sample_rate = 16000, // Set audio sample rate to 16kHz
+    .bits_per_sample = i2s_bits_per_sample_t(32), // Set bit depth to 32 bits per sample
+    .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT, // Use only the left audio channel
+    .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_STAND_I2S), // Standard I2S communication format
+    .intr_alloc_flags = 0, // Default interrupt allocation flags
+    .dma_buf_count = 8, // Number of DMA buffers
+    .dma_buf_len = bufferLen, // Length of each DMA buffer, defined by `bufferLen`
+    .use_apll = false // Do not use Audio PLL for clock generation
   };
  
   i2s_driver_install(I2S_PORT_MIC, &i2s_config, 0, NULL);
@@ -52,15 +52,15 @@ void i2s_install()
 //******************************************************************************
   const i2s_config_t i2s_config_dac = 
   {
-    .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_TX),
-    .sample_rate = 16000, // Match microphone sample rate
-    .bits_per_sample = i2s_bits_per_sample_t(32), // Adjust according to DAC datasheet
-    .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT, // DAC stereo format
-    .communication_format = I2S_COMM_FORMAT_I2S_MSB,
-    .intr_alloc_flags = 0,
-    .dma_buf_count = 8,
-    .dma_buf_len = bufferLen,
-    .use_apll = false,
+    .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_TX), // Set mode to I2S master and transmitter for audio output
+    .sample_rate = 16000, // Match DAC sample rate with microphone (16kHz)
+    .bits_per_sample = i2s_bits_per_sample_t(32), // Set bit depth according to DAC datasheet, 32 bits
+    .channel_format = I2S_CHANNEL_FMT_LEFT, // Configure for mono
+    .communication_format = I2S_COMM_FORMAT_I2S_MSB, // Set communication format to I2S, MSB first
+    .intr_alloc_flags = 0, // Default interrupt allocation flags
+    .dma_buf_count = 8, // Number of DMA buffers for output
+    .dma_buf_len = bufferLen, // Length of each DMA buffer, defined by `bufferLen`
+    .use_apll = false, // Do not use Audio PLL for clock generation
   };
 
   i2s_driver_install(I2S_PORT_DAC, &i2s_config_dac, 0, NULL);
