@@ -2,6 +2,24 @@
 #include <string.h>
 #include <stdio.h>
 
+/*
+//      I2S_SEL_mic gnd // SEL  3.3V
+#define I2S_WS_MIC 25   // LRCL 25
+#define I2S_SD_MIC 33   // DOUT 33
+#define I2S_SCK_MIC 32  // BCLK 32
+//             GND gnd  // GND  GND
+//             VDD 3V   // 3V   3.3V
+
+
+//      I2S_SEL_dac gnd // SCK  GND
+#define I2S_SCK_DAC 14  // BCK  14
+#define I2S_SD_DAC 22   // DIN  22
+#define I2S_WS_DAC 25   // LCK  25
+//             GND gnd  // GND  GND
+//             VDD 5V   // VIN  5V
+*/
+
+
 //      I2S_SEL_mic gnd // SEL  3.3V
 #define I2S_WS_MIC 25   // LRCL 25
 #define I2S_SD_MIC 33   // DOUT 33
@@ -44,9 +62,7 @@ void i2s_install()
     .dma_buf_len = bufferLen, // Length of each DMA buffer, defined by `bufferLen`
     .use_apll = false // Do not use Audio PLL for clock generation
   };
- 
   i2s_driver_install(I2S_PORT_MIC, &i2s_config, 0, NULL);
-
 //******************************************************************************
 //**************   dac   *******************************************************             
 //******************************************************************************
@@ -62,7 +78,6 @@ void i2s_install()
     .dma_buf_len = bufferLen, // Length of each DMA buffer, defined by `bufferLen`
     .use_apll = false, // Do not use Audio PLL for clock generation
   };
-
   i2s_driver_install(I2S_PORT_DAC, &i2s_config_dac, 0, NULL);
 }
 
@@ -116,37 +131,31 @@ void loop()
   //Serial.println("starting...");
   size_t bytesIn = 0;
   size_t bytesOut = 0;
-
+//***************************************            MIC              ************************************************
   esp_err_t inResult = i2s_read(I2S_PORT_MIC, &sBuffer, sizeof(sBuffer), &bytesIn, portMAX_DELAY);
-
   if (inResult == ESP_OK)
   {
     //Serial.println("inResult is ok, going to write now");
-
-    //DO WE NEED TO FORMAT THE DATA IN SBUFFER BEFORE WRITTING?
-    //Serial.println("formating...");
     uint32_t mean = 0;
     for(int i = 0; i < (int)(bytesIn / sizeof(sBuffer[0])); i++)
     {
       sBuffer[i] >>= 14;
       mean += sBuffer[i];
       sBuffer[i] = actualSample(sBuffer[i]);
-      Serial.println(sBuffer[i]);
-      
     }
     uint32_t samplesRead = (uint32_t)(bytesIn / sizeof(sBuffer[0]));
     mean /= samplesRead;
-    mean = actualSample(mean);
-    //Serial.println(mean);
-    delay(500);
-
-
-    //findRange(262144, mean);
+    //Serial.println("after formatting before writting: ");
+    //printBuff();
+//***************************************            DAC              ************************************************
     esp_err_t outResult = i2s_write(I2S_PORT_DAC, &sBuffer, bytesIn, &bytesOut, portMAX_DELAY);
 
     if (outResult == ESP_OK)
     {
       //Serial.println("outResult is ok");
+      //Serial.println("after writting to dac");
+      //printBuff();
+      
     }
     else
     {
@@ -168,6 +177,15 @@ void loop()
 //*********************************************************************************************************************************
 //***************************************            FUNCTIONS               ******************************************************
 //*********************************************************************************************************************************
+void printBuff()
+{
+  for (int i = 0; i < bufferLen; i++)
+  {
+    Serial.println(sBuffer[i]);
+  }
+  Serial.print("\n\n\n\n\n\n");
+
+}
 uint32_t actualSample(uint32_t sample)
 {
   uint32_t twoComp = ~sample + 1;
