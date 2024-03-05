@@ -6,7 +6,7 @@ void setup()
   Serial1.begin(115200);
   pinMode(buzzerPin, OUTPUT);
   while(Serial.available()) {Serial.read();}  //clear the serial buffer
-  while(Serial1.available()) {Serial1.read();}  //clear the serial buffer
+  while(Serial1.available()) {Serial1.read();}  //clear the serial buffer for esp recieve
 }
 int freq = 0;
 void loop() 
@@ -15,7 +15,9 @@ void loop()
   {
     // Read the incoming message
     int freq = Serial1.parseInt();
-    Serial.println(freq);
+    // the frequency that contained the highest magnitude in the fft data is downscaled by 
+    // i forget the downscale then sent over uart and recieved above^
+    
     //Play the tone on the buzzer
     tone(buzzerPin, freq);
     delay(1000); // You can adjust the duration of the tone
