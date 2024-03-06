@@ -1,7 +1,7 @@
 Drivers/Components/mt25tl01g.o: \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.c \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.h \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g_conf.h \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.c \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.h \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g_conf.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h745xx.h \
  ../../Drivers/CMSIS/Include/core_cm7.h \
@@ -40,8 +40,8 @@ Drivers/Components/mt25tl01g.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h
-C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.h:
-C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g_conf.h:
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g.h:
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt25tl01g/mt25tl01g_conf.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h745xx.h:
 ../../Drivers/CMSIS/Include/core_cm7.h:

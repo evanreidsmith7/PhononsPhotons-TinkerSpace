@@ -1,3 +1,0 @@
-../Application/User/Core/Src/main_user.c:13:6:initLtdcClocks	1
-../Application/User/Core/Src/main_user.c:40:6:initBspQuadSpi	3
-../Application/User/Core/Src/main_user.c:64:6:initBspSdRam	2
