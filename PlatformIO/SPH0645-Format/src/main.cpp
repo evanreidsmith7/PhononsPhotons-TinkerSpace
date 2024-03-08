@@ -22,6 +22,13 @@ void plotOne(uint32_t s);
 void i2s_install_atomic();
 int read(int16_t *samples, int count);
 void i2s_setpin_atomic();
+void printPlotLimits(int rangelimit);
+
+
+
+
+
+
 
 void setup()
 {
@@ -37,6 +44,8 @@ void setup()
   // i2s_start(I2S_PORT);
 
   delay(500);
+  printPlotLimits(32768); // Adjust rangelimit based on your data range
+
 }
 
 void loop()
@@ -48,10 +57,6 @@ void loop()
     return;
   }
   int samples_read = read(samples, SAMPLE_SIZE);
-  for (int i = 0; i < samples_read; i++)
-  {
-    findRange(32768, samples[i]);
-  }
   //free(samples); // Don't forget to free the allocated memory!
   delay(10); // Adjust delay as needed to manage plotting speed
 }
@@ -74,6 +79,7 @@ int read(int16_t *samples, int count)
     for (int i = 0; i < samples_read; i++)
     {
       samples[sample_index] = (raw_samples[i] & 0xFFFFFFF0) >> 11;
+      Serial.println(samples[sample_index]);
       sample_index++;
       count--;
     }
@@ -124,4 +130,10 @@ void findRange(int rangelimit, uint32_t samp)
   Serial.print(" ");
   Serial.print(rangelimit);
   Serial.println();
+}
+void printPlotLimits(int rangelimit) 
+{
+  Serial.print(-1 * rangelimit);
+  Serial.print(" ");
+  Serial.println(rangelimit);
 }
