@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "first-proj",
+			"path": "../first-proj"
+		},
+		{
+			"name": "VOIP-Prototype1",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
