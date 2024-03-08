@@ -14,7 +14,6 @@
 // Define input buffer length
 const int SAMPLE_SIZE = 16384;
 
-
 // Function declarations
 uint32_t actualSample(uint32_t sample);
 void findRange(int rangelimit, uint32_t samp);
@@ -25,24 +24,23 @@ void i2s_install_atomic();
 int read(int16_t *samples, int count);
 void i2s_setpin_atomic();
 
-void setup() 
+void setup()
 {
   // Set up Serial Monitor
   Serial.begin(115200);
   Serial.println(" ");
- 
+
   delay(1000);
- 
+
   // Set up I2S
   i2s_install_atomic();
   i2s_setpin_atomic();
-  //i2s_start(I2S_PORT);
- 
- 
+  // i2s_start(I2S_PORT);
+
   delay(500);
 }
 
-void loop() 
+void loop()
 {
   int16_t *samples = (int16_t *)malloc(sizeof(uint16_t) * SAMPLE_SIZE);
   if (!samples)
@@ -82,24 +80,23 @@ int read(int16_t *samples, int count)
   return sample_index;
 }
 
-void i2s_install_atomic() 
+void i2s_install_atomic()
 {
   // Set up I2S Processor configuration
-  const i2s_config_t i2s_config = 
-  {
-    .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX),
-    .sample_rate = 16000,
-    .bits_per_sample = I2S_BITS_PER_SAMPLE_32BIT,
-    .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
-    .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_I2S),
-    .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
-    .dma_buf_count = 4,
-    .dma_buf_len = 1024,
-    .use_apll = false,
-    .tx_desc_auto_clear = false,
-    .fixed_mclk = 0
-  };
- 
+  const i2s_config_t i2s_config =
+      {
+          .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX),
+          .sample_rate = 16000,
+          .bits_per_sample = I2S_BITS_PER_SAMPLE_32BIT,
+          .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
+          .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_I2S),
+          .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
+          .dma_buf_count = 4,
+          .dma_buf_len = 1024,
+          .use_apll = false,
+          .tx_desc_auto_clear = false,
+          .fixed_mclk = 0};
+
   i2s_driver_install(I2S_PORT, &i2s_config, 0, NULL);
 }
 
@@ -107,25 +104,16 @@ void i2s_setpin_atomic()
 {
   // Set I2S pin configuration
   const i2s_pin_config_t pin_config = {
-    .bck_io_num = I2S_SCK,
-    .ws_io_num = I2S_WS,
-    .data_out_num = I2S_PIN_NO_CHANGE,
-    .data_in_num = I2S_SD
-  };
+      .bck_io_num = I2S_SCK,
+      .ws_io_num = I2S_WS,
+      .data_out_num = I2S_PIN_NO_CHANGE,
+      .data_in_num = I2S_SD};
   // FIXES for SPH0645
   REG_SET_BIT(I2S_TIMING_REG(I2S_PORT), BIT(9));
   REG_SET_BIT(I2S_CONF_REG(I2S_PORT), I2S_RX_MSB_SHIFT);
- 
+
   i2s_set_pin(I2S_PORT, &pin_config);
 }
-
-
-
-
-
-
-
-
 
 uint32_t actualSample(uint32_t sample)
 {
@@ -147,7 +135,7 @@ void plotOne(uint32_t samp)
 void findRange(int rangelimit, uint32_t samp)
 {
   Serial.print(samp);
-  Serial.print(" ");  
+  Serial.print(" ");
   Serial.print(-1);
   Serial.print(" ");
   Serial.print(rangelimit);
@@ -157,7 +145,7 @@ void findRangeMask(int rangelimit, uint32_t samp)
 {
   samp &= 0x0003FFFF;
   Serial.print(samp);
-  Serial.print(" ");  
+  Serial.print(" ");
   Serial.print(-1);
   Serial.print(" ");
   Serial.print(rangelimit);
