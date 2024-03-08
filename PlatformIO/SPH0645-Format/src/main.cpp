@@ -12,10 +12,9 @@
 #define I2S_PORT I2S_NUM_0
 
 // Define input buffer length
-const int SAMPLE_SIZE = 16384;
+const int SAMPLE_SIZE = 512;
 
 // Function declarations
-uint32_t actualSample(uint32_t sample);
 void findRange(int rangelimit, uint32_t samp);
 void findRangeMask(int rangelimit, uint32_t samp);
 void printTwo(uint32_t m, uint32_t t);
@@ -48,11 +47,13 @@ void loop()
     Serial.println("Failed to allocate memory for samples");
     return;
   }
-  while (true)
+  int samples_read = read(samples, SAMPLE_SIZE);
+  for (int i = 0; i < samples_read; i++)
   {
-    int samples_read = read(samples, SAMPLE_SIZE);
-    Serial.println(samples_read);
+    findRange(32768, samples[i]);
   }
+  //free(samples); // Don't forget to free the allocated memory!
+  delay(10); // Adjust delay as needed to manage plotting speed
 }
 
 //*********************************************************************************************************************************
@@ -89,7 +90,7 @@ void i2s_install_atomic()
           .sample_rate = 16000,
           .bits_per_sample = I2S_BITS_PER_SAMPLE_32BIT,
           .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
-          .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_I2S),
+          .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_STAND_I2S),
           .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
           .dma_buf_count = 4,
           .dma_buf_len = 1024,
@@ -115,38 +116,11 @@ void i2s_setpin_atomic()
   i2s_set_pin(I2S_PORT, &pin_config);
 }
 
-uint32_t actualSample(uint32_t sample)
-{
-  uint32_t twoComp = ~sample + 1;
-  return twoComp & 0x0003FFFF;
-}
-void printTwo(uint32_t m, uint32_t t)
-{
-  Serial.print(m, BIN);
-  Serial.println();
-  Serial.print(t, BIN);
-  Serial.println();
-  Serial.println();
-}
-void plotOne(uint32_t samp)
-{
-  Serial.println(samp);
-}
 void findRange(int rangelimit, uint32_t samp)
 {
   Serial.print(samp);
   Serial.print(" ");
-  Serial.print(-1);
-  Serial.print(" ");
-  Serial.print(rangelimit);
-  Serial.println();
-}
-void findRangeMask(int rangelimit, uint32_t samp)
-{
-  samp &= 0x0003FFFF;
-  Serial.print(samp);
-  Serial.print(" ");
-  Serial.print(-1);
+  Serial.print(-1 * rangelimit);
   Serial.print(" ");
   Serial.print(rangelimit);
   Serial.println();
