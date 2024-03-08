@@ -10,6 +10,10 @@
 		{
 			"name": "VOIP-Prototype1",
 			"path": "."
+		},
+		{
+			"name": "SPH0645-Format",
+			"path": "../SPH0645-Format"
 		}
 	],
 	"settings": {}
