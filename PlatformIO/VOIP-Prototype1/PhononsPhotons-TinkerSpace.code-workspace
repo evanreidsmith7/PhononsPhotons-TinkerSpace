@@ -14,6 +14,10 @@
 		{
 			"name": "SPH0645-Format",
 			"path": "../SPH0645-Format"
+		},
+		{
+			"name": "Webserver-Intro",
+			"path": "../Webserver-Intro"
 		}
 	],
 	"settings": {}
