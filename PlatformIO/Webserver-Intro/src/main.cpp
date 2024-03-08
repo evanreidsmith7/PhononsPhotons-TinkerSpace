@@ -11,10 +11,15 @@
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
 
+// function prototypes
+String outputState(int output);
+String processor(const String &var);
 // Replace with your network credentials
-const char *ssid = "REPLACE_WITH_YOUR_SSID";
-const char *password = "REPLACE_WITH_YOUR_PASSWORD";
+const char *ssid = "schmittttty";
+const char *password = "12345678";
 
+// To check the parameters passed on the URL (GPIO number and its state)
+// we create two variables, one for the output and other for the state.
 const char *PARAM_INPUT_1 = "output";
 const char *PARAM_INPUT_2 = "state";
 
