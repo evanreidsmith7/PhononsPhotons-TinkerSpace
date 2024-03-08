@@ -57,7 +57,7 @@ void loop()
     return;
   }
   int samples_read = read(samples, SAMPLE_SIZE);
-  //free(samples); // Don't forget to free the allocated memory!
+  free(samples); // Don't forget to free the allocated memory!
   delay(10); // Adjust delay as needed to manage plotting speed
 }
 
@@ -79,6 +79,7 @@ int read(int16_t *samples, int count)
     for (int i = 0; i < samples_read; i++)
     {
       samples[sample_index] = (raw_samples[i] & 0xFFFFFFF0) >> 11;
+      printPlotLimits(32768); // Adjust rangelimit based on your data range
       Serial.println(samples[sample_index]);
       sample_index++;
       count--;
@@ -135,5 +136,6 @@ void printPlotLimits(int rangelimit)
 {
   Serial.print(-1 * rangelimit);
   Serial.print(" ");
-  Serial.println(rangelimit);
+  Serial.print(rangelimit);
+  Serial.print(" ");
 }
