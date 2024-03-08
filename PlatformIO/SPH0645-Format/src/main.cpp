@@ -50,6 +50,9 @@ void setup()
 //*********************************************************************************************************************************
 void loop()
 {
+  // Dynamically allocate memory for storing the processed audio samples.
+  // The size of the allocation is determined by SAMPLE_SIZE, which specifies
+  // the number of samples to process in each iteration of the loop
   int16_t *samples = (int16_t *)malloc(sizeof(uint16_t) * SAMPLE_SIZE);
   if (!samples)
   {
