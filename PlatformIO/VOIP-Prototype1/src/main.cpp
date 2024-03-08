@@ -103,8 +103,7 @@ void loop() {
 
     uint32_t aTest = actualSample(mean);
     
-    //findRange(262144, aTest);
-    plotOne(aTest);
+    findRange(262144, aTest);
   }
   else
   {
