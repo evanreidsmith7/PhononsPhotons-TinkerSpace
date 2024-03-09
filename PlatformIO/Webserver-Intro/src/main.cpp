@@ -14,6 +14,7 @@
 // function prototypes
 String outputState(int output);
 String processor(const String &var);
+
 // Replace with your network credentials
 const char *ssid = "schmittttty";
 const char *password = "12345678";
