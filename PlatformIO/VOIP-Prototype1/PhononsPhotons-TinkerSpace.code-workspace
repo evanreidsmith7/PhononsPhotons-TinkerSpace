@@ -20,5 +20,9 @@
 			"path": "../Webserver-Intro"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"algorithm": "cpp"
+		}
+	}
 }
