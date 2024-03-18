@@ -10,10 +10,8 @@ void setup()
   Serial.begin(115200);
   delay(1000);
 
-  //setupAudioProcessing();
+  setupAudioProcessing();
   delay(500);
-
-  //printPlotLimits(32768); // Adjust rangelimit based on your data range
 
   setupWebServer();
 }
@@ -23,7 +21,7 @@ void setup()
 //*********************************************************************************************************************************
 void loop()
 {
-  //processAudioData();
+  processAudioData();
   delay(10);
 }
 
