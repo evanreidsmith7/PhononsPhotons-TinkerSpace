@@ -21,10 +21,6 @@ void setup()
 //*********************************************************************************************************************************
 void loop()
 {
-  // Dynamically allocate memory for storing the processed audio samples.
-  // The size of the allocation is determined by SAMPLE_SIZE, which specifies
-  // the number of samples to process in each iteration of the loop
-
   processAudioData();
   delay(10);
 }

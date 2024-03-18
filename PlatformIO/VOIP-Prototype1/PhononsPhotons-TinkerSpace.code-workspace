@@ -18,6 +18,10 @@
 		{
 			"name": "Webserver-Intro",
 			"path": "../Webserver-Intro"
+		},
+		{
+			"name": "Simple_Server",
+			"path": "../Simple_Server"
 		}
 	],
 	"settings": {
