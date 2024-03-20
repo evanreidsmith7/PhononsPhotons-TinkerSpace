@@ -52,11 +52,11 @@ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/Ph
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:2900:19:HAL_LIN_SendBreak	2
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:2945:23:HAL_UART_GetState	1
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:2961:10:HAL_UART_GetError	1
-C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3007:19:UART_SetConfig	56
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3007:19:UART_SetConfig	95
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3271:6:UART_AdvFeatureConfig	10
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3414:19:UART_WaitOnFlagUntilTimeout	8
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:1120:19:HAL_UART_Transmit	10
-C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:1210:19:HAL_UART_Receive	12
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:1210:19:HAL_UART_Receive	13
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3345:19:UART_CheckIdleState	8
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:307:19:HAL_UART_Init	5
 C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:380:19:HAL_HalfDuplex_Init	5
