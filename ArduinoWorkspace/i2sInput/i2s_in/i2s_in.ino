@@ -92,7 +92,7 @@ void loop() {
     uint32_t actualSampleBufferAverage = twosComplement & 0x0003FFFF;
 
     uint32_t aTest = actualSample(mean);
-    
+      
     findRange(262144, aTest);
     //findRange(262144, actualSampleBufferAverage);
     //Serial.println(actualSampleBufferAverage);

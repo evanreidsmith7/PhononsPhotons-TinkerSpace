@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "first-proj",
+			"path": "../first-proj"
+		},
+		{
+			"name": "VOIP-Prototype1",
+			"path": "."
+		},
+		{
+			"name": "SPH0645-Format",
+			"path": "../SPH0645-Format"
+		},
+		{
+			"name": "Webserver-Intro",
+			"path": "../Webserver-Intro"
+		},
+		{
+			"name": "Simple_Server",
+			"path": "../Simple_Server"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"algorithm": "cpp"
+		}
+	}
+}
