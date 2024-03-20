@@ -1,39 +1,32 @@
-10:50:20 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+10:54:19 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
 make -j8 all 
 arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
  969456	   2916	 114984	1087356	 10977c	PhonPhot_Complete_CM4.elf
 Finished building: default.size.stdout
  
-10:50:26 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+10:54:25 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
 make -j8 all 
 arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
  969456	   2916	 114984	1087356	 10977c	PhonPhot_Complete_CM4.elf
 Finished building: default.size.stdout
  
-10:50:27 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM7 ****
+10:54:26 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM7 ****
 make -j8 all 
 arm-none-eabi-size  PhonPhot_Complete_CM7.elf 
    text	   data	    bss	    dec	    hex	filename
  627776	    404	  56196	 684376	  a7158	PhonPhot_Complete_CM7.elf
 Finished building: default.size.stdout
  
-10:50:29 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+10:54:27 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
 make -j8 all 
 arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
  969456	   2916	 114984	1087356	 10977c	PhonPhot_Complete_CM4.elf
 Finished building: default.size.stdout
  
-10:50:49 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
-make -j8 all 
-arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
-   text	   data	    bss	    dec	    hex	filename
- 969456	   2916	 114984	1087356	 10977c	PhonPhot_Complete_CM4.elf
-Finished building: default.size.stdout
- 
-10:51:00 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+10:54:42 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
 make -j8 all 
 arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
    text	   data	    bss	    dec	    hex	filename

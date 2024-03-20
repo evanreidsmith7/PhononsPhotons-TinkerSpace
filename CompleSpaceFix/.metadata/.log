@@ -1894,3 +1894,12 @@ Reason: (18) Could not verify ST device! Abort connection.
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-03-20 10:51:07.992
 !MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 9600000; CPU: 115200000; div: 12
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-03-20 10:54:34.217
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 8000000; CPU: 16000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-03-20 10:54:35.068
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 9600000; CPU: 115200000; div: 12
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-03-20 10:54:50.109
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 9600000; CPU: 115200000; div: 12
