@@ -29,9 +29,9 @@
 
 
 //      I2S_SEL_dac gnd // SCK  GND
-#define I2S_SCK_DAC 14  // BCK  14-14
-#define I2S_SD_DAC 22   // DIN  22-22
-#define I2S_WS_DAC 15   // LCK  15-15
+#define I2S_SCK_DAC 16  // BCK  14-14-16
+#define I2S_SD_DAC 21   // DIN  22-22-21
+#define I2S_WS_DAC 17   // LCK  15-15-17
 //             GND gnd  // GND  GND
 //             VDD 5V   // VIN  5V
 
@@ -154,7 +154,7 @@ void loop() {
     size_t bytesIn = 0;
     size_t bytesOut = 0;
 
-    esp_err_t inResult = i2s_read(I2S_NUM_0, &sBuffer[currentBuffer], sizeof(sBuffer[currentBuffer]), &bytesIn, portMAX_DELAY);
+    esp_err_t inResult = i2s_read(I2S_NUM_0, sBuffer[currentBuffer], sizeof(sBuffer[currentBuffer]), &bytesIn, portMAX_DELAY);
     if (inResult != ESP_OK) {
         Serial.println("Failed to read audio data from microphone.");
         return;
@@ -165,16 +165,19 @@ void loop() {
     // Send audio data over serial for visual plotter
     for (int i = 0; i < bytesIn / sizeof(sBuffer[currentBuffer][0]); i++) {
         float magnitude = (float)sBuffer[currentBuffer][i] / 2147483648.0;
-        float scaledMagnitude = magnitude * 100.0 + 50.0;
-        Serial.print(i); // X-coordinate (sample index)
+        float scaledValue = - magnitude * 100.0 + 187.50;
+        Serial.print(30); // X-coordinate (sample index)
+        Serial.print(-5); // X-coordinate (sample index)
         Serial.print(","); // Separator
-        Serial.println(scaledMagnitude, 2); // Y-coordinate (scaled magnitude)
+        sBuffer[currentBuffer][i] = scaledValue;
+        Serial.println(sBuffer[currentBuffer][i], 2); // Y-coordinate (scaled magnitude)
     }
 
-    // Write the same buffer to the DAC
-    esp_err_t outResult = i2s_write(I2S_NUM_1, &sBuffer[currentBuffer], bytesIn, &bytesOut, portMAX_DELAY);
+    // Write the entire buffer to the DAC
+    esp_err_t outResult = i2s_write(I2S_NUM_1, sBuffer[currentBuffer], bytesIn, &bytesOut, portMAX_DELAY);
     if (outResult != ESP_OK) {
         Serial.println("Failed to write audio data to DAC.");
         return;
     }
+
 }
