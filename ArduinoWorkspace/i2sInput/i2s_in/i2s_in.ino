@@ -94,14 +94,14 @@ void loop() {
     uint32_t aTest = actualSample(mean);
     
     findRange(262144, aTest);
-    //findRange(262144, actualSampleBufferAverage);
+   // findRange(262144, actualSampleBufferAverage);
     //Serial.println(actualSampleBufferAverage);
     
-    //findRange(262144, twosComplement);
+   // findRange(262144, twosComplement);
     //printTwo(mean, twosComplement);
     
-    //findRangeMask(262144, mean);
-    //findRangeMask(262144, twosComplement);
+   // findRangeMask(262144, mean);
+   // findRangeMask(262144, twosComplement);
   }
   else
   {
