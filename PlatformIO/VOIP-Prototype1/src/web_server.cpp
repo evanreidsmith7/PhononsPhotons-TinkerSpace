@@ -21,6 +21,8 @@ void setupWebServer()
       Serial.println("Connecting to WiFi...");
    }
    Serial.println("Connected to WiFi");
+   Serial.print("IP Address: ");
+   Serial.println(WiFi.localIP());
 
 // Route for root / web page
     server.on("/", HTTP_GET, [](AsyncWebServerRequest *request) {

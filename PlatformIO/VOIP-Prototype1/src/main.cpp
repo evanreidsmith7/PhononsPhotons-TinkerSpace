@@ -2,6 +2,7 @@
 #include "audio_processing.h"
 #include "web_server.h"
 
+const int SAMPLE_SIZE = 512;
 //*********************************************************************************************************************************
 //***************************************            SETUP               ******************************************************
 //*********************************************************************************************************************************
@@ -21,7 +22,17 @@ void setup()
 //*********************************************************************************************************************************
 void loop()
 {
-  processAudioData();
+  //processAudioData();
+  static int16_t audioBuffer[SAMPLE_SIZE]; // Static to avoid re-allocation on each loop iteration
+  int numSamplesToRead = SAMPLE_SIZE; // Adjust based on your needs
+
+  int samplesRead = processAudioData(audioBuffer, numSamplesToRead);
+  if (samplesRead > 0)
+  {
+    // Audio data is now in audioBuffer and can be processed or transmitted
+    Serial.print("Samples read: ");
+    Serial.println(samplesRead);
+  }
   delay(10);
 }
 
