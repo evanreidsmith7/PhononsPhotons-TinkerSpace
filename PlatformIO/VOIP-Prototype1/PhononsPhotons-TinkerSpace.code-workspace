@@ -22,11 +22,16 @@
 		{
 			"name": "Simple_Server",
 			"path": "../Simple_Server"
+		},
+		{
+			"name": "240327-104303-esp32dev",
+			"path": "../../../../OneDrive - Texas State University/Documents/PlatformIO/Projects/240327-104303-esp32dev"
 		}
 	],
 	"settings": {
 		"files.associations": {
-			"algorithm": "cpp"
+			"algorithm": "cpp",
+			"*.tcc": "cpp"
 		}
 	}
 }
