@@ -24,8 +24,8 @@
 			"path": "../Simple_Server"
 		},
 		{
-			"name": "240327-104303-esp32dev",
-			"path": "../../../../OneDrive - Texas State University/Documents/PlatformIO/Projects/240327-104303-esp32dev"
+			"name": "VOIP-Prototype2",
+			"path": "../VOIP-Prototype2"
 		}
 	],
 	"settings": {
