@@ -27,6 +27,7 @@ wsServer.on("connection", (ws, req) => {
   connectedClients.push(ws);
   // listen for messages from the streamer, the clients will not send anything so we don't need to filter
   ws.on("message", (data) => {
+    console.log("Message: ", data);
     connectedClients.forEach((ws, i) => {
       if (ws.readyState === ws.OPEN) {
         ws.send(data);
