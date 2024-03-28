@@ -1,4 +1,4 @@
-#!usr/bin/python
+#!USR/BIN/PYTHON
 #----------------------------------------------------------------------------- #
 #----------------------------------------------------------------------------- #
 #  >>> generate_stm32  
@@ -67,9 +67,11 @@ DSET_PATH  = os.path.join(os.getcwd(), "Datasets" )
 OUT_PATH   = os.path.join(os.getcwd(), "Output"   )
 EVAL_PATH  = os.path.join(os.getcwd(), "Evaluate" )
 
-DT_FORMAT  = "%m_%d_%H%M%S"
-DATETIME   = datetime.now().strftime(DT_FORMAT)
-N_REGIONS  = 12 
+DT_FORMAT     = "%m_%d_%H%M%S"
+DATETIME      = datetime.now().strftime(DT_FORMAT)
+N_REGIONS     = 12 
+N_MICS        = 6
+N_PTS_TO_TRIM = 127
 
 
 # ---------------------------------------------------------------------------- #
@@ -377,7 +379,8 @@ def load_csv_files(directory):
 #               
 #              
 # ---------------------------------------------------------------------------- # 
-def data_preprocessing(region_path,model_name):
+def data_preprocessing(region_path,model_name,TRIM=False):
+
 
     print("Preprocessing data...")
     # Dataframe to store entire dataset
@@ -387,6 +390,19 @@ def data_preprocessing(region_path,model_name):
     for region in range(1,N_REGIONS + 1):
 
         region_dataset = load_csv_files(os.path.join(region_path, f"R{region}"))
+        
+        # ----------------------------------- #
+        #  Trim x data points off each mic
+        #  Ex: if N_PTS_TO_TRIM = 127, keep 0-60khz (0:126) each mic.
+        #  Set TRIM=True in main if you want to use it.
+        # ----------------------------------- #
+        
+        if TRIM:
+            ctr = N_PTS_TO_TRIM  
+            for i in range(N_MICS):
+                region_dataset = region_dataset.drop(columns=region_dataset.columns[ctr-1 : ctr + N_PTS_TO_TRIM],inplace=False)
+                ctr += N_PTS_TO_TRIM - 1
+
         full_dataset   = pd.concat([full_dataset, region_dataset], ignore_index=True)
 
     # Handling missing values by dropping rows with missing values
@@ -488,7 +504,7 @@ def build_model(X,y_encoded,model_name):
 
     model = Sequential([
         prune_low_magnitude(
-            Dense(1524,input_dim=1524,activation='relu',name="pruning_sparsity_0_5"),
+            Dense(1524,input_dim=756,activation='relu',name="pruning_sparsity_0_5"),
             **pruning_params_sparsity_0_5),
         prune_low_magnitude(
             Dense(units=256,activation='relu'),
@@ -610,7 +626,7 @@ def build_model(X,y_encoded,model_name):
 def main(dataset_dir,model_name):
 
     reg_path = os.path.join(DSET_PATH, dataset_dir)
-    X,y      = data_preprocessing(reg_path,model_name)
+    X,y      = data_preprocessing(reg_path,model_name,TRIM=False)
     build_model(X,y,model_name)
 
     return 
