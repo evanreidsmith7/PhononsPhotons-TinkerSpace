@@ -1,7 +1,7 @@
 Drivers/Components/mt48lc4m32b2.o: \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2.c \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2.h \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2_conf.h \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2.c \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2.h \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -40,8 +40,8 @@ Drivers/Components/mt48lc4m32b2.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_fmc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h
-C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2.h:
-C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2_conf.h:
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2.h:
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Drivers/BSP/Components/mt48lc4m32b2/mt48lc4m32b2_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
