@@ -1,0 +1,63 @@
+[0.000] initConfigParams():  Configuration flags start
+[0.000] initConfigParams():   external-init                  false
+[0.000] initConfigParams():   pend-halt-timeout              (null)
+[0.000] initConfigParams():  +halt                           true
+[0.000] initConfigParams():   config-file                    ""
+[0.000] initConfigParams():   persistent                     false
+[0.000] initConfigParams():  +log-file                       "C:\Projects\PhononsPhotons-TinkerSpace\CompleSpaceFix\PhonPhot_Complete_System\debug_log"
+[0.000] initConfigParams():  +log-level                      31
+[0.000] initConfigParams():  +port-number                    61238
+[0.000] initConfigParams():  +verbose                        true
+[0.000] initConfigParams():   refresh-delay                  15
+[0.000] initConfigParams():  +verify                         true
+[0.000] initConfigParams():  +swd                            true
+[0.000] initConfigParams():  +swo-port                       61239
+[0.000] initConfigParams():   cpu-clock                      8000000
+[0.000] initConfigParams():   swo-clock-div                  128
+[0.000] initConfigParams():  +initialize-reset               true
+[0.000] initConfigParams():   debuggers                      false
+[0.000] initConfigParams():   serial-number                  ""
+[0.000] initConfigParams():  +apid                           0
+[0.000] initConfigParams():   attach                         false
+[0.000] initConfigParams():  +shared                         true
+[0.000] initConfigParams():   erase-all                      false
+[0.000] initConfigParams():   memory-map                     ""
+[0.000] initConfigParams():   ext-memory-loaders             false
+[0.000] initConfigParams():   extload_init                   (null)
+[0.000] initConfigParams():   extload                        (null)
+[0.000] initConfigParams():  +stm32cubeprogrammer-path       "C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.1.100.202311100844\tools\bin"
+[0.000] initConfigParams():   temp-path                      ""
+[0.000] initConfigParams():   preserve-temps                 false
+[0.000] initConfigParams():   frequency                      0
+[0.000] initConfigParams():   licenses                       false
+[0.000] initConfigParams():   ignore-rest                    false
+[0.000] initConfigParams():   version                        false
+[0.000] initConfigParams():   help                           false
+[0.000] initConfigParams():  Configuration flags end
+[0.001] init():  STMicroelectronics ST-LINK GDB server. Version 7.5.0
+Copyright (c) 2023, STMicroelectronics. All rights reserved.
+[0.220] openDevice():  COM frequency = 24000 kHz
+[0.220] openDevice():  Target connection mode: Under reset
+[0.222] openDevice():  Target connection failed
+[0.222] openDevice():  COM frequency = 8000 kHz
+[0.222] openDevice():  Target connection mode: Under reset
+[0.225] openDevice():  Target connection failed
+[0.225] openDevice():  COM frequency = 3300 kHz
+[0.225] openDevice():  Target connection mode: Under reset
+[0.228] openDevice():  Target connection failed
+[0.228] openDevice():  COM frequency = 1000 kHz
+[0.228] openDevice():  Target connection mode: Under reset
+[0.231] openDevice():  Target connection failed
+[0.231] openDevice():  COM frequency = 200 kHz
+[0.231] openDevice():  Target connection mode: Under reset
+[0.234] openDevice():  Target connection failed
+[0.235] openDevice():  COM frequency = 50 kHz
+[0.235] openDevice():  Target connection mode: Under reset
+[0.239] openDevice():  Target connection failed
+[0.240] openDevice():  COM frequency = 5 kHz
+[0.240] openDevice():  Target connection mode: Under reset
+[0.256] openDevice():  Target connection failed
+[0.256] openDevice():  Target unknown error 19
+[0.256] initServerContext():  
+Error in initializing ST-LINK device.
+Reason: [0.256] initServerContext():  Unknown. Please check power and cabling to target.

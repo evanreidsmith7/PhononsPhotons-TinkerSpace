@@ -1,9 +1,9 @@
 
 /**
   ******************************************************************************
-  * @file    ann_762_config.h
+  * @file    ann_1524_trimmed_config.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    Fri Feb  9 21:15:15 2024
+  * @date    Fri Mar 29 06:49:08 2024
   * @brief   AI Tool Automatic Code Generator for Custom Layers Implementation
   ******************************************************************************
   * @attention
@@ -17,8 +17,8 @@
   ******************************************************************************
   */
 
-#ifndef AI_ANN_762_CONFIG_H
-#define AI_ANN_762_CONFIG_H
+#ifndef AI_ANN_1524_TRIMMED_CONFIG_H
+#define AI_ANN_1524_TRIMMED_CONFIG_H
 #pragma once
 
 #undef AI_TOOLS_VERSION_MAJOR
@@ -44,4 +44,4 @@
 #define AI_TOOLS_API_VERSION_MINOR (5)
 #define AI_TOOLS_API_VERSION_MICRO (0)
 
-#endif /*AI_ANN_762_CONFIG_H*/
+#endif /*AI_ANN_1524_TRIMMED_CONFIG_H*/

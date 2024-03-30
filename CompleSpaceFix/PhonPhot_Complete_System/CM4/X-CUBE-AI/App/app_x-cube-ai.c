@@ -53,33 +53,34 @@
 
 #include "app_x-cube-ai.h"
 #include "main.h"
+#include "ipc_interface.h"
 #include "ai_datatypes_defines.h"
-#include "ann_762.h"
-#include "ann_762_data.h"
+#include "ann_1524_trimmed.h"
+#include "ann_1524_trimmed_data.h"
 
 /* USER CODE BEGIN includes */
 /* USER CODE END includes */
 
 /* IO buffers ----------------------------------------------------------------*/
 
-#if !defined(AI_ANN_762_INPUTS_IN_ACTIVATIONS)
-AI_ALIGNED(4) ai_i8 data_in_1[AI_ANN_762_IN_1_SIZE_BYTES];
-ai_i8* data_ins[AI_ANN_762_IN_NUM] = {
+#if !defined(AI_ANN_1524_TRIMMED_INPUTS_IN_ACTIVATIONS)
+AI_ALIGNED(4) ai_float data_in_1[AI_ANN_1524ANN_1524_TRIMMED_IN_1_SIZE_BYTES];
+ai_float* data_ins[AI_ANN_1524_TRIMMED_IN_NUM] = {
 data_in_1
 };
 #else
-ai_i8* data_ins[AI_ANN_762_IN_NUM] = {
+ai_float* data_ins[AI_ANN_1524_TRIMMED_IN_NUM] = {
 NULL
 };
 #endif
 
-#if !defined(AI_ANN_762_OUTPUTS_IN_ACTIVATIONS)
-AI_ALIGNED(4) ai_i8 data_out_1[AI_ANN_762_OUT_1_SIZE_BYTES];
-ai_i8* data_outs[AI_ANN_762_OUT_NUM] = {
+#if !defined(AI_ANN_1524_TRIMMED_OUTPUTS_IN_ACTIVATIONS)
+AI_ALIGNED(4) ai_i8 data_out_1[AI_ANN_1524_TRIMMED_OUT_1_SIZE_BYTES];
+ai_i8* data_outs[AI_ANN_1524_TRIMMED_OUT_NUM] = {
 data_out_1
 };
 #else
-ai_i8* data_outs[AI_ANN_762_OUT_NUM] = {
+ai_i8* data_outs[AI_ANN_1524_TRIMMED_OUT_NUM] = {
 NULL
 };
 #endif
@@ -87,13 +88,13 @@ NULL
 /* Activations buffers -------------------------------------------------------*/
 
 AI_ALIGNED(32)
-static uint8_t pool0[AI_ANN_762_DATA_ACTIVATION_1_SIZE];
+static uint8_t pool0[AI_ANN_1524_TRIMMED_DATA_ACTIVATION_1_SIZE];
 
 ai_handle data_activations0[] = {pool0};
 
 /* AI objects ----------------------------------------------------------------*/
 
-static ai_handle ann_762 = AI_HANDLE_NULL;
+static ai_handle ann_1524_trimmed = AI_HANDLE_NULL;
 
 static ai_buffer* ai_input;
 static ai_buffer* ai_output;
@@ -116,37 +117,37 @@ static int ai_boostrap(ai_handle *act_addr)
   ai_error err;
 
   /* Create and initialize an instance of the model */
-  err = ai_ann_762_create_and_init(&ann_762, act_addr, NULL);
+  err = ai_ann_1524_trimmed_create_and_init(&ann_1524_trimmed, act_addr, NULL);
   if (err.type != AI_ERROR_NONE) {
-    ai_log_err(err, "ai_ann_762_create_and_init");
+    ai_log_err(err, "ai_ann_1524_trimmed_create_and_init");
     return -1;
   }
 
-  ai_input = ai_ann_762_inputs_get(ann_762, NULL);
-  ai_output = ai_ann_762_outputs_get(ann_762, NULL);
+  ai_input = ai_ann_1524_trimmed_inputs_get(ann_1524_trimmed, NULL);
+  ai_output = ai_ann_1524_trimmed_outputs_get(ann_1524_trimmed, NULL);
 
-#if defined(AI_ANN_762_INPUTS_IN_ACTIVATIONS)
+#if defined(AI_ANN_1524_TRIMMED_INPUTS_IN_ACTIVATIONS)
   /*  In the case where "--allocate-inputs" option is used, memory buffer can be
    *  used from the activations buffer. This is not mandatory.
    */
-  for (int idx=0; idx < AI_ANN_762_IN_NUM; idx++) {
+  for (int idx=0; idx < AI_ANN_1524_TRIMMED_IN_NUM; idx++) {
 	data_ins[idx] = ai_input[idx].data;
   }
 #else
-  for (int idx=0; idx < AI_ANN_762_IN_NUM; idx++) {
+  for (int idx=0; idx < AI_ANN_1524_TRIMMED_IN_NUM; idx++) {
 	  ai_input[idx].data = data_ins[idx];
   }
 #endif
 
-#if defined(AI_ANN_762_OUTPUTS_IN_ACTIVATIONS)
+#if defined(AI_ANN_1524_TRIMMED_OUTPUTS_IN_ACTIVATIONS)
   /*  In the case where "--allocate-outputs" option is used, memory buffer can be
    *  used from the activations buffer. This is no mandatory.
    */
-  for (int idx=0; idx < AI_ANN_762_OUT_NUM; idx++) {
+  for (int idx=0; idx < AI_ANN_1524_TRIMMED_OUT_NUM; idx++) {
 	data_outs[idx] = ai_output[idx].data;
   }
 #else
-  for (int idx=0; idx < AI_ANN_762_OUT_NUM; idx++) {
+  for (int idx=0; idx < AI_ANN_1524_TRIMMED_OUT_NUM; idx++) {
 	ai_output[idx].data = data_outs[idx];
   }
 #endif
@@ -158,38 +159,57 @@ static int ai_run(void)
 {
   ai_i32 batch;
 
-  batch = ai_ann_762_run(ann_762, ai_input, ai_output);
+  batch = ai_ann_1524_trimmed_run(ann_1524_trimmed, ai_input, ai_output);
   if (batch != 1) {
-    ai_log_err(ai_ann_762_get_error(ann_762),
-        "ai_ann_762_run");
+    ai_log_err(ai_ann_1524_trimmed_get_error(ann_1524_trimmed),
+        "ai_ann_1524_trimmed_run");
+    printf("batch = %f\r\n",batch);
     return -1;
   }
 
   return 0;
 }
 
-/* USER CODE BEGIN 2 */
-int acquire_and_process_data(ai_i8* data[])
-{
-  /* fill the inputs of the c-model
-  for (int idx=0; idx < AI_ANN_762_IN_NUM; idx++ )
-  {
-      data[idx] = ....
-  }
+int acquire_and_process_data(ai_float* data[], float mag_buffer[6][256]) {
 
-  */
-  return 0;
+    for (int idx = 0; idx < 6; idx++) {
+
+    	// Skip first value in FFT data
+        for (int j = 0; j < 127; j++) {
+            data[idx] = &mag_buffer[idx][j + 1]; // Assign values from mag_buffer
+        }
+
+    }
+
+    return 0; // Return success
 }
 
 int post_process(ai_i8* data[])
 {
-  /* process the predictions
-  for (int idx=0; idx < AI_ANN_762_OUT_NUM; idx++ )
-  {
-      data[idx] = ....
-  }
 
-  */
+    //printf("In post process\r\n");
+    ai_i8* predicted_region[3];
+
+    // process the predictions
+    for (int idx = 0; idx < 3; idx++) {
+        predicted_region[idx] = data[idx];
+        printf("predicted_region[%d] = %d\r\n\n", idx, *predicted_region[idx]);
+    }
+
+
+  int8_t prev_region,curr_region;
+
+  //printf("Reading predicted region from IPC before write\r\n");
+  prev_region = IPCGetPredictedRegion();
+  //printf("Predicted region Previous = %d\r\n\n", prev_region);
+
+  //printf("Setting predicted region to IPC\r\n\n");
+  IPCSetPredictedRegion((uint8_t)(*predicted_region[0]));
+
+  //printf("Reading predicted region from IPC after write\r\n");
+  curr_region = IPCGetPredictedRegion();
+  //printf("Predicted region New = %d\r\n\n", curr_region);
+
   return 0;
 }
 /* USER CODE END 2 */
@@ -199,32 +219,36 @@ int post_process(ai_i8* data[])
 void MX_X_CUBE_AI_Init(void)
 {
     /* USER CODE BEGIN 5 */
-  printf("\r\nTEMPLATE - initialization\r\n");
+  printf("\r\nMX_X_CUBE_AI_Init\r\n");
 
   ai_boostrap(data_activations0);
+  printf("ann_1524_trimmed returns  %d\r\n\n", ((uint8_t*) ann_1524_trimmed)[0]);
     /* USER CODE END 5 */
 }
 
-void MX_X_CUBE_AI_Process(void)
+void MX_X_CUBE_AI_Process(float mag_buffer[6][256])
 {
     /* USER CODE BEGIN 6 */
   int res = -1;
 
-  printf("TEMPLATE - run - main loop\r\n");
+  printf("\nMX_X_CUBE_AI_Process\r\n\n");
 
-  if (ann_762) {
+  //printf("ann_1524_trimmed %d\r\n", ((uint8_t*) ann_1524_trimmed)[0]);
+  if (ann_1524_trimmed) {
 
-    do {
-      /* 1 - acquire and pre-process input data */
-      res = acquire_and_process_data(data_ins);
-      /* 2 - process the data - call inference engine */
-      if (res == 0)
-        res = ai_run();
-      /* 3- post-process the predictions */
-      if (res == 0)
-        res = post_process(data_outs);
-    } while (res==0);
+	//AI_RUNNING = TRUE;
+    /* 1 - acquire and pre-process input data */
+    res = acquire_and_process_data(data_ins,mag_buffer);
+    //printf("acquire_and_process returns %d", res);
+    /* 2 - process the data - call inference engine */
+    if (res == 0 ) res = ai_run();
+    //else AI_RUNNING = FALSE;
+    /* 3- post-process the predictions */
+    if (res == 0) res = post_process(data_outs);
+    //else AI_RUNNING = FALSE;
+
   }
+
 
   if (res) {
     ai_error err = {AI_ERROR_INVALID_STATE, AI_ERROR_CODE_NETWORK};

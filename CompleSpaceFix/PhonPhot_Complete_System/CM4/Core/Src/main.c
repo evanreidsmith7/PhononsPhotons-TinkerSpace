@@ -70,6 +70,25 @@
   * @brief  The application entry point.
   * @retval int
   */
+int _write(int file, char *ptr, int len)
+
+{
+	int DataIdx;
+
+	for (DataIdx = 0; DataIdx < len; DataIdx++)
+
+	{
+
+		ITM_SendChar(*ptr++);
+
+	}
+
+	return len;
+}
+
+
+
+
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -114,7 +133,6 @@ int main(void)
   MX_ADC3_Init();
   MX_ADC1_Init();
   MX_X_CUBE_AI_Init();
-
   /* USER CODE BEGIN 2 */
 
   dspEntry( );
@@ -126,7 +144,6 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
-	MX_X_CUBE_AI_Process();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

@@ -314,17 +314,6 @@ void dspGetMicrophoneAnomalyMagnitudes( float *_mic_1_db, float *_mic_2_db, floa
   *_mic_6_db = fft_channel_magnitude_db[5];
 }
 
-int _write(int file, char *ptr,int len)
-{
-	int DataIdx;
-
-	for (DataIdx = 0; DataIdx < len; DataIdx++)
-	{
-		ITM_SendChar(*ptr++);
-	}
-}
-
-
 
 void dspEntry( void )
 {
