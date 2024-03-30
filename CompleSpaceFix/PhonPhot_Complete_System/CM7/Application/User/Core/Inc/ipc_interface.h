@@ -28,9 +28,13 @@ float IPCGetAnomalyFrequency( void );
 void IPCSetAnomalyFrequency( float );
 float IPCGetAnomalyMagnitudedB( void );
 void IPCSetAnomalyMagnitudedB( float );
-
+int8_t IPCGetPredictedRegion( void );
+void IPCSetPredictedRegion( int8_t );
 boolean_t IPCGetAlarmMuteState( void );
 void IPCSetAlarmMuteState( boolean_t );
+void IPCLock();
+void IPCUnlock();
+boolean_t IPCGetLock();
 
 // TODO - full array getters/setters
 // TODO - vector getter/setter
