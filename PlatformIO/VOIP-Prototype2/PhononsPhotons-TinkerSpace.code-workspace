@@ -1,13 +1,11 @@
 {
-	"folders": [
-		{
-			"path": "../../"
-		},
-	],
-	"settings": {
-		"files.associations": {
-			"algorithm": "cpp",
-			"*.tcc": "cpp"
-		}
-	}
+   "folders": [
+      {
+         "path": "../.."
+      },
+      {
+         "name": "VOIP-Prototype2",
+         "path": "."
+      }
+   ]
 }
