@@ -1,0 +1,671 @@
+[0.000] initConfigParams():  Configuration flags start
+[0.000] initConfigParams():   external-init                  false
+[0.000] initConfigParams():   pend-halt-timeout              (null)
+[0.000] initConfigParams():   halt                           false
+[0.000] initConfigParams():   config-file                    ""
+[0.000] initConfigParams():   persistent                     false
+[0.000] initConfigParams():  +log-file                       "C:\Projects\PhononsPhotons-TinkerSpace\CompleSpaceFix\PhonPhot_Complete_System\debug_log_cm4"
+[0.000] initConfigParams():  +log-level                      31
+[0.000] initConfigParams():  +port-number                    61234
+[0.000] initConfigParams():  +verbose                        true
+[0.000] initConfigParams():   refresh-delay                  15
+[0.000] initConfigParams():  +verify                         true
+[0.000] initConfigParams():  +swd                            true
+[0.000] initConfigParams():  +swo-port                       61235
+[0.000] initConfigParams():   cpu-clock                      8000000
+[0.000] initConfigParams():   swo-clock-div                  128
+[0.000] initConfigParams():   initialize-reset               false
+[0.000] initConfigParams():   debuggers                      false
+[0.000] initConfigParams():   serial-number                  ""
+[0.000] initConfigParams():  +apid                           3
+[0.000] initConfigParams():  +attach                         true
+[0.000] initConfigParams():  +shared                         true
+[0.000] initConfigParams():   erase-all                      false
+[0.000] initConfigParams():   memory-map                     ""
+[0.000] initConfigParams():   ext-memory-loaders             false
+[0.000] initConfigParams():   extload_init                   (null)
+[0.000] initConfigParams():   extload                        (null)
+[0.000] initConfigParams():  +stm32cubeprogrammer-path       "C:\ST\STM32CubeIDE_1.13.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.1.100.202311100844\tools\bin"
+[0.000] initConfigParams():   temp-path                      ""
+[0.000] initConfigParams():   preserve-temps                 false
+[0.000] initConfigParams():   frequency                      0
+[0.000] initConfigParams():   licenses                       false
+[0.000] initConfigParams():   ignore-rest                    false
+[0.000] initConfigParams():   version                        false
+[0.000] initConfigParams():   help                           false
+[0.000] initConfigParams():  Configuration flags end
+[0.001] init():  STMicroelectronics ST-LINK GDB server. Version 7.5.0
+Copyright (c) 2023, STMicroelectronics. All rights reserved.
+[0.307] openDevice():  COM frequency = 24000 kHz
+[0.307] openDevice():  Target connection mode: Attach
+[0.310] readFromTarget():  Reading ROM table for AP 3 @0xe00fffd0
+[0.313] reset_hw_wtchpt_module():  Hardware watchpoint supported by the target 
+[0.319] initContext():  ST-LINK Firmware version : V3J13M4
+[0.319] initContext():  Device ID: 0x450
+[0.320] initContext():  PC: 0x8102374
+[0.321] Device_GetStatus():  ST-LINK device status: HALT_MODE
+[0.321] initContext():  ST-LINK detects target voltage = 3.27 V
+[0.322] initContext():  ST-LINK device status: HALT_MODE
+[0.322] initServerContext():  ST-LINK device initialization OK
+[0.322] pollAndNotifyRun():  Stm32Device, pollAndNotify running...
+[0.322] updateState():  SwvSrv state change: 0 -> 1
+[0.323] WaitConnection():  Waiting for connection on port 61234...
+[0.323] WaitConnection():  Waiting for connection on port 61235...
+[2.178] WaitConnection():  Accepted connection on port 61234...
+[2.178] WaitConnection():  Waiting for connection on port 61234...
+[2.178] run():  GDB session thread running
+[2.178] handleSessionEvent():  GdbSessionManager, session started: 1
+[2.179] read():  <924> Rx: +$qSupported:multiprocess+;swbreak+;hwbreak+;qRelocInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+;memory-tagging+#ec
+[2.194] write():  <924> Tx: +
+[2.194] write():  <924> Tx: $PacketSize=4000;qXfer:memory-map:read+;qXfer:features:read+;QStartNoAckMode+;QNonStop+;qXfer:threads:read+;hwbreak+;swbreak+#f3
+[2.194] read():  <924> Rx: +$vMustReplyEmpty#3a
+[2.210] write():  <924> Tx: +
+[2.210] write():  <924> Tx: $#00
+[2.210] read():  <924> Rx: +$QStartNoAckMode#b0
+[2.226] write():  <924> Tx: +
+[2.226] write():  <924> Tx: $OK#9a
+[2.226] read():  <924> Rx: +$Hg0#df
+[2.242] write():  <924> Tx: $#00
+[2.242] read():  <924> Rx: $qXfer:features:read:target.xml:0,1000#0c
+[2.242] write():  <924> Tx: $l<?xml version="1.0"?><!-- Copyright (C) 2009, 2010, 2011 Free Software Foundation, Inc.     Copying and distribution of this file, with or without modification,     are permitted in any medium without royalty provided the copyright     notice and this notice are preserved.  --><!DOCTYPE target SYSTEM "gdb-target.dtd"><target><feature name="org.gnu.gdb.arm.m-profile">  <reg name="r0" bitsize="32"/>  <reg name="r1" bitsize="32"/>  <reg name="r2" bitsize="32"/>  <reg name="r3" bitsize="32"/>  <reg name="r4" bitsize="32"/>  <reg name="r5" bitsize="32"/>  <reg name="r6" bitsize="32"/>  <reg name="r7" bitsize="32"/>  <reg name="r8" bitsize="32"/>  <reg name="r9" bitsize="32"/>  <reg name="r10" bitsize="32"/>  <reg name="r11" bitsize="32"/>  <reg name="r12" bitsize="32"/>  <reg name="sp" bitsize="32" type="data_ptr"/>  <reg name="lr" bitsize="32"/>  <reg name="pc" bitsize="32" type="code_ptr"/>  <reg name="xpsr" bitsize="32" regnum="25"/></feature><feature name="org.gnu.gdb.arm.vfp">  <reg name="d0" bitsize="64" type="ieee_double"/>  <reg name="d1" bitsize="64" type="ieee_double"/>  <reg name="d2" bitsize="64" type="ieee_double"/>  <reg name="d3" bitsize="64" type="ieee_double"/>  <reg name="d4" bitsize="64" type="ieee_double"/>  <reg name="d5" bitsize="64" type="ieee_double"/>  <reg name="d6" bitsize="64" type="ieee_double"/>  <reg name="d7" bitsize="64" type="ieee_double"/>  <reg name="d8" bitsize="64" type="ieee_double"/>  <reg name="d9" bitsize="64" type="ieee_double"/>  <reg name="d10" bitsize="64" type="ieee_double"/>  <reg name="d11" bitsize="64" type="ieee_double"/>  <reg name="d12" bitsize="64" type="ieee_double"/>  <reg name="d13" bitsize="64" type="ieee_double"/>  <reg name="d14" bitsize="64" type="ieee_double"/>  <reg name="d15" bitsize="64" type="ieee_double"/>  <reg name="fpscr" bitsize="32" type="int" group="float"/></feature><feature name="org.gnu.gdb.arm.m-system">  <reg name="primask" bitsize="32" regnum="93"/>  <reg name="basepri" bitsize="32" regnum="94"/>  <reg name="faultmask" bitsize="32" regnum="95"/>  <reg name="control" bitsize="32" regnum="96"/>  <reg name="msp" bitsize="32" type="data_ptr" regnum="97"/>  <reg name="psp" bitsize="32" type="data_ptr" regnum="98"/></feature></target>#ad
+[2.244] read():  <924> Rx: $QNonStop:0#8c
+[2.244] write():  <924> Tx: $OK#9a
+[2.244] read():  <924> Rx: $qTStatus#49
+[2.244] write():  <924> Tx: $#00
+[2.244] read():  <924> Rx: $?#3f
+[2.244] write():  <924> Tx: $S05#b8
+[2.244] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[2.244] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[2.244] read():  <924> Rx: $qAttached#8f
+[2.244] write():  <924> Tx: $#00
+[2.245] read():  <924> Rx: $Hc-1#09
+[2.245] write():  <924> Tx: $#00
+[2.245] read():  <924> Rx: $qC#b4
+[2.245] write():  <924> Tx: $QC1#c5
+[2.245] read():  <924> Rx: $qOffsets#4b
+[2.245] write():  <924> Tx: $#00
+[2.245] read():  <924> Rx: $g#67
+[2.249] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.249] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[2.249] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[2.250] read():  <924> Rx: $qXfer:memory-map:read::0,1000#ab
+[2.250] write():  <924> Tx: $l<?xml version="1.0"?>\x0a<!DOCTYPE memory-map\x0a          PUBLIC "+//IDN gnu.org//DTD GDB Memory Map V1.0//EN"\x0a                 "http://sourceware.org/gdb/gdb-memory-map.dtd">\x0a<memory-map>\x0a<memory type="ram" start="0x0" length="0x8000000"/>\x0a<memory type="flash" start="0x8000000" length="0x200000">\x0a<property name="blocksize">0x400</property>\x0a</memory>\x0a<memory type="ram" start="0x8200000" length="0xf7dfffff"/>\x0a</memory-map>#d3
+[2.250] read():  <924> Rx: $m8102374,4#36
+[2.250] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.251] write():  <924> Tx: $dff834d0#63
+[2.251] read():  <924> Rx: $m8102374,2#34
+[2.251] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.252] write():  <924> Tx: $dff8#68
+[2.252] read():  <924> Rx: $m8102376,2#36
+[2.252] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.252] write():  <924> Tx: $34d0#fb
+[2.253] read():  <924> Rx: $qSymbol::#5b
+[2.253] write():  <924> Tx: $#00
+[2.253] read():  <924> Rx: $qRcmd,5265616441504578203078333030303030302030784638#5d
+[2.254] write():  <924> Tx: $4f2e4b2e3a307865303066663030330a#8a
+[2.274] read():  <924> Rx: $qRcmd,526561644d656d41502030783330303030303020307845303046464644302030783820307830#bb
+[2.276] write():  <924> Tx: $4f2e4b2e3a3078302c3078302c3078302c3078302c307835302c3078342c3078612c3078300a#ae
+[2.277] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[2.277] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[2.290] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[2.290] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[2.319] WaitConnection():  Accepted connection on port 61234...
+[2.319] WaitConnection():  Waiting for connection on port 61234...
+[2.319] run():  GDB session thread running
+[2.319] handleSessionEvent():  GdbSessionManager, session started: 2
+[2.337] read():  <936> Rx: +
+[2.337] read():  <936> Rx: $qSupported:multiprocess+;swbreak+;hwbreak+;qRelocInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+;memory-tagging+#ec
+[2.337] write():  <936> Tx: +
+[2.337] write():  <936> Tx: $PacketSize=4000;qXfer:memory-map:read+;qXfer:features:read+;QStartNoAckMode+;QNonStop+;qXfer:threads:read+;hwbreak+;swbreak+#f3
+[2.337] read():  <936> Rx: +$vMustReplyEmpty#3a
+[2.353] write():  <936> Tx: +
+[2.353] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[2.353] write():  <936> Tx: $#00
+[2.353] read():  <936> Rx: +
+[2.353] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[2.353] read():  <936> Rx: $QStartNoAckMode#b0
+[2.353] write():  <936> Tx: +
+[2.353] write():  <936> Tx: $OK#9a
+[2.353] read():  <936> Rx: +
+[2.353] read():  <936> Rx: $Hg0#df
+[2.353] write():  <936> Tx: $#00
+[2.353] read():  <936> Rx: $qXfer:features:read:target.xml:0,1000#0c
+[2.353] write():  <936> Tx: $l<?xml version="1.0"?><!-- Copyright (C) 2009, 2010, 2011 Free Software Foundation, Inc.     Copying and distribution of this file, with or without modification,     are permitted in any medium without royalty provided the copyright     notice and this notice are preserved.  --><!DOCTYPE target SYSTEM "gdb-target.dtd"><target><feature name="org.gnu.gdb.arm.m-profile">  <reg name="r0" bitsize="32"/>  <reg name="r1" bitsize="32"/>  <reg name="r2" bitsize="32"/>  <reg name="r3" bitsize="32"/>  <reg name="r4" bitsize="32"/>  <reg name="r5" bitsize="32"/>  <reg name="r6" bitsize="32"/>  <reg name="r7" bitsize="32"/>  <reg name="r8" bitsize="32"/>  <reg name="r9" bitsize="32"/>  <reg name="r10" bitsize="32"/>  <reg name="r11" bitsize="32"/>  <reg name="r12" bitsize="32"/>  <reg name="sp" bitsize="32" type="data_ptr"/>  <reg name="lr" bitsize="32"/>  <reg name="pc" bitsize="32" type="code_ptr"/>  <reg name="xpsr" bitsize="32" regnum="25"/></feature><feature name="org.gnu.gdb.arm.vfp">  <reg name="d0" bitsize="64" type="ieee_double"/>  <reg name="d1" bitsize="64" type="ieee_double"/>  <reg name="d2" bitsize="64" type="ieee_double"/>  <reg name="d3" bitsize="64" type="ieee_double"/>  <reg name="d4" bitsize="64" type="ieee_double"/>  <reg name="d5" bitsize="64" type="ieee_double"/>  <reg name="d6" bitsize="64" type="ieee_double"/>  <reg name="d7" bitsize="64" type="ieee_double"/>  <reg name="d8" bitsize="64" type="ieee_double"/>  <reg name="d9" bitsize="64" type="ieee_double"/>  <reg name="d10" bitsize="64" type="ieee_double"/>  <reg name="d11" bitsize="64" type="ieee_double"/>  <reg name="d12" bitsize="64" type="ieee_double"/>  <reg name="d13" bitsize="64" type="ieee_double"/>  <reg name="d14" bitsize="64" type="ieee_double"/>  <reg name="d15" bitsize="64" type="ieee_double"/>  <reg name="fpscr" bitsize="32" type="int" group="float"/></feature><feature name="org.gnu.gdb.arm.m-system">  <reg name="primask" bitsize="32" regnum="93"/>  <reg name="basepri" bitsize="32" regnum="94"/>  <reg name="faultmask" bitsize="32" regnum="95"/>  <reg name="control" bitsize="32" regnum="96"/>  <reg name="msp" bitsize="32" type="data_ptr" regnum="97"/>  <reg name="psp" bitsize="32" type="data_ptr" regnum="98"/></feature></target>#ad
+[2.353] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[2.353] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[2.354] read():  <936> Rx: $QNonStop:0#8c
+[2.354] write():  <936> Tx: $OK#9a
+[2.354] read():  <936> Rx: $qTStatus#49
+[2.354] write():  <936> Tx: $#00
+[2.355] read():  <936> Rx: $?#3f
+[2.355] write():  <936> Tx: $S05#b8
+[2.355] read():  <936> Rx: $qXfer:threads:read::0,1000#92
+[2.355] write():  <936> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[2.355] read():  <936> Rx: $qAttached#8f
+[2.355] write():  <936> Tx: $#00
+[2.355] read():  <936> Rx: $Hc-1#09
+[2.355] write():  <936> Tx: $#00
+[2.355] read():  <936> Rx: $qC#b4
+[2.355] write():  <936> Tx: $QC1#c5
+[2.356] read():  <936> Rx: $qOffsets#4b
+[2.356] write():  <936> Tx: $#00
+[2.356] read():  <936> Rx: $g#67
+[2.361] write():  <936> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.361] read():  <936> Rx: $qXfer:threads:read::0,1000#92
+[2.361] write():  <936> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[2.362] read():  <936> Rx: $qXfer:memory-map:read::0,1000#ab
+[2.362] write():  <936> Tx: $l<?xml version="1.0"?>\x0a<!DOCTYPE memory-map\x0a          PUBLIC "+//IDN gnu.org//DTD GDB Memory Map V1.0//EN"\x0a                 "http://sourceware.org/gdb/gdb-memory-map.dtd">\x0a<memory-map>\x0a<memory type="ram" start="0x0" length="0x8000000"/>\x0a<memory type="flash" start="0x8000000" length="0x200000">\x0a<property name="blocksize">0x400</property>\x0a</memory>\x0a<memory type="ram" start="0x8200000" length="0xf7dfffff"/>\x0a</memory-map>#d3
+[2.362] read():  <936> Rx: $m8102374,4#36
+[2.362] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.363] write():  <936> Tx: $dff834d0#63
+[2.363] read():  <936> Rx: $m8102374,2#34
+[2.363] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.364] write():  <936> Tx: $dff8#68
+[2.364] read():  <936> Rx: $m8102376,2#36
+[2.364] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.365] write():  <936> Tx: $34d0#fb
+[2.366] read():  <936> Rx: $qSymbol::#5b
+[2.366] write():  <936> Tx: $#00
+[2.385] read():  <924> Rx: $me0043000,4#89
+[2.385] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043000 
+[2.386] write():  <924> Tx: $00000000#80
+[2.386] read():  <924> Rx: $Xe0043000,0:#aa
+[2.386] write():  <924> Tx: $OK#9a
+[2.386] read():  <924> Rx: $Xe0043000,4:\x00\x00\x00\x00#ae
+[2.386] write():  <924> Tx: $OK#9a
+[2.386] read():  <924> Rx: $g#67
+[2.390] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.390] read():  <924> Rx: $m8102374,4#36
+[2.390] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.392] write():  <924> Tx: $dff834d0#63
+[2.392] read():  <924> Rx: $m8102374,2#34
+[2.392] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.393] write():  <924> Tx: $dff8#68
+[2.393] read():  <924> Rx: $m8102376,2#36
+[2.393] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.394] write():  <924> Tx: $34d0#fb
+[2.394] read():  <924> Rx: $me00430a0,4#ba
+[2.394] handlePacket():  Reading 0x4 bytes of memory from addr 0xe00430a0 
+[2.395] write():  <924> Tx: $00000000#80
+[2.395] read():  <924> Rx: $Xe00430a0,4:\x00\x00\x00\x00#df
+[2.395] read():  <936> Rx: $m100186f0,1#90
+[2.395] handlePacket():  Reading 0x1 bytes of memory from addr 0x100186f0 
+[2.395] write():  <924> Tx: $OK#9a
+[2.395] read():  <924> Rx: $g#67
+[2.396] write():  <936> Tx: $00#60
+[2.399] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.399] read():  <924> Rx: $m8102374,4#36
+[2.399] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.400] write():  <924> Tx: $dff834d0#63
+[2.400] read():  <924> Rx: $m8102374,2#34
+[2.400] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.401] write():  <924> Tx: $dff8#68
+[2.401] read():  <924> Rx: $m8102376,2#36
+[2.401] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.402] write():  <924> Tx: $34d0#fb
+[2.402] read():  <924> Rx: $me0043020,4#8b
+[2.402] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043020 
+[2.403] write():  <924> Tx: $00000000#80
+[2.403] read():  <924> Rx: $Xe0043020,4:\x00\x00\x00\x00#b0
+[2.403] write():  <924> Tx: $OK#9a
+[2.403] read():  <924> Rx: $g#67
+[2.407] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.407] read():  <924> Rx: $m8102374,4#36
+[2.407] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.407] write():  <924> Tx: $dff834d0#63
+[2.407] read():  <924> Rx: $m8102374,2#34
+[2.407] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.408] write():  <924> Tx: $dff8#68
+[2.408] read():  <924> Rx: $m8102376,2#36
+[2.408] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.408] write():  <924> Tx: $34d0#fb
+[2.409] read():  <924> Rx: $me0043010,4#8a
+[2.409] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043010 
+[2.409] write():  <924> Tx: $00000000#80
+[2.409] read():  <924> Rx: $Xe0043010,4:\x01\x00\x00\x00#b0
+[2.410] write():  <924> Tx: $OK#9a
+[2.410] read():  <924> Rx: $g#67
+[2.413] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.414] read():  <924> Rx: $m8102374,4#36
+[2.414] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.414] write():  <924> Tx: $dff834d0#63
+[2.414] read():  <924> Rx: $m8102374,2#34
+[2.414] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.415] write():  <924> Tx: $dff8#68
+[2.415] read():  <924> Rx: $m8102376,2#36
+[2.415] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.416] write():  <924> Tx: $34d0#fb
+[2.416] read():  <924> Rx: $qRcmd,73777620696e666f#dc
+[2.417] write():  <924> Tx: $4f4b3a326565303b323b35646330302c31382c31663b32656530302c31302c666666663b0a#18
+[2.433] read():  <924> Rx: $qRcmd,7377762073746172742032656530#da
+[2.433] write():  <924> Tx: $4f4b0a#c1
+[2.434] WaitConnection():  Accepted connection on port 61235...
+[2.435] openConnectionInt():  SWV collect poll delay set to 5688µs for baudrate 12000000Hz (buffer size 20480b)
+[2.435] updateState():  SwvSrv state change: 1 -> 2
+[2.449] read():  <924> Rx: $m5c004000,4#89
+[2.449] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c004000 
+[2.449] write():  <924> Tx: $02000000#82
+[2.450] read():  <924> Rx: $me0001fe0,4#ee
+[2.450] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0001fe0 
+[2.451] write():  <924> Tx: $02000000#82
+[2.451] read():  <924> Rx: $m5c001004,4#8a
+[2.451] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c001004 
+[2.452] write():  <924> Tx: $3f007000#c0
+[2.465] read():  <924> Rx: $X5c001004,4:?\x00p\x00#5e
+[2.466] write():  <924> Tx: $OK#9a
+[2.467] read():  <924> Rx: $Xe000edfc,4:\x00\x00\x00\x01#7a
+[2.468] write():  <924> Tx: $OK#9a
+[2.468] read():  <924> Rx: $Xe00400f0,4:\x02\x00\x00\x00#e3
+[2.469] write():  <924> Tx: $OK#9a
+[2.470] read():  <924> Rx: $Xe0040010,4:\x0e\x00\x00\x00#ba
+[2.471] write():  <924> Tx: $OK#9a
+[2.471] read():  <924> Rx: $Xe0000fb0,4:U\xff\xff\xff#a3
+[2.474] write():  <924> Tx: $OK#9a
+[2.474] read():  <924> Rx: $Xe0000e80,4:\x0f\x00\x01\x00#f4
+[2.475] write():  <924> Tx: $OK#9a
+[2.475] read():  <924> Rx: $Xe0000e40,4:\x00\x00\x00\x00#e0
+[2.477] write():  <924> Tx: $OK#9a
+[2.477] read():  <924> Rx: $Xe0000e00,4:\x01\x00\x00\x00#dd
+[2.478] write():  <924> Tx: $OK#9a
+[2.478] read():  <924> Rx: $X5c004fb0,4:U\xff\xff\xff#aa
+[2.479] write():  <924> Tx: $OK#9a
+[2.480] read():  <924> Rx: $X5c003fb0,4:U\xff\xff\xff#a9
+[2.480] write():  <924> Tx: $OK#9a
+[2.481] read():  <924> Rx: $X5c003010,4:\x0e\x00\x00\x00#bc
+[2.481] write():  <924> Tx: $OK#9a
+[2.481] read():  <924> Rx: $X5c0030f0,4:\x02\x00\x00\x00#e5
+[2.483] write():  <924> Tx: $OK#9a
+[2.484] read():  <924> Rx: $X5c004000,4:\x02\x00\x00\x00#b0
+[2.484] write():  <924> Tx: $OK#9a
+[2.485] read():  <924> Rx: $Xe0001020,4:\x00\x00\x00\x00#aa
+[2.493] write():  <924> Tx: $OK#9a
+[2.494] read():  <924> Rx: $Xe0001030,4:\x00\x00\x00\x00#ab
+[2.495] write():  <924> Tx: $OK#9a
+[2.495] read():  <924> Rx: $Xe0001040,4:\x00\x00\x00\x00#ac
+[2.496] write():  <924> Tx: $OK#9a
+[2.496] read():  <924> Rx: $Xe0001050,4:\x00\x00\x00\x00#ad
+[2.497] write():  <924> Tx: $OK#9a
+[2.498] read():  <924> Rx: $Xe0001000,4:\xff\x07\x00\x00#ae
+[2.498] write():  <924> Tx: $OK#9a
+[2.499] read():  <924> Rx: $Xe0040304,4:\x01\x07\x00\x00#ba
+[2.499] write():  <924> Tx: $OK#9a
+[2.578] read():  <936> Rx: $m10004578,1#63
+[2.578] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[2.579] write():  <936> Tx: $00#60
+[2.608] read():  <936> Rx: $m1000457c,4#91
+[2.608] handlePacket():  Reading 0x4 bytes of memory from addr 0x1000457c 
+[2.609] write():  <936> Tx: $00000000#80
+[2.656] read():  <936> Rx: $m10004584,4#63
+[2.656] handlePacket():  Reading 0x4 bytes of memory from addr 0x10004584 
+[2.657] write():  <936> Tx: $00000000#80
+[2.782] read():  <924> Rx: $m8106e40,40#95
+[2.782] handlePacket():  Reading 0x40 bytes of memory from addr 0x8106e40 
+[2.784] write():  <924> Tx: $e3e700bf08890110e8f610088009001019f71008fdf610084bf7100800890110048901100c8901101089011037b5194d0190194804f0ecf82b68dbb101991748#0f
+[2.784] read():  <924> Rx: $m8106e86,2#6d
+[2.784] handlePacket():  Reading 0x2 bytes of memory from addr 0x8106e86 
+[2.785] write():  <924> Tx: $164b#fd
+[2.811] read():  <924> Rx: $m8102200,40#5a
+[2.811] handlePacket():  Reading 0x40 bytes of memory from addr 0x8102200 
+[2.812] write():  <924> Tx: $0b9203f0e5fc08b1fff71eff06480c2207a903f0ddfc08b1fff716ff0248fff781ff0eb010bd00bf048701100004004008b51648164a174bc0e9002300230c22#87
+[2.812] read():  <924> Rx: $m8102258,2#35
+[2.812] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102258 
+[2.813] write():  <924> Tx: $fff7#69
+[2.831] read():  <924> Rx: $me000ed14,4#f0
+[2.831] handlePacket():  Reading 0x4 bytes of memory from addr 0xe000ed14 
+[2.831] read():  <936> Rx: $m10004578,1#63
+[2.833] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[2.833] write():  <924> Tx: $00020000#82
+[2.833] read():  <924> Rx: $Xe000ed14,4:\x10\x02\x00\x00#27
+[2.835] write():  <936> Tx: $00#60
+[2.837] write():  <924> Tx: $OK#9a
+[2.837] read():  <924> Rx: $g#67
+[2.840] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.840] read():  <924> Rx: $m8102374,4#36
+[2.840] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.841] write():  <924> Tx: $dff834d0#63
+[2.841] read():  <924> Rx: $m8102374,2#34
+[2.841] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.842] write():  <924> Tx: $dff8#68
+[2.842] read():  <924> Rx: $m8102376,2#36
+[2.842] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.843] write():  <924> Tx: $34d0#fb
+[2.843] read():  <924> Rx: $me000edfc,4#54
+[2.843] handlePacket():  Reading 0x4 bytes of memory from addr 0xe000edfc 
+[2.844] write():  <924> Tx: $00000001#81
+[2.844] read():  <924> Rx: $Xe000edfc,4:\xff\x07\x00\x01#71
+[2.844] write():  <924> Tx: $OK#9a
+[2.844] read():  <924> Rx: $g#67
+[2.848] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.848] read():  <924> Rx: $m8102374,4#36
+[2.848] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.849] write():  <924> Tx: $dff834d0#63
+[2.849] read():  <924> Rx: $m8102374,2#34
+[2.849] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.850] write():  <924> Tx: $dff8#68
+[2.850] read():  <924> Rx: $m8102376,2#36
+[2.850] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.850] write():  <924> Tx: $34d0#fb
+[2.862] read():  <936> Rx: $m10000d34,4#89
+[2.862] handlePacket():  Reading 0x4 bytes of memory from addr 0x10000d34 
+[2.863] write():  <936> Tx: $00000000#80
+[2.875] read():  <924> Rx: $m8101f64,2#65
+[2.875] handlePacket():  Reading 0x2 bytes of memory from addr 0x8101f64 
+[2.877] write():  <924> Tx: $254c#fe
+[2.893] read():  <924> Rx: $m5c001004,4#8a
+[2.893] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c001004 
+[2.895] write():  <924> Tx: $3f007000#c0
+[2.895] read():  <924> Rx: $X5c001004,4:?\x00p\x00#5e
+[2.895] write():  <924> Tx: $OK#9a
+[2.896] read():  <924> Rx: $g#67
+[2.904] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.904] read():  <924> Rx: $m8102374,4#36
+[2.904] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.905] write():  <924> Tx: $dff834d0#63
+[2.906] read():  <924> Rx: $m8102374,2#34
+[2.906] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.906] write():  <924> Tx: $dff8#68
+[2.906] read():  <924> Rx: $m8102376,2#36
+[2.906] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.907] write():  <924> Tx: $34d0#fb
+[2.907] read():  <924> Rx: $m5c001004,4#8a
+[2.907] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c001004 
+[2.908] write():  <924> Tx: $3f007000#c0
+[2.908] read():  <924> Rx: $X5c001004,4:?\x00p\x00#5e
+[2.908] write():  <924> Tx: $OK#9a
+[2.908] read():  <924> Rx: $g#67
+[2.912] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.912] read():  <924> Rx: $m8102374,4#36
+[2.912] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.912] write():  <924> Tx: $dff834d0#63
+[2.912] read():  <924> Rx: $m8102374,2#34
+[2.912] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.913] write():  <924> Tx: $dff8#68
+[2.913] read():  <924> Rx: $m8102376,2#36
+[2.913] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.914] write():  <924> Tx: $34d0#fb
+[2.914] read():  <924> Rx: $m5c001038,4#91
+[2.914] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c001038 
+[2.914] write():  <924> Tx: $40000000#84
+[2.915] read():  <924> Rx: $X5c001038,4:@\x00\x00\x00#f6
+[2.915] write():  <924> Tx: $OK#9a
+[2.915] read():  <924> Rx: $g#67
+[2.919] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.919] read():  <924> Rx: $m8102374,4#36
+[2.919] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.920] write():  <924> Tx: $dff834d0#63
+[2.920] read():  <924> Rx: $m8102374,2#34
+[2.920] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.920] write():  <924> Tx: $dff8#68
+[2.920] read():  <924> Rx: $m8102376,2#36
+[2.920] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.921] write():  <924> Tx: $34d0#fb
+[2.922] read():  <924> Rx: $m5c001040,4#8a
+[2.922] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c001040 
+[2.923] write():  <924> Tx: $00080000#88
+[2.923] read():  <924> Rx: $X5c001040,4:\x00\x08\x00\x00#b7
+[2.923] write():  <924> Tx: $OK#9a
+[2.923] read():  <924> Rx: $g#67
+[2.928] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.928] read():  <924> Rx: $m8102374,4#36
+[2.928] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.928] write():  <924> Tx: $dff834d0#63
+[2.928] read():  <924> Rx: $m8102374,2#34
+[2.928] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.929] write():  <924> Tx: $dff8#68
+[2.929] read():  <924> Rx: $m8102376,2#36
+[2.929] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.930] write():  <924> Tx: $34d0#fb
+[2.930] read():  <924> Rx: $m5c001058,4#93
+[2.930] handlePacket():  Reading 0x4 bytes of memory from addr 0x5c001058 
+[2.931] write():  <924> Tx: $00000c00#b3
+[2.931] read():  <924> Rx: $X5c001058,4:\x00\x00\x0c\x00#c4
+[2.931] write():  <924> Tx: $OK#9a
+[2.932] read():  <924> Rx: $g#67
+[2.935] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.935] read():  <924> Rx: $m8102374,4#36
+[2.935] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.936] write():  <924> Tx: $dff834d0#63
+[2.936] read():  <924> Rx: $m8102374,2#34
+[2.936] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.936] write():  <924> Tx: $dff8#68
+[2.936] read():  <924> Rx: $m8102376,2#36
+[2.936] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.937] write():  <924> Tx: $34d0#fb
+[2.937] read():  <924> Rx: $me0043000,4#89
+[2.937] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0043000 
+[2.937] write():  <924> Tx: $00000000#80
+[2.937] read():  <924> Rx: $Xe0043000,4:\x00\x00\x00\x00#ae
+[2.938] write():  <924> Tx: $OK#9a
+[2.938] read():  <924> Rx: $g#67
+[2.942] write():  <924> Tx: $0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800410ffffffff7423100800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#e4
+[2.942] read():  <924> Rx: $m8102374,4#36
+[2.942] handlePacket():  Reading 0x4 bytes of memory from addr 0x8102374 
+[2.943] write():  <924> Tx: $dff834d0#63
+[2.943] read():  <924> Rx: $m8102374,2#34
+[2.943] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102374 
+[2.944] write():  <924> Tx: $dff8#68
+[2.944] read():  <924> Rx: $m8102376,2#36
+[2.944] handlePacket():  Reading 0x2 bytes of memory from addr 0x8102376 
+[2.944] write():  <924> Tx: $34d0#fb
+[2.945] read():  <924> Rx: $Z1,8101f64,2#af
+[2.946] write():  <924> Tx: $OK#9a
+[2.946] read():  <924> Rx: $Z1,8102258,2#7f
+[2.946] write():  <924> Tx: $OK#9a
+[2.946] read():  <924> Rx: $Z1,8106e86,2#b7
+[2.947] write():  <924> Tx: $OK#9a
+[2.947] read():  <924> Rx: $vCont?#49
+[2.947] write():  <924> Tx: $vCont;c;s;t#05
+[2.947] read():  <924> Rx: $Hc0#db
+[2.947] write():  <924> Tx: $#00
+[2.947] read():  <924> Rx: $c#63
+[2.957] updateState():  SwvSrv state change: 2 -> 3
+[2.957] handleTargetDeviceEvent():  GDB session, device event: 3
+[2.957] handleTargetDeviceEvent():  GDB session, device event: 3
+[2.958] handleTargetDeviceEvent():  GDB session, device event: 1
+[2.958] handleTargetDeviceEvent():  GDB session, device event: 1
+[3.004] read():  <936> Rx: $m100186f0,1#90
+[3.004] handlePacket():  Reading 0x1 bytes of memory from addr 0x100186f0 
+[3.031] updateState():  SwvSrv state change: 3 -> 2
+[3.031] handleTargetDeviceEvent():  GDB session, device event: 0
+[3.031] handleTargetDeviceEvent():  GDB session, device event: 0
+[3.033] write():  <936> Tx: $00#60
+[3.036] Device_GetHaltReason():  NVIC_DFSR_REG = 0x0000000B 
+[3.037] write():  <924> Tx: $T05#b9
+[3.037] read():  <924> Rx: $g#67
+[3.041] write():  <924> Tx: $500000104c0b00100cba0110c50210080cba0110000000000000000000000000000000000000000000000000000000000000000000800410ab231008641f100800000061000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080041000000000#bf
+[3.041] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[3.041] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[3.041] read():  <924> Rx: $z1,8101f64,2#cf
+[3.042] write():  <924> Tx: $OK#9a
+[3.042] read():  <924> Rx: $z1,8102258,2#9f
+[3.042] write():  <924> Tx: $OK#9a
+[3.042] read():  <924> Rx: $z1,8106e86,2#d7
+[3.043] write():  <924> Tx: $OK#9a
+[3.043] read():  <924> Rx: $m8101f64,4#67
+[3.043] handlePacket():  Reading 0x4 bytes of memory from addr 0x8101f64 
+[3.043] write():  <924> Tx: $254cd4f8#34
+[3.067] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[3.067] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[3.068] read():  <924> Rx: $m81023aa,4#8d
+[3.068] handlePacket():  Reading 0x4 bytes of memory from addr 0x81023aa 
+[3.070] write():  <924> Tx: $70470080#9a
+[3.070] read():  <924> Rx: $m8102340,40#5f
+[3.070] handlePacket():  Reading 0x40 bytes of memory from addr 0x8102340 
+[3.071] write():  <924> Tx: $2dff08b1fff780fe00222720f4671146a66300f033fd272000f062fd38b070bd00480040004402580004025850870110b8000240dff834d0fef7c2fe0c480d49#d9
+[3.071] read():  <924> Rx: $m81023ac,4#8f
+[3.071] handlePacket():  Reading 0x4 bytes of memory from addr 0x81023ac 
+[3.071] write():  <924> Tx: $00800410#8d
+[3.071] read():  <924> Rx: $m10047fc0,40#f2
+[3.071] handlePacket():  Reading 0x40 bytes of memory from addr 0x10047fc0 
+[3.072] write():  <924> Tx: $00000000000000000000000000440258000000000000000000000000d4301208d030120800000000c502100855b310080cba01100000000000000000a7231008#08
+[3.082] read():  <936> Rx: $m10004578,1#63
+[3.082] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[3.083] write():  <936> Tx: $00#60
+[3.098] read():  <936> Rx: $m1000457c,4#91
+[3.098] handlePacket():  Reading 0x4 bytes of memory from addr 0x1000457c 
+[3.099] write():  <936> Tx: $00000000#80
+[3.114] read():  <936> Rx: $m10004584,4#63
+[3.114] handlePacket():  Reading 0x4 bytes of memory from addr 0x10004584 
+[3.116] write():  <936> Tx: $00000000#80
+[3.131] read():  <936> Rx: $m10004578,1#63
+[3.131] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[3.132] write():  <936> Tx: $00#60
+[3.146] read():  <936> Rx: $m10000d34,4#89
+[3.146] handlePacket():  Reading 0x4 bytes of memory from addr 0x10000d34 
+[3.154] write():  <936> Tx: $00000000#80
+[3.155] read():  <936> Rx: $m100186f0,1#90
+[3.155] handlePacket():  Reading 0x1 bytes of memory from addr 0x100186f0 
+[3.157] write():  <936> Tx: $00#60
+[3.255] read():  <936> Rx: $m10004578,1#63
+[3.255] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[3.256] write():  <936> Tx: $00#60
+[3.271] read():  <936> Rx: $m1000457c,4#91
+[3.271] handlePacket():  Reading 0x4 bytes of memory from addr 0x1000457c 
+[3.272] write():  <936> Tx: $00000000#80
+[3.287] read():  <936> Rx: $m10004584,4#63
+[3.287] handlePacket():  Reading 0x4 bytes of memory from addr 0x10004584 
+[3.288] write():  <936> Tx: $00000000#80
+[3.291] read():  <936> Rx: $m10004578,1#63
+[3.291] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[3.291] write():  <936> Tx: $00#60
+[3.292] read():  <936> Rx: $m10000d34,4#89
+[3.292] handlePacket():  Reading 0x4 bytes of memory from addr 0x10000d34 
+[3.292] write():  <936> Tx: $00000000#80
+[3.366] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[3.366] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[4.732] read():  <924> Rx: $T1#85
+[4.732] write():  <924> Tx: $OK#9a
+[4.732] read():  <924> Rx: $m8101f64,4#67
+[4.732] handlePacket():  Reading 0x4 bytes of memory from addr 0x8101f64 
+[4.733] write():  <924> Tx: $254cd4f8#34
+[5.897] read():  <924> Rx: $Z1,8102258,2#7f
+[5.899] write():  <924> Tx: $OK#9a
+[5.899] read():  <924> Rx: $Z1,8106e86,2#b7
+[5.900] write():  <924> Tx: $OK#9a
+[5.900] read():  <924> Rx: $c#63
+[5.913] read():  <936> Rx: $m100186f0,1#90
+[5.915] updateState():  SwvSrv state change: 2 -> 3
+[5.915] handleTargetDeviceEvent():  GDB session, device event: 3
+[5.915] handleTargetDeviceEvent():  GDB session, device event: 3
+[5.915] handleTargetDeviceEvent():  GDB session, device event: 1
+[5.915] handleTargetDeviceEvent():  GDB session, device event: 1
+[5.915] handlePacket():  Reading 0x1 bytes of memory from addr 0x100186f0 
+[5.916] write():  <936> Tx: $01#61
+[5.930] updateState():  SwvSrv state change: 3 -> 2
+[5.930] handleTargetDeviceEvent():  GDB session, device event: 0
+[5.930] handleTargetDeviceEvent():  GDB session, device event: 0
+[5.947] Device_GetHaltReason():  NVIC_DFSR_REG = 0xA05F0001 
+[5.947] write():  <924> Tx: $T05#b9
+[5.947] read():  <924> Rx: $g#67
+[5.951] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001000000000000005f000000a000000001005fa001005fa0#91
+[5.951] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[5.951] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[5.951] read():  <924> Rx: $z1,8102258,2#9f
+[5.952] write():  <924> Tx: $OK#9a
+[5.952] read():  <924> Rx: $z1,8106e86,2#d7
+[5.952] write():  <924> Tx: $OK#9a
+[5.952] read():  <924> Rx: $ma05f0000,4#b9
+[5.952] handlePacket():  Reading 0x4 bytes of memory from addr 0xa05f0000 
+[5.954] write():  <924> Tx: $01005fa0#ed
+[5.977] read():  <924> Rx: $ma05f0000,4#b9
+[5.977] handlePacket():  Reading 0x4 bytes of memory from addr 0xa05f0000 
+[5.978] write():  <924> Tx: $01005fa0#ed
+[5.978] read():  <924> Rx: $ma05f0000,2#b7
+[5.978] handlePacket():  Reading 0x2 bytes of memory from addr 0xa05f0000 
+[5.979] write():  <924> Tx: $0100#c1
+[5.993] read():  <936> Rx: $m10004578,1#63
+[5.993] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[6.024] write():  <936> Tx: $01#61
+[6.025] read():  <936> Rx: $m1000457c,4#91
+[6.025] handlePacket():  Reading 0x4 bytes of memory from addr 0x1000457c 
+[6.025] write():  <936> Tx: $01005fa0#ed
+[6.026] read():  <936> Rx: $m10004584,4#63
+[6.026] handlePacket():  Reading 0x4 bytes of memory from addr 0x10004584 
+[6.026] write():  <936> Tx: $01005fa0#ed
+[6.027] read():  <936> Rx: $m10004578,1#63
+[6.027] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[6.027] write():  <936> Tx: $01#61
+[6.028] read():  <936> Rx: $m10000d34,4#89
+[6.028] handlePacket():  Reading 0x4 bytes of memory from addr 0x10000d34 
+[6.028] write():  <936> Tx: $01005fa0#ed
+[6.041] read():  <936> Rx: $m100186f0,1#90
+[6.041] handlePacket():  Reading 0x1 bytes of memory from addr 0x100186f0 
+[6.043] write():  <936> Tx: $01#61
+[6.089] read():  <936> Rx: $m10004578,1#63
+[6.089] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[6.091] write():  <936> Tx: $01#61
+[6.121] read():  <936> Rx: $m1000457c,4#91
+[6.121] handlePacket():  Reading 0x4 bytes of memory from addr 0x1000457c 
+[6.122] write():  <936> Tx: $01005fa0#ed
+[6.137] read():  <936> Rx: $m10004584,4#63
+[6.137] handlePacket():  Reading 0x4 bytes of memory from addr 0x10004584 
+[6.139] write():  <936> Tx: $01005fa0#ed
+[6.186] read():  <936> Rx: $m10004578,1#63
+[6.186] handlePacket():  Reading 0x1 bytes of memory from addr 0x10004578 
+[6.187] write():  <936> Tx: $01#61
+[6.217] read():  <936> Rx: $m10000d34,4#89
+[6.217] handlePacket():  Reading 0x4 bytes of memory from addr 0x10000d34 
+[6.218] write():  <936> Tx: $01005fa0#ed
+[6.233] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[6.233] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[6.234] read():  <924> Rx: $qXfer:threads:read::0,1000#92
+[6.234] write():  <924> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="3" name="main"></thread></threads>#fa
+[9.270] read():  <924> Rx: $m8100000,240#88
+[9.270] handlePacket():  Reading 0x240 bytes of memory from addr 0x8100000 
+[9.274] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa0#50
+[14.528] read():  <924> Rx: $m80ffec0,140#5a
+[14.528] handlePacket():  Reading 0x140 bytes of memory from addr 0x80ffec0 
+[14.531] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa0#10
+[21.496] read():  <924> Rx: $m83ffec0,310#5c
+[21.496] handlePacket():  Reading 0x310 bytes of memory from addr 0x83ffec0 
+[21.498] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa0#74
+[26.245] read():  <924> Rx: $m84001d0,140#bf
+[26.245] handlePacket():  Reading 0x140 bytes of memory from addr 0x84001d0 
+[26.247] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa0#10
+[27.151] read():  <924> Rx: $m8400310,140#8e
+[27.151] handlePacket():  Reading 0x140 bytes of memory from addr 0x8400310 
+[27.153] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa0#10
+[39.216] read():  <924> Rx: $m80ffd80,140#2e
+[39.216] handlePacket():  Reading 0x140 bytes of memory from addr 0x80ffd80 
+[39.217] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa0#10
+[40.916] read():  <924> Rx: $m80ffc40,140#29
+[40.916] handlePacket():  Reading 0x140 bytes of memory from addr 0x80ffc40 
+[40.918] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa0#10
+[41.406] read():  <924> Rx: $m80ffb00,140#24
+[41.406] handlePacket():  Reading 0x140 bytes of memory from addr 0x80ffb00 
+[41.407] write():  <924> Tx: $01005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa001005fa0#10
+[58.512] read():  <924> Rx: $vKill;a410#33
+[58.512] handlePacket():  Hidden/Unsupported v-command 'vKill', see RSP for details
+[58.512] write():  <924> Tx: $#00
+[58.512] read():  <924> Rx: $k#6b
+[58.512] run():  GDB session terminated: Client connection lost
+[58.512] handleSessionEvent():  GdbSessionManager, session terminated: 1
+[58.537] read():  <936> Rx: $vKill;a410#33
+[58.537] handlePacket():  Hidden/Unsupported v-command 'vKill', see RSP for details
+[58.538] write():  <936> Tx: $#00
+[58.538] read():  <936> Rx: $k#6b
+[58.538] run():  GDB session terminated: Client connection lost
+[58.538] handleSessionEvent():  GdbSessionManager, session terminated: 2
+[58.538] handleSessionEvent():  GdbSrv, last session terminated, signal dispose
+[58.538] stop():  Stopping port 61234
+[58.545] updateState():  SwvSrv state change: 2 -> 1
+[58.545] handleSession():  SwvSrv session thread disposed
+[58.545] WaitConnection():  Waiting for connection on port 61235...
+[58.592] WaitConnection():  Received stop for port 61234, not accepting new connections.
+[58.592] deInit():  GdbSrv, deInit entry.
+[58.592] cleanup():  Cleanup session: 1
+[58.592] cleanup():  Cleanup session: 2
+[58.592] ~GdbSession():  GDB session disposed: 1
+[58.592] deInit():  GdbSessionManager, deInit entry.
+[58.592] ~GdbSession():  GDB session disposed: 2
+[58.701] stop():  Stopping port 61234
+[58.704] deInit():  GdbSessionManager, deInit exit
+[58.704] deInit():  SwvSrv deInit entry
+[58.704] stop():  Stopping port 61235
+[58.768] WaitConnection():  Received stop for port 61235, not accepting new connections.
+[58.768] deInit():  SwvSrv deInit exit
+[58.768] closeDevice():  Stm32Device, closeDevice() entry
+[58.800] pollAndNotifyRun():  Stm32Device, pollAndNotify stopped
+[58.811] closeDevice():  Stm32Device, closeDevice() exit
+[58.811] deInit():  Stm32Device, deInit success
+[58.811] deInit():  GdbSrv, deInit exit.

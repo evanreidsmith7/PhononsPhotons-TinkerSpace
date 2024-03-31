@@ -86,6 +86,9 @@
 #include "dsp.h"
 #include <output_audio.h>
 #include "ipc_interface.h"
+#include "cmsis_gcc.h"
+#include "app_x-cube-ai.h"
+
 
 // private variables
 union {
@@ -130,7 +133,8 @@ static const float HANN_WINDOW_COEFF[FFT_BATCH_SIZE] = { 0.0 , 9.43076911872e-06
 #endif
 
 // fixed point FIR filter coefficients, signed .15b
-static const int16_t OUTPUT_AUDIO_FIR_COEFFICIENTS[OUTPUT_AUDIO_FIR_TAPS] = {2, 6, 11, 17, 27, 40, 57, 79, 107, 141, 181, 227, 280, 339, 404, 474, 548, 625, 705, 784, 863, 939, 1012, 1079, 1140, 1193, 1236, 1270, 1293, 1304, 1304, 1293, 1270, 1236, 1193, 1140, 1079, 1012, 939, 863, 784, 705, 625, 548, 474, 404, 339, 280, 227, 181, 141, 107, 79, 57, 40, 27, 17, 11, 6, 2};
+// REMOVED OUTPUT AUDIO EXTERNALIZED
+//static const int16_t OUTPUT_AUDIO_FIR_COEFFICIENTS[OUTPUT_AUDIO_FIR_TAPS] = {2, 6, 11, 17, 27, 40, 57, 79, 107, 141, 181, 227, 280, 339, 404, 474, 548, 625, 705, 784, 863, 939, 1012, 1079, 1140, 1193, 1236, 1270, 1293, 1304, 1304, 1293, 1270, 1236, 1193, 1140, 1079, 1012, 939, 863, 784, 705, 625, 548, 474, 404, 339, 280, 227, 181, 141, 107, 79, 57, 40, 27, 17, 11, 6, 2};
 
 // buffers for raw adc values, filled by each DMA
 static volatile uint16_t adc1_read_buffer[ADC1_CHANNELS * ADC_BUFFER_SAMPLES_PER_CHANNEL];
@@ -139,12 +143,13 @@ static volatile uint16_t adc3_read_buffer[ADC3_CHANNELS * ADC_BUFFER_SAMPLES_PER
 // these offsets begin at half of the full scale range for uint16
 static volatile uint16_t adc_channel_dynamic_offsets[ADC1_CHANNELS + ADC3_CHANNELS] = { 65535/2, 65535/2, 65535/2 ,65535/2, 65535/2, 65535/2 };
 
+// REMOVED OUTPUT AUDIO EXTERNALIZED
 // input buffer for FIR filter, used as split buffer due to 60 tap FIR and 15:1 downsampling overlap
-static volatile int16_t output_audio_filter_input_buffer[OUTPUT_AUDIO_BUFFER_SIZE * ADC_OUTPUT_AUDIO_OVERSAMPLING_RATIO * 2];
+//static volatile int16_t output_audio_filter_input_buffer[OUTPUT_AUDIO_BUFFER_SIZE * ADC_OUTPUT_AUDIO_OVERSAMPLING_RATIO * 2];
 
 // buffer for filtered audio data for each microphone, mono 16 ksps 16 bit, not a split buffer
-static volatile int16_t output_audio_filtered_buffer[OUTPUT_AUDIO_BUFFER_SIZE];
-static volatile int16_t output_audio_base_gain = 1;
+//static volatile int16_t output_audio_filtered_buffer[OUTPUT_AUDIO_BUFFER_SIZE];
+//static volatile int16_t output_audio_base_gain = 1;
 
 // skip counter so FFT is performed every n ADC3 DMA half/complete transfer interrupts
 static volatile uint16_t fft_op_skip_counter = 0;
@@ -154,6 +159,7 @@ static volatile uint16_t fft_op_skip_counter = 0;
 static volatile boolean_t fft_samples_ready = FALSE;
 static volatile boolean_t fft_results_ready = FALSE;
 static volatile boolean_t localization_data_ready = FALSE;
+
 
 // have skipped n fft data sets without uart transmission
 static uint16_t usart_data_skip_counter = 0;
@@ -169,7 +175,7 @@ static uint16_t noise_floor_samples = 0;
 
 // fft spectrum magnitudes for each channel, including past ops when averaging
 static volatile float fft_frequency_magnitude_db[ADC1_CHANNELS + ADC3_CHANNELS][FFT_AVERAGE_SAMPLES][FFT_NUMBER_OF_BINS];
-static volatile float fft_frequency_magnitude_db_average[ADC1_CHANNELS + ADC3_CHANNELS][FFT_NUMBER_OF_BINS];
+volatile float fft_frequency_magnitude_db_average[ADC1_CHANNELS + ADC3_CHANNELS][FFT_NUMBER_OF_BINS];
 static volatile uint16_t fft_frequency_magnitude_db_index = 0;
 
 // counts for fft bins of each channel to determine trigger status
@@ -216,6 +222,11 @@ static boolean_t anomaly_detect_state_current = FALSE;
 
 static boolean_t debug_output_enable = FALSE;
 
+// AI Inference flags
+static boolean_t RUN_ONCE   = TRUE;
+static int       SKIP_N_SAMPLES_READY = 0;
+
+
 // Private functions
 // Calc magnitude of complex vector
 static float complexABS(float real, float compl);
@@ -226,7 +237,7 @@ static void performFFT( void );
 // implementation of FIR filter for output audio
 // two buffer pointers for current and previous, due to the number of taps on the FIR
 //   and relatively low downsample rate
-static void performOutputAudioFIR( volatile int16_t *_current_data_buffer, volatile int16_t *_previous_data_buffer );
+//static void performOutputAudioFIR( volatile int16_t *_current_data_buffer, volatile int16_t *_previous_data_buffer );
 
 // half-transfer callback of ADC3 DMA, in step with ADC1 DMA -> same trigger
 static void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma);
@@ -239,7 +250,7 @@ static void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma);
 static void copySamplesForFFT( volatile uint16_t *_source1, volatile uint16_t *_source2 );
 
 static void anomalyDetectionLogic( void );
-static void anomalyLocalizationLogic( void );
+//static void anomalyLocalizationLogic( void );
 // TODO - write this function, calculates characteristics of an active anomaly
 static void anomalyUpdateCharacteristics( void );
 
@@ -303,10 +314,12 @@ void dspGetMicrophoneAnomalyMagnitudes( float *_mic_1_db, float *_mic_2_db, floa
   *_mic_6_db = fft_channel_magnitude_db[5];
 }
 
+
 void dspEntry( void )
 {
   // init output audio subsystem
-  alarminit( );
+  // REMOVED OUTPUT AUDIO EXTERNALIZED
+  //alarminit( );
 
   // init IPC
   IPCInitialize( );
@@ -382,56 +395,63 @@ void dspEntry( void )
 
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+	// USER CODE BEGIN
 
     if ( fft_samples_ready )
     {
+
       performFFT( );
       anomalyDetectionLogic( );
       fft_results_ready = TRUE;
       fft_samples_ready = FALSE;
-      anomalyLocalizationLogic( );
-      localization_data_ready = TRUE;
       anomalyUpdateCharacteristics( );
-    }
 
-    // update button states
-    user_button_state_previous = user_button_state_current;
-    user_button_state_current = getUserButtonState( );
-
-    if ( user_button_state_current && !user_button_state_previous )
-    {
-      uart_data_flag = (uart_data_flag ? FALSE : TRUE);
-    }
-
-    if ( fft_results_ready && uart_data_flag )
-    {
-      usart_data_skip_counter++;
-
-      if ( usart_data_skip_counter >= USART_SKIP_N_DATA_SETS )
+      // Inference ANN every 40 FFT's (~3 seconds) when anomaly active.
+      if(anomaly_detect_state_current & (((SKIP_N_SAMPLES_READY % 40) == 0) || (SKIP_N_SAMPLES_READY == 0)))
+      //if(anomaly_detect_state_current & RUN_ONCE)
       {
-        usart_data_skip_counter = 0;
+    	    MX_X_CUBE_AI_Process(fft_frequency_magnitude_db_average);
+      	    SKIP_N_SAMPLES_READY = 1;
+      	    //RUN_ONCE = FALSE;
+      }
+      // Increment counter
+      else if (anomaly_detect_state_current) SKIP_N_SAMPLES_READY++;
 
-        status = HAL_UART_Transmit_DMA( &huart3, float_union.valueu8, 4 );
+      user_button_state_previous = user_button_state_current;
+      user_button_state_current = getUserButtonState( );
+
+      if ( user_button_state_current && !user_button_state_previous )
+      {
+        uart_data_flag = (uart_data_flag ? FALSE : TRUE);
+      }
+
+      if ( fft_results_ready && uart_data_flag )
+      {
+        usart_data_skip_counter++;
+
+        if ( usart_data_skip_counter >= USART_SKIP_N_DATA_SETS )
+        {
+          usart_data_skip_counter = 0;
+
+          status = HAL_UART_Transmit_DMA( &huart3, float_union.valueu8, 4 );
 
 #ifdef FFT_AVERAGING
 
-        // wait for uart available, transmit fft average data
-        while ( (status = HAL_UART_Transmit_DMA( &huart3,
-                                              (uint8_t*)fft_frequency_magnitude_db_average,
-                                              ((ADC1_CHANNELS + ADC3_CHANNELS) * FFT_BATCH_SIZE / 2) * 4 ))
-              == HAL_BUSY );
-#else
-        // wait for uart available
-        while ( ( status = HAL_UART_Transmit_DMA( &huart3,
-                                                (uint8_t*)fft_frequency_magnitude_db,
-                                                (ADC_CHANNELS * FFT_BATCH_SIZE / 2) * 4 ))
+          // wait for uart available, transmit fft average data
+          while ( (status = HAL_UART_Transmit_DMA( &huart3,
+                                                (uint8_t*)fft_frequency_magnitude_db_average,
+                                                ((ADC1_CHANNELS + ADC3_CHANNELS) * FFT_BATCH_SIZE / 2) * 4 ))
                 == HAL_BUSY );
+#else
+          // wait for uart available
+          while ( ( status = HAL_UART_Transmit_DMA( &huart3,
+                                                  (uint8_t*)fft_frequency_magnitude_db,
+                                                  (ADC_CHANNELS * FFT_BATCH_SIZE / 2) * 4 ))
+                  == HAL_BUSY );
 #endif
+        }
+        fft_results_ready = FALSE;
       }
-      fft_results_ready = FALSE;
     }
   }
 }
@@ -440,6 +460,8 @@ uint32_t adc_dma_irq_count = 0;
 
 void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
 {
+  //if (AI_RUNNING) return;
+
   if ( debug_output_enable )
   {
     HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_SET );
@@ -468,13 +490,14 @@ void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
 
     // mix and average the six channels into one stream, change to floating point and expected offset
     // TODO - use only valid channels for voice?
-    output_audio_filter_input_buffer[index] = (int16_t)(((int32_t)adc1_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[0]
-                                                        + (int32_t)adc3_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[1]
-                                                        + (int32_t)adc1_read_buffer[1 + index * 3] - adc_channel_dynamic_offsets[2]
-                                                        + (int32_t)adc1_read_buffer[2 + index * 3] - adc_channel_dynamic_offsets[3]
-                                                        + (int32_t)adc3_read_buffer[1 + index * 3] - adc_channel_dynamic_offsets[4]
-                                                        + (int32_t)adc3_read_buffer[2 + index * 3] - adc_channel_dynamic_offsets[5])
-                                                          / 6);
+	// REMOVED OUTPUT AUDIO EXTERNALIZED
+    //output_audio_filter_input_buffer[index] = (int16_t)(((int32_t)adc1_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[0]
+    //                                                    + (int32_t)adc3_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[1]
+    //                                                    + (int32_t)adc1_read_buffer[1 + index * 3] - adc_channel_dynamic_offsets[2]
+    //                                                    + (int32_t)adc1_read_buffer[2 + index * 3] - adc_channel_dynamic_offsets[3]
+    //                                                    + (int32_t)adc3_read_buffer[1 + index * 3] - adc_channel_dynamic_offsets[4]
+    //                                                    + (int32_t)adc3_read_buffer[2 + index * 3] - adc_channel_dynamic_offsets[5])
+    //                                                      / 6);
 
     // sum values to determine channel offsets
     _channel_offset[0] += adc1_read_buffer[0 + index * 3];
@@ -518,7 +541,8 @@ void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
     }
   }
 
-  performOutputAudioFIR( &output_audio_filter_input_buffer[0], &output_audio_filter_input_buffer[ADC_BUFFER_SAMPLES_PER_CHANNEL / 2] );
+  // REMOVED OUTPUT AUDIO EXTERNALIZED
+  //performOutputAudioFIR( &output_audio_filter_input_buffer[0], &output_audio_filter_input_buffer[ADC_BUFFER_SAMPLES_PER_CHANNEL / 2] );
 
   setUserLED1State(FALSE);
 
@@ -530,6 +554,9 @@ void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
 
 void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
 {
+
+  //if (AI_RUNNING) return;
+
   if ( debug_output_enable )
   {
     HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_SET );
@@ -561,13 +588,14 @@ void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
 
     // mix and average the six channels into one stream, change to floating point and expected offset
     // TODO - use only valid channels for voice?
-    output_audio_filter_input_buffer[index] = (int16_t)(((int32_t)adc1_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[0]
-                                                        + (int32_t)adc3_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[1]
-                                                        + (int32_t)adc1_read_buffer[1 + index * 3] - adc_channel_dynamic_offsets[2]
-                                                        + (int32_t)adc1_read_buffer[2 + index * 3] - adc_channel_dynamic_offsets[3]
-                                                        + (int32_t)adc3_read_buffer[1 + index * 3] - adc_channel_dynamic_offsets[4]
-                                                        + (int32_t)adc3_read_buffer[2 + index * 3] - adc_channel_dynamic_offsets[5])
-                                                          / 6);
+	// REMOVED OUTPUT AUDIO EXTERNALIZED
+    //output_audio_filter_input_buffer[index] = (int16_t)(((int32_t)adc1_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[0]
+    //                                                    + (int32_t)adc3_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[1]
+    //                                                    + (int32_t)adc1_read_buffer[1 + index * 3] - adc_channel_dynamic_offsets[2]
+    //                                                    + (int32_t)adc1_read_buffer[2 + index * 3] - adc_channel_dynamic_offsets[3]
+    //                                                    + (int32_t)adc3_read_buffer[1 + index * 3] - adc_channel_dynamic_offsets[4]
+    //                                                    + (int32_t)adc3_read_buffer[2 + index * 3] - adc_channel_dynamic_offsets[5])
+    //                                                      / 6);
 
     // sum values to determine channel offsets
     _channel_offset[0] += adc1_read_buffer[0 + index * 3];
@@ -610,7 +638,9 @@ void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
       channel_is_valid[_channel] = FALSE;
     }
   }
-  performOutputAudioFIR( &output_audio_filter_input_buffer[ADC_BUFFER_SAMPLES_PER_CHANNEL / 2], &output_audio_filter_input_buffer[0] );
+
+  // REMOVED OUTPUT AUDIO EXTERNALIZED
+  //performOutputAudioFIR( &output_audio_filter_input_buffer[ADC_BUFFER_SAMPLES_PER_CHANNEL / 2], &output_audio_filter_input_buffer[0] );
 
   setUserLED1State(FALSE);
 
@@ -620,7 +650,11 @@ void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
   }
 }
 
-static void performOutputAudioFIR( volatile int16_t *_current_data_buffer, volatile int16_t *_previous_data_buffer )
+////////////////////////////////////
+// REMOVED OUTPUT AUDIO EXTERNALIZED
+////////////////////////////////////
+
+/*static void performOutputAudioFIR( volatile int16_t *_current_data_buffer, volatile int16_t *_previous_data_buffer )
 {
   //setUserLED1State( TRUE );
   // output audio FIR, uses last 45 data from previous_data_buffer
@@ -707,7 +741,7 @@ static void performOutputAudioFIR( volatile int16_t *_current_data_buffer, volat
   /*if ( uart_data_flag )
   {
     HAL_UART_Transmit_DMA( &huart3, (uint8_t*)output_audio_filtered_buffer, OUTPUT_AUDIO_BUFFER_SIZE*2 );
-  }*/
+  }
 
   // send data to output audio subsystem
   if ( !uart_data_flag )
@@ -716,13 +750,15 @@ static void performOutputAudioFIR( volatile int16_t *_current_data_buffer, volat
   }
 
   //setUserLED1State( FALSE );
-}
+}*/
 
 static void copySamplesForFFT( volatile uint16_t *_source1, volatile uint16_t *_source2 )
 {
   int _index;
+  //if (!RUN_ONCE) printf("In copySamplesforFFT\r\n");
   for ( _index = 0; _index < FFT_BATCH_SIZE; _index++ )
   {
+
     // ADC1 packed microphone 0,2,3
     // ADC3 packed microphone 1,4,5
 
@@ -741,7 +777,7 @@ static void copySamplesForFFT( volatile uint16_t *_source1, volatile uint16_t *_
     fft_sample_buffer[5][_index] = (3.3f / 65535.0f * (float)_source2[2 + _index * 3]
                                   - (0.0f)) * HANN_WINDOW_COEFF[_index];
   }
-
+  //if (!RUN_ONCE) printf("Out of copySamplesforFFT\r\n");
   // set ready for FFT flag so base loop or an RTOS task can perform the op without blocking interrupts
   fft_samples_ready = TRUE;
 }
@@ -753,15 +789,18 @@ static float complexABS(float _real, float _compl)
 
 static void performFFT( void )
 {
+  //if (!RUN_ONCE) printf("In perform FFT\r\n");
   for ( int _channel = 0; _channel < (ADC1_CHANNELS + ADC3_CHANNELS); _channel++ )
   {
+	//if (!RUN_ONCE) printf("In arm_rfft\r\n");
     arm_rfft_fast_f32( &fft_handler, (float*)&fft_sample_buffer[_channel][0], (float*)&fft_out_buffer[_channel][0], 0);
   }
 
   //calculate abs values and linear-to-dB
   for ( int _channel = 0; _channel < (ADC1_CHANNELS + ADC3_CHANNELS); _channel++ )
   {
-    for ( int _i=0; _i<FFT_BATCH_SIZE / 2; _i++ )
+	  //if (!RUN_ONCE)printf("In calculate magnitude\r\n");
+	  for ( int _i=0; _i<FFT_BATCH_SIZE / 2; _i++ )
     {
 #ifdef FFT_AVERAGING
       // compute magnitude, correct for dc offset, save value to current magnitude buffer
@@ -786,6 +825,7 @@ static void performFFT( void )
 
       for ( int sample_index = 1; sample_index < FFT_AVERAGE_SAMPLES; sample_index++ )
       {
+
         fft_frequency_magnitude_db_average[_channel][_i] += fft_frequency_magnitude_db[_channel][sample_index][_i];
       }
 
@@ -804,7 +844,9 @@ static void performFFT( void )
   }
 
   // increment fft buffer index for next iteration
+
   fft_frequency_magnitude_db_index = ( fft_frequency_magnitude_db_index + 1 ) % FFT_AVERAGE_SAMPLES;
+  //if (!RUN_ONCE) printf("done\r\n");
 }
 
 static void anomalyDetectionLogic( void )
@@ -823,6 +865,7 @@ static void anomalyDetectionLogic( void )
    */
 
   // TODO - disregard invalid/fault state channels
+  //if(!RUN_ONCE) printf("In perform anomalyDetectionLogic\r\n");
   float _largest_magnitude_db;
   uint16_t _largest_magnitude_bin = 0;
   boolean_t _channel_active;
@@ -900,51 +943,12 @@ static void anomalyDetectionLogic( void )
   setUserLED2State( anomaly_detect_state_current );
 }
 
-// TODO - disregard faulted/invalid channels -> degraded localization? no localization?
-static void anomalyLocalizationLogic( void )
-{
-  // for active microphones
-  // compare magnitudes
-  // Ignore frequencies for peak magnitudes
-
-  // maximum difference in frequency magnitude of any two microphones in array
-  float _magnitude_delta,
-        _magnitude_max,
-        _magnitude_min;
-
-  // single axis vector for each axis
-  int8_t _x_axis_vector,
-         _y_axis_vector,
-         _z_axis_vector;
-
-  // Get range of magnitude and use as basis for determining direction
-  _magnitude_max = fft_channel_magnitude_db[0];
-  _magnitude_min = _magnitude_max;
-
-  for ( int _channel = 1; _channel < (ADC1_CHANNELS + ADC3_CHANNELS); _channel++)
-  {
-    if ( fft_channel_magnitude_db[_channel] > _magnitude_max )
-    {
-      _magnitude_max = fft_channel_magnitude_db[_channel];
-    }
-    if ( fft_channel_magnitude_db[_channel] < _magnitude_min )
-    {
-      _magnitude_min = fft_channel_magnitude_db[_channel];
-    }
-  }
-
-  _magnitude_delta = _magnitude_max - _magnitude_min;
-
-  // determine x axis vector by comparing difference in magnitude with
-  //   maximum calculated difference of whole array
-
-}
-
 // Determines characteristics of an active anomaly, default values if none
 // Only capable of generating one set of values, does not handle multiple anomalies
 static void anomalyUpdateCharacteristics( void )
 {
   // Anomaly frequency, ** just potato averaging of active microphone frequencies **
+  //if(!RUN_ONCE) printf("In perform anomalyUpdateCharacteristics\r\n");
   float _sum = 0.0f;
   uint8_t _active_channels = 0;
 

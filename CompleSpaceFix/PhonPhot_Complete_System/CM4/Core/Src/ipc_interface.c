@@ -44,6 +44,12 @@ static volatile struct
 
   // x, y, z vector indicating anomaly direction
   int8_t anomaly_vector[3];
+
+  // output of ANN predicted region
+  int8_t predicted_region;
+
+  boolean_t lock;
+
 } shared_memory __attribute__((section(".ipc_data")));
 
 void IPCInitialize( void )
@@ -52,10 +58,12 @@ void IPCInitialize( void )
   shared_memory.voice_volume_normalized = 0.5f;
   shared_memory.voice_mute_active = FALSE;
   shared_memory.anomaly_detection_active = FALSE;
+  shared_memory.lock = FALSE;
   shared_memory.alarm_mute = FALSE;
   shared_memory.anomaly_vector[0] = 0;
   shared_memory.anomaly_vector[1] = 0;
   shared_memory.anomaly_vector[2] = 0;
+  shared_memory.predicted_region  = -1;
 }
 
 float IPCGetVoiceVolumeNormalized( void )
@@ -116,6 +124,31 @@ boolean_t IPCGetAlarmMuteState( void )
 void IPCSetAlarmMuteState( boolean_t new_state )
 {
   shared_memory.alarm_mute = new_state;
+}
+
+int8_t IPCGetPredictedRegion( void )
+{
+	return shared_memory.predicted_region;
+}
+
+void IPCSetPredictedRegion( int8_t region)
+{
+	shared_memory.predicted_region = region;
+}
+
+void IPCLock()
+{
+	shared_memory.lock = TRUE;
+}
+
+void IPCUnlock()
+{
+	shared_memory.lock = FALSE;
+}
+
+boolean_t IPCGetLock()
+{
+	return shared_memory.lock;
 }
 
 #ifdef __cplusplus
