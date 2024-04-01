@@ -2,7 +2,8 @@
 #include "websocket_client.h" // Include the header where WebsocketsClient and client are declared
 #include <Arduino.h>
 
-void i2s_install() {
+void i2s_install() 
+{
   const i2s_config_t i2s_config = {
     .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX),
     .sample_rate = 44100,
@@ -18,7 +19,8 @@ void i2s_install() {
   i2s_driver_install(I2S_NUM_0, &i2s_config, 0, NULL);
 }
 
-void i2s_setpin() {
+void i2s_setpin() 
+{
   const i2s_pin_config_t pin_config = {
     .bck_io_num = 32,
     .ws_io_num = 25,
@@ -29,16 +31,19 @@ void i2s_setpin() {
   i2s_set_pin(I2S_NUM_0, &pin_config);
 }
 
-void micTask(void *parameter) {
-  i2s_install();
-  i2s_setpin();
-  i2s_start(I2S_NUM_0);
+void micTask(void *parameter)
+{
+   i2s_install();
+   i2s_setpin();
+   i2s_start(I2S_NUM_0);
 
-  int16_t sBuffer[1024];
-  size_t bytesIn = 0;
-  while (true) {
-    if (i2s_read(I2S_NUM_0, &sBuffer, sizeof(sBuffer), &bytesIn, portMAX_DELAY) == ESP_OK && isWebSocketConnected) {
-      client.sendBinary((const char*)sBuffer, bytesIn);
-    }
-  }
+   int16_t sBuffer[1024];
+   size_t bytesIn = 0;
+   while (true) 
+   {
+      if (i2s_read(I2S_NUM_0, &sBuffer, sizeof(sBuffer), &bytesIn, portMAX_DELAY) == ESP_OK && isWebSocketConnected)
+      {
+         client.sendBinary((const char*)sBuffer, bytesIn);
+      }
+   }
 }
