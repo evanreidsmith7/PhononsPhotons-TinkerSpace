@@ -15,6 +15,7 @@ void setup()
   connectWiFi(ssid, password);
   connectWSServer(websocket_server_host, websocket_server_port);
   xTaskCreatePinnedToCore(micTask, "micTask", 10000, NULL, 1, NULL, 1);
+  xTaskCreatePinnedToCore(playToneTask, "playToneTask", 2048, NULL, 2, NULL, 2);
   
   // clear the serial buffer
   while (Serial.available())
@@ -30,10 +31,6 @@ void loop()
     String input = Serial.readStringUntil('\n');
     input.trim();
     Serial.println(input);
-    while (Serial.available())
-    {
-      Serial.read();
-    }
 
     // TODO: ADD SONIFY FUNCTIONALITY
     if (input == "toggle")
@@ -44,9 +41,35 @@ void loop()
     {
       toggleAlarm();
     }
+    else if (input == "alarm")
+    {//get freq and magnitude from mesage: "<freq>, <magnitude>"
+      String toneInput = Serial.readStringUntil('\n');
+      toneInput.trim();
+      int delimiterIndex = toneInput.indexOf(',');
+      if (delimiterIndex != -1 && delimiterIndex < toneInput.length() - 1)
+      {
+        String freqString = toneInput.substring(0, delimiterIndex);
+        String magnitudeString = toneInput.substring(delimiterIndex + 1);
+
+        int freq = freqString.toInt();
+        int magnitude = magnitudeString.toInt();
+
+        Serial.print("freq, mag recieved = ");
+        Serial.print(freq);
+        Serial.print(", ");
+        Serial.println(magnitude);
+
+        setTone(freq, magnitude);
+      }
+    }
     else
     {
       Serial.println("input not recognized");
+    }
+    //end of function input
+    while (Serial.available())
+    {
+      Serial.read();
     }
   }
 
