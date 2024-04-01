@@ -152,8 +152,8 @@ void loop()
 
     if (outResult == ESP_OK)
     {
-      //Serial.println("outResult is ok");
-      //Serial.println("after writting to dac");
+      Serial.println("outResult is ok");
+      Serial.println("after writting to dac");
       //printBuff();
       
     }
