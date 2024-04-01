@@ -15,7 +15,6 @@ void setup()
   connectWiFi(ssid, password);
   connectWSServer(websocket_server_host, websocket_server_port);
   xTaskCreatePinnedToCore(micTask, "micTask", 10000, NULL, 1, NULL, 1);
-  xTaskCreatePinnedToCore(playToneTask, "playToneTask", 2048, NULL, 2, NULL, 2);
   
   // clear the serial buffer
   while (Serial.available())
@@ -37,7 +36,7 @@ void loop()
     {
       toggleMute();
     }
-    else if (input == "alarmToggle")
+    else if (input == "tAlarm")
     {
       toggleAlarm();
     }
@@ -66,12 +65,14 @@ void loop()
     {
       Serial.println("input not recognized");
     }
-    //end of function input
-    while (Serial.available())
-    {
-      Serial.read();
-    }
   }
+//end of function input
+  while (Serial.available())
+  {
+    Serial.read();
+  }
+
+  playToneTask();
 
   if (isMuted)
   {

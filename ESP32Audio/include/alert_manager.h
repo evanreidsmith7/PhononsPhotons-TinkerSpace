@@ -10,4 +10,4 @@ extern int alarmFreq;
 extern int alarmTime;
 void toggleAlarm();
 void setTone(int freq, int magnitude);
-void playToneTask(void *parameter);
+void playToneTask();
