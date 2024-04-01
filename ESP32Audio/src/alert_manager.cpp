@@ -17,8 +17,8 @@ void setTone(int freq, int magnitude)
 {
    Serial.println("in set tone");
    alarmIsMuted = false;
-   alarmFreq = freq;
-   alarmTime = magnitude;
+   alarmFreq = map(freq, minInputFreq, maxInputFreq, minBuzzerFreq, maxBuzzerFreq);
+   alarmTime = map(magnitude, 0, 150, 1000, 100); // Assuming magnitude ranges from 0 to 200 dB;
    // implement freq and mag mapping
    Serial.println("out set tone");
 }
@@ -31,8 +31,10 @@ void playToneTask()
       // Play the tone on the buzzer
       if (alarmFreq >= minBuzzerFreq && alarmFreq <= maxBuzzerFreq)
       {
-         tone(BUZZER_PIN, alarmFreq, alarmTime);
+         tone(BUZZER_PIN, alarmFreq);
+         delay(alarmTime);
          noTone(BUZZER_PIN);
+         delay(alarmTime);
       }
    }
 }
