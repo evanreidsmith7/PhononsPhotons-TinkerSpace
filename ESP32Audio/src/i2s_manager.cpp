@@ -1,6 +1,7 @@
 #include "i2s_manager.h"
 #include "websocket_client.h" // Include the header where WebsocketsClient and client are declared
 #include <Arduino.h>
+bool isMuted = false;
 
 void i2s_install() 
 {
@@ -46,4 +47,9 @@ void micTask(void *parameter)
          client.sendBinary((const char*)sBuffer, bytesIn);
       }
    }
+}
+void toggleMute()
+{
+  isMuted = !isMuted;
+  Serial.println(isMuted ? "Muted" : "Unmuted");
 }

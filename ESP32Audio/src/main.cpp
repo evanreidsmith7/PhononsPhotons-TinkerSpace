@@ -3,14 +3,11 @@
 #include "i2s_manager.h"
 #include "alert_manager.h"
 
-void toggleMute();
-
 const char *ssid = "schmittttty";
 const char *password = "12345678";
 
 const char *websocket_server_host = "10.218.151.104"; // see wireless lan adapter wifi IPv4 Address. . . . . . . . . . . : 10.218.151.104
 const uint16_t websocket_server_port = 8888;          // <WEBSOCKET_SERVER_PORT>
-bool isMuted = false;
 
 void setup()
 {
@@ -43,6 +40,10 @@ void loop()
     {
       toggleMute();
     }
+    else if (input == "alarmToggle")
+    {
+      toggleAlarm();
+    }
     else
     {
       Serial.println("input not recognized");
@@ -53,10 +54,4 @@ void loop()
   {
     i2s_zero_dma_buffer(I2S_NUM_0);
   }
-}
-
-void toggleMute()
-{
-  isMuted = !isMuted;
-  Serial.println(isMuted ? "Muted" : "Unmuted");
 }
