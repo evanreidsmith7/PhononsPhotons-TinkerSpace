@@ -1,17 +1,17 @@
-int buzzerPin = 9; // Pin connected to the buzzer
-
 void setup() 
 {
   Serial.begin(115200);
   Serial1.begin(115200);
-  pinMode(buzzerPin, OUTPUT);
+NEW SKETCH
+
+  //pinMode(buzzerPin, OUTPUT);
   while(Serial.available()) {Serial.read();}  //clear the serial buffer
   while(Serial1.available()) {Serial1.read();}  //clear the serial buffer for esp recieve
 }
 int freq = 0;
 void loop() 
 {
-  if (Serial1.available() > 0)
+  if (Serial.available() > 0)
   {
     // Read the incoming message
     int freq = Serial1.parseInt();

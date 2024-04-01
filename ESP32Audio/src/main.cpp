@@ -12,6 +12,8 @@ const uint16_t websocket_server_port = 8888;          // <WEBSOCKET_SERVER_PORT>
 void setup()
 {
   Serial.begin(115200);
+  //TODO: ADD SERIAL2 and test with another mcu
+  //Serial2.begin(115200, SERIAL_8N1, 16, 17); // RX, TX
   connectWiFi(ssid, password);
   connectWSServer(websocket_server_host, websocket_server_port);
   xTaskCreatePinnedToCore(micTask, "micTask", 10000, NULL, 1, NULL, 1);
