@@ -2,7 +2,7 @@
 #include "websocket_client.h"
 #include "i2s_manager.h"
 
-void readSerialToggleMute();
+void toggleMute();
 
 const char *ssid = "schmittttty";
 const char *password = "12345678";
@@ -18,36 +18,44 @@ void setup()
   connectWSServer(websocket_server_host, websocket_server_port);
   xTaskCreatePinnedToCore(micTask, "micTask", 10000, NULL, 1, NULL, 1);
 
-  //clear the serial buffer
-  while (Serial.available()){Serial.read();}
-}
-
-void loop()
-{
-  readSerialToggleMute();
-  if (isMuted)
+  // clear the serial buffer
+  while (Serial.available())
   {
-    i2s_zero_dma_buffer(I2S_NUM_0);
+    Serial.read();
   }
 }
 
-void readSerialToggleMute()
+void loop()
 {
   if (Serial.available() > 0)
   {
     String input = Serial.readStringUntil('\n');
     input.trim();
     Serial.println(input);
-    while (Serial.available()){Serial.read();}
+    while (Serial.available())
+    {
+      Serial.read();
+    }
 
+    // TODO: ADD SONIFY FUNCTIONALITY
     if (input == "toggle")
     {
-      isMuted = !isMuted;
-      Serial.println(isMuted ? "Muted" : "Unmuted");
+      toggleMute();
     }
     else
     {
       Serial.println("input not recognized");
     }
   }
+
+  if (isMuted)
+  {
+    i2s_zero_dma_buffer(I2S_NUM_0);
+  }
+}
+
+void toggleMute()
+{
+  isMuted = !isMuted;
+  Serial.println(isMuted ? "Muted" : "Unmuted");
 }
