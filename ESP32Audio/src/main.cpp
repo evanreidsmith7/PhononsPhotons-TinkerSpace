@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "websocket_client.h"
 #include "i2s_manager.h"
+#include "alert_manager.h"
 
 void toggleMute();
 
@@ -17,7 +18,7 @@ void setup()
   connectWiFi(ssid, password);
   connectWSServer(websocket_server_host, websocket_server_port);
   xTaskCreatePinnedToCore(micTask, "micTask", 10000, NULL, 1, NULL, 1);
-
+  
   // clear the serial buffer
   while (Serial.available())
   {
