@@ -15,7 +15,113 @@
       <Excluded>false</Excluded>
       <ProjectNature>Cpp</ProjectNature>
       <Secure />
-      <filestoremove />
+      <filestoremove>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_adc.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_adc_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_gpio.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_hsem.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_mdma.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_exti.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_crc.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_crc_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_uart.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_uart_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\CMSIS\Device\ST\STM32H7xx\Source\Templates\system_stm32h7xx.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\croutine.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\event_groups.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\list.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\queue.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\tasks.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.c</name>
+        </file>
+      </filestoremove>
       <sourceEntriesToRemove>
         <sourceEntry />
       </sourceEntriesToRemove>
@@ -70,7 +176,15 @@
             <Aincludes>
               <include />
             </Aincludes>
-            <Cincludes />
+            <Cincludes>
+              <include>Middlewares\Third_Party\FreeRTOS\Source\include</include>
+              <include>Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2</include>
+              <include>Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F</include>
+              <include>CM7\Core\Inc</include>
+              <include>CM7\TouchGFX\App</include>
+              <include>CM7\TouchGFX\target\generated</include>
+              <include>CM7\TouchGFX\target</include>
+            </Cincludes>
           </inctoremove>
         </config>
       </configs>
@@ -172,7 +286,119 @@
       <Excluded>false</Excluded>
       <ProjectNature>Cpp</ProjectNature>
       <Secure />
-      <filestoremove />
+      <filestoremove>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_cortex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_crc.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_crc_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_rcc_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_flash_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_gpio.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_hsem.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_mdma.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_pwr_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_i2c_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_exti.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_dma2d.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_ll_fmc.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_sdram.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_ltdc.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_ltdc_ex.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_qspi.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim.c</name>
+        </file>
+        <file>
+          <name>Drivers\STM32H7xx_HAL_Driver\Src\stm32h7xx_hal_tim_ex.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\croutine.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\event_groups.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\list.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\queue.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\stream_buffer.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\tasks.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2\cmsis_os2.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
+        </file>
+        <file>
+          <name>Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.c</name>
+        </file>
+        <file>
+          <name>Drivers\CMSIS\Device\ST\STM32H7xx\Source\Templates\system_stm32h7xx.c</name>
+        </file>
+      </filestoremove>
       <sourceEntriesToRemove>
         <sourceEntry />
       </sourceEntriesToRemove>
@@ -234,7 +460,9 @@
             <Aincludes>
               <include />
             </Aincludes>
-            <Cincludes />
+            <Cincludes>
+              <include>CM4\Core\Inc</include>
+            </Cincludes>
           </inctoremove>
         </config>
       </configs>
