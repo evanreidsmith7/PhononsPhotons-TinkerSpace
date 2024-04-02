@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;MessageSending&apos; to &apos;MessageSendingF4&apos;" description="Rename resource &apos;MessageSending&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/MessageSending" name="MessageSendingF4" stamp="1712013274084" updateReferences="true"/>&#x0A;<refactoring comment="Delete resource &apos;MessageSendingF4&apos;" deleteContents="true" description="Delete resource &apos;MessageSendingF4&apos;" element1="/MessageSendingF4" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1712013466651"/>
-</session>
