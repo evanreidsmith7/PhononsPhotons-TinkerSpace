@@ -141,6 +141,7 @@ int main(void)
 	  char msg[]= "toggle\r\n";
 	  // Send the message over UART
 	  HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 	  HAL_Delay(1000);
 
 //#################################################################################
