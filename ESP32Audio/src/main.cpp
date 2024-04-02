@@ -13,7 +13,7 @@ void setup()
 {
   Serial.begin(115200);
   //TODO: ADD SERIAL2 and test with another mcu
-  //Serial2.begin(115200, SERIAL_8N1, 16, 17); // RX, TX
+  Serial2.begin(115200, SERIAL_8N1); // RX, TX
   connectWiFi(ssid, password);
   connectWSServer(websocket_server_host, websocket_server_port);
   xTaskCreatePinnedToCore(micTask, "micTask", 10000, NULL, 1, NULL, 1);
@@ -27,9 +27,9 @@ void setup()
 
 void loop()
 {
-  if (Serial.available() > 0)
+  if (Serial2.available() > 0)
   {
-    String input = Serial.readStringUntil('\n');
+    String input = Serial2.readStringUntil('\n');
     input.trim();
     Serial.println(input);
 
@@ -69,11 +69,8 @@ void loop()
     }
   }
 //end of function input
-  while (Serial.available())
-  {
-    Serial.read();
-  }
-
+  while (Serial.available()){Serial.read();}
+  while (Serial2.available()){Serial2.read();}
   playToneTask();
 
   if (isMuted)
