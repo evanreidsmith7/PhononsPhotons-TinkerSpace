@@ -63,8 +63,8 @@ Core/Src/dsp.o: ../Core/Src/dsp.c ../Core/Inc/main.h \
  ../Lib/Include/dsp/quaternion_math_functions.h ../Core/Inc/dsp.h \
  ../Core/Inc/output_audio.h ../Core/Inc/ipc_interface.h \
  ../../Drivers/CMSIS/Include/cmsis_gcc.h \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/CM4/X-CUBE-AI/App/app_x-cube-ai.h \
- C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Middlewares/ST/AI/Inc/ai_platform.h
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/CM4/X-CUBE-AI/App/app_x-cube-ai.h \
+ C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Middlewares/ST/AI/Inc/ai_platform.h
 ../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -138,5 +138,5 @@ Core/Src/dsp.o: ../Core/Src/dsp.c ../Core/Inc/main.h \
 ../Core/Inc/output_audio.h:
 ../Core/Inc/ipc_interface.h:
 ../../Drivers/CMSIS/Include/cmsis_gcc.h:
-C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/CM4/X-CUBE-AI/App/app_x-cube-ai.h:
-C:/Projects/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Middlewares/ST/AI/Inc/ai_platform.h:
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/CM4/X-CUBE-AI/App/app_x-cube-ai.h:
+C:/Users/evanr/MiniMachineSTM32Work/PhononsPhotons-TinkerSpace/CompleSpaceFix/PhonPhot_Complete_System/Middlewares/ST/AI/Inc/ai_platform.h:
