@@ -8,4 +8,4 @@
 ../Core/Src/dsp.c:283:6:dspGetMicrophoneAnomalyDetectStates	1
 ../Core/Src/dsp.c:295:6:dspGetMicrophoneAnomalyDetectFrequencies	1
 ../Core/Src/dsp.c:306:6:dspGetMicrophoneAnomalyMagnitudes	1
-../Core/Src/dsp.c:318:6:dspEntry	33
+../Core/Src/dsp.c:318:6:dspEntry	32
