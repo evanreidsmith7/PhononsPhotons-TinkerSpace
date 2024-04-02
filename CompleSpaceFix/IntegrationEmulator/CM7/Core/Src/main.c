@@ -20,13 +20,10 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "crc.h"
-#include "dma.h"
-#include "dma2d.h"
 #include "ltdc.h"
 #include "quadspi.h"
 #include "tim.h"
 #include "fmc.h"
-#include "app_touchgfx.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -143,11 +140,9 @@ Error_Handler();
   /* Initialize all configured peripherals */
   MX_LTDC_Init();
   MX_CRC_Init();
-  MX_DMA2D_Init();
   MX_TIM4_Init();
   MX_FMC_Init();
   MX_QUADSPI_Init();
-  MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
