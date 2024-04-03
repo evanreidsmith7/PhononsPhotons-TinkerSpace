@@ -294,13 +294,13 @@ def plot_umap(X,y_encoded,model_name):
 
     # Scatter plot for each class label
     for i, label in enumerate(np.unique(y_encoded)):
-       plt.scatter(X_umap_2d[y_encoded == i, 0], X_umap_2d[y_encoded == i, 1], label=label)
+       plt.scatter(X_umap_2d[y_encoded == i, 0], X_umap_2d[y_encoded == i, 1], label=f"Region {label}")
 
     # Format and save plot
     #plt.legend()
     plt.xlabel('UMAP feature 1')
     plt.ylabel('UMAP feature 2')
-    plt.title('2D UMAP on Dataset')
+    plt.title('2D UMAP on 12 Region Dataset')
 
     # ----------------------------------- #
     #  Save the model
@@ -381,9 +381,7 @@ def load_csv_files(directory):
 # ---------------------------------------------------------------------------- # 
 def data_preprocessing(region_path,model_name,TRIM=False):
 
-
     print("Preprocessing data...")
-    # Dataframe to store entire dataset
     full_dataset = pd.DataFrame()
 
     # Load CSV files from each region and concatenate them
@@ -394,16 +392,15 @@ def data_preprocessing(region_path,model_name,TRIM=False):
         # ----------------------------------- #
         #  Trim x data points off each mic
         #  Ex: if N_PTS_TO_TRIM = 127, keep 0-60khz (0:126) each mic.
-        #  Set TRIM=True in main if you want to use it.
+        #  Set TRIM=True in main to use 
         # ----------------------------------- #
-        
         if TRIM:
             ctr = N_PTS_TO_TRIM  
             for i in range(N_MICS):
                 region_dataset = region_dataset.drop(columns=region_dataset.columns[ctr-1 : ctr + N_PTS_TO_TRIM],inplace=False)
                 ctr += N_PTS_TO_TRIM - 1
 
-        full_dataset   = pd.concat([full_dataset, region_dataset], ignore_index=True)
+        full_dataset = pd.concat([full_dataset, region_dataset], ignore_index=True)
 
     # Handling missing values by dropping rows with missing values
     full_dataset.dropna(inplace=True)
@@ -418,21 +415,32 @@ def data_preprocessing(region_path,model_name,TRIM=False):
     X[X == ''] = np.nan
 
     # Convert all values to float
-    X = X.astype(float)
+    X = X.astype('float32')
 
     print("X: ", X.shape)
     print("y: ", y_encoded.shape)
 
+    # ----------------------------------- #
+    #  Make data for Model Validation
+    # ----------------------------------- #
+    
     # Create numpy arrays for data validation
     x_temp = copy.deepcopy(X)
-    x_temp.insert(0,"Region",y_encoded)
+    x_temp = x_temp[:10000]
+
+    y_temp = np.arange(12)
+    y_temp = y_temp.reshape(-1,1,1,12)
 
     validation_inputs  = x_temp.to_numpy()
-    validation_outputs = y_encoded
+    validation_outputs = y_temp
 
     valid_path    = os.path.join(OUT_PATH,"Validation")
     model_name_dt = f"{DATETIME}_{model_name}"
-
+    
+    # ----------------------------------- #
+    #  Save validation files
+    # ----------------------------------- #
+    
     if os.path.isdir(os.path.join(valid_path,model_name)):
 
        shutil.rmtree(os.path.join(valid_path,model_name))
@@ -441,7 +449,6 @@ def data_preprocessing(region_path,model_name,TRIM=False):
        os.mkdir(os.path.join(valid_path,model_name)) 
 
     np.save(f"{valid_path}/{model_name}/{model_name_dt}_validation_inputs.npy" ,validation_inputs)
-    #TODO: Fix validation outputs, not working on CubeMX 
     np.save(f"{valid_path}/{model_name}/{model_name_dt}_validation_outputs.npy",validation_outputs)
 
     print("\n******************************************************************")
@@ -489,31 +496,35 @@ def build_model(X,y_encoded,model_name):
 
     print("Creating the model...")
 
+    plot_tsne(X,y_encoded,model_name)
+    
+    plot_umap(X,y_encoded,model_name)
+
     model = Sequential()
 
     #Input layer neurons (number of features)
-    #model.add(Dense(units=1524, input_dim=1524, activation='relu',name="pruning_sparsity_0_5"))
-    #prune_low_magnitude(pruning_sparsity_0_5,**pruning_params_sparsity_0_5)
-    ##Hidden layers (you can adjust the number of layers and neurons)
-    #model.add(Dense(units=256, activation='relu'))
-    #model.add(Dropout(0.2))
-    #model.add(Dense(units=128, activation='relu'))
-    ##dropout layer
-    ##Output layer
-    #model.add(Dense(units=12, activation='softmax'))
+    model.add(Dense(units=756, input_dim=756, kernel_initializer='RandomNormal', activation='relu'))
+    #Hidden layers (you can adjust the number of layers and neurons)
+    model.add(Dense(units=512, kernel_initializer='RandomNormal', activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(units=256, kernel_initializer='RandomNormal', activation='relu'))
+    model.add(Dense(units=128, kernel_initializer='RandomNormal', activation='relu'))
+    #dropout layer
+    #Output layer
+    model.add(Dense(units=12, activation='softmax'))
 
-    model = Sequential([
-        prune_low_magnitude(
-            Dense(1524,input_dim=756,activation='relu',name="pruning_sparsity_0_5"),
-            **pruning_params_sparsity_0_5),
-        prune_low_magnitude(
-            Dense(units=256,activation='relu'),
-            **pruning_params_sparsity_0_5),
-        Dropout(0.2),
-        prune_low_magnitude(
-            Dense(units=128,activation='relu'),
-            **pruning_params_sparsity_0_5),
-        Dense(units=12,activation='softmax')])
+    #model = Sequential([
+    #    prune_low_magnitude(
+    #        Dense(1524,input_dim=756,activation='relu',name="pruning_sparsity_0_5"),
+    #        **pruning_params_sparsity_0_5),
+    #    prune_low_magnitude(
+    #        Dense(units=256,activation='relu'),
+    #        **pruning_params_sparsity_0_5),
+    #    Dropout(0.2),
+    #    prune_low_magnitude(
+    #        Dense(units=128,activation='relu'),
+    #        **pruning_params_sparsity_0_5),
+    #    Dense(units=12,activation='softmax')])
 
 
     #Compile the model
@@ -527,9 +538,11 @@ def build_model(X,y_encoded,model_name):
     
     print("Training the model...")
 
-    history = model.fit(X_train_scaled, y_train, epochs=3, batch_size=64, validation_data =(X_test_scaled, y_test), verbose=1,callbacks=tfmot.sparsity.keras.UpdatePruningStep())
+    history = model.fit(X_train_scaled, y_train, epochs=25, batch_size=64, 
+                       shuffle=True, validation_data = (X_test_scaled, y_test), verbose=1)
     
     model.summary()
+    print(model.get_weights)
     # ----------------------------------- #
     #  Model Prediction
     # ----------------------------------- #
@@ -564,9 +577,9 @@ def build_model(X,y_encoded,model_name):
 
     plot_roc_auc(y_test, y_test_pred, model_name)
 
-    #plot_tsne(X,y_encoded,model_name)
+    plot_tsne(X,y_encoded,model_name)
     
-    #plot_umap(X,y_encoded,model_name)
+    plot_umap(X,y_encoded,model_name)
     # ----------------------------------- #
     #  Save the model
     # ----------------------------------- #
@@ -626,7 +639,7 @@ def build_model(X,y_encoded,model_name):
 def main(dataset_dir,model_name):
 
     reg_path = os.path.join(DSET_PATH, dataset_dir)
-    X,y      = data_preprocessing(reg_path,model_name,TRIM=False)
+    X,y      = data_preprocessing(reg_path,model_name,TRIM=True)
     build_model(X,y,model_name)
 
     return 

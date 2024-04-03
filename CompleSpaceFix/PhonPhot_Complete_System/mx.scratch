@@ -122,16 +122,16 @@
           <name>Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\port.c</name>
         </file>
         <file>
-          <name>..\CM4\X-CUBE-AI\App\ann_762.c</name>
+          <name>..\CM4\X-CUBE-AI\App\ann_756.c</name>
         </file>
         <file>
-          <name>..\CM4\X-CUBE-AI\App\ann_762_data.c</name>
+          <name>..\CM4\X-CUBE-AI\App\ann_756_data.c</name>
         </file>
         <file>
-          <name>..\CM4\X-CUBE-AI\App\ann_762_data_params.c</name>
+          <name>..\CM4\X-CUBE-AI\App\ann_756_data_params.c</name>
         </file>
         <file>
-          <name>..\CM4\X-CUBE-AI\App\ann_762_generate_report.txt</name>
+          <name>..\CM4\X-CUBE-AI\App\ann_756_generate_report.txt</name>
         </file>
         <file>
           <name>..\Middlewares\ST\AI\Lib\NetworkRuntime810_CM4_GCC.a</name>

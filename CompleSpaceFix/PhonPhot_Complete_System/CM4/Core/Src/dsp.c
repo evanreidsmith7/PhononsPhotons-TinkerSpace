@@ -146,7 +146,6 @@ static volatile uint16_t adc_channel_dynamic_offsets[ADC1_CHANNELS + ADC3_CHANNE
 // REMOVED OUTPUT AUDIO EXTERNALIZED
 // input buffer for FIR filter, used as split buffer due to 60 tap FIR and 15:1 downsampling overlap
 //static volatile int16_t output_audio_filter_input_buffer[OUTPUT_AUDIO_BUFFER_SIZE * ADC_OUTPUT_AUDIO_OVERSAMPLING_RATIO * 2];
-
 // buffer for filtered audio data for each microphone, mono 16 ksps 16 bit, not a split buffer
 //static volatile int16_t output_audio_filtered_buffer[OUTPUT_AUDIO_BUFFER_SIZE];
 //static volatile int16_t output_audio_base_gain = 1;
@@ -159,7 +158,6 @@ static volatile uint16_t fft_op_skip_counter = 0;
 static volatile boolean_t fft_samples_ready = FALSE;
 static volatile boolean_t fft_results_ready = FALSE;
 static volatile boolean_t localization_data_ready = FALSE;
-
 
 // have skipped n fft data sets without uart transmission
 static uint16_t usart_data_skip_counter = 0;
@@ -174,8 +172,8 @@ static volatile float fft_noise_floor[FFT_NUMBER_OF_BINS];
 static uint16_t noise_floor_samples = 0;
 
 // fft spectrum magnitudes for each channel, including past ops when averaging
-static volatile float fft_frequency_magnitude_db[ADC1_CHANNELS + ADC3_CHANNELS][FFT_AVERAGE_SAMPLES][FFT_NUMBER_OF_BINS];
-volatile float fft_frequency_magnitude_db_average[ADC1_CHANNELS + ADC3_CHANNELS][FFT_NUMBER_OF_BINS];
+volatile float           fft_frequency_magnitude_db_average[ADC1_CHANNELS + ADC3_CHANNELS][FFT_NUMBER_OF_BINS];
+static volatile float    fft_frequency_magnitude_db[ADC1_CHANNELS + ADC3_CHANNELS][FFT_AVERAGE_SAMPLES][FFT_NUMBER_OF_BINS];
 static volatile uint16_t fft_frequency_magnitude_db_index = 0;
 
 // counts for fft bins of each channel to determine trigger status
@@ -234,6 +232,7 @@ static float complexABS(float real, float compl);
 // perform FFT ops on fft sample buffers
 static void performFFT( void );
 
+// REMOVED OUTPUT AUDIO EXTERNALIZED
 // implementation of FIR filter for output audio
 // two buffer pointers for current and previous, due to the number of taps on the FIR
 //   and relatively low downsample rate
@@ -250,8 +249,7 @@ static void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma);
 static void copySamplesForFFT( volatile uint16_t *_source1, volatile uint16_t *_source2 );
 
 static void anomalyDetectionLogic( void );
-//static void anomalyLocalizationLogic( void );
-// TODO - write this function, calculates characteristics of an active anomaly
+
 static void anomalyUpdateCharacteristics( void );
 
 boolean_t dspGetIsAnomalyDetected( void )
@@ -408,15 +406,18 @@ void dspEntry( void )
 
       // Inference ANN every 40 FFT's (~3 seconds) when anomaly active.
       if(anomaly_detect_state_current & (((SKIP_N_SAMPLES_READY % 40) == 0) || (SKIP_N_SAMPLES_READY == 0)))
-      //if(anomaly_detect_state_current & RUN_ONCE)
       {
     	    MX_X_CUBE_AI_Process(fft_frequency_magnitude_db_average);
       	    SKIP_N_SAMPLES_READY = 1;
       	    //RUN_ONCE = FALSE;
       }
+
       // Increment counter
       else if (anomaly_detect_state_current) SKIP_N_SAMPLES_READY++;
 
+
+      // Check if button (green on front of UI) pressed
+      // Used to send data out of USART3 USB for MATLAB script plotting
       user_button_state_previous = user_button_state_current;
       user_button_state_current = getUserButtonState( );
 
@@ -425,6 +426,7 @@ void dspEntry( void )
         uart_data_flag = (uart_data_flag ? FALSE : TRUE);
       }
 
+      // Transmit data if button pressed
       if ( fft_results_ready && uart_data_flag )
       {
         usart_data_skip_counter++;
@@ -460,7 +462,6 @@ uint32_t adc_dma_irq_count = 0;
 
 void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
 {
-  //if (AI_RUNNING) return;
 
   if ( debug_output_enable )
   {
@@ -587,7 +588,6 @@ void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
     // microphone 5 -> adc3 buffer index 2
 
     // mix and average the six channels into one stream, change to floating point and expected offset
-    // TODO - use only valid channels for voice?
 	// REMOVED OUTPUT AUDIO EXTERNALIZED
     //output_audio_filter_input_buffer[index] = (int16_t)(((int32_t)adc1_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[0]
     //                                                    + (int32_t)adc3_read_buffer[0 + index * 3] - adc_channel_dynamic_offsets[1]
@@ -777,7 +777,7 @@ static void copySamplesForFFT( volatile uint16_t *_source1, volatile uint16_t *_
     fft_sample_buffer[5][_index] = (3.3f / 65535.0f * (float)_source2[2 + _index * 3]
                                   - (0.0f)) * HANN_WINDOW_COEFF[_index];
   }
-  //if (!RUN_ONCE) printf("Out of copySamplesforFFT\r\n");
+
   // set ready for FFT flag so base loop or an RTOS task can perform the op without blocking interrupts
   fft_samples_ready = TRUE;
 }
@@ -789,17 +789,17 @@ static float complexABS(float _real, float _compl)
 
 static void performFFT( void )
 {
-  //if (!RUN_ONCE) printf("In perform FFT\r\n");
+
   for ( int _channel = 0; _channel < (ADC1_CHANNELS + ADC3_CHANNELS); _channel++ )
   {
-	//if (!RUN_ONCE) printf("In arm_rfft\r\n");
+
     arm_rfft_fast_f32( &fft_handler, (float*)&fft_sample_buffer[_channel][0], (float*)&fft_out_buffer[_channel][0], 0);
   }
 
   //calculate abs values and linear-to-dB
   for ( int _channel = 0; _channel < (ADC1_CHANNELS + ADC3_CHANNELS); _channel++ )
   {
-	  //if (!RUN_ONCE)printf("In calculate magnitude\r\n");
+
 	  for ( int _i=0; _i<FFT_BATCH_SIZE / 2; _i++ )
     {
 #ifdef FFT_AVERAGING
@@ -846,7 +846,7 @@ static void performFFT( void )
   // increment fft buffer index for next iteration
 
   fft_frequency_magnitude_db_index = ( fft_frequency_magnitude_db_index + 1 ) % FFT_AVERAGE_SAMPLES;
-  //if (!RUN_ONCE) printf("done\r\n");
+
 }
 
 static void anomalyDetectionLogic( void )

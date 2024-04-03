@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file    ann_1524_trimmed_data.h
+  * @file    ann_756_data.h
   * @author  AST Embedded Analytics Research Platform
-  * @date    Fri Mar 29 06:49:08 2024
+  * @date    Mon Apr  1 23:14:06 2024
   * @brief   AI Tool Automatic Code Generator for Embedded NN computing
   ******************************************************************************
   * Copyright (c) 2024 STMicroelectronics.
@@ -14,69 +14,69 @@
   ******************************************************************************
   */
 
-#ifndef ANN_1524_TRIMMED_DATA_H
-#define ANN_1524_TRIMMED_DATA_H
+#ifndef ANN_756_DATA_H
+#define ANN_756_DATA_H
 #pragma once
 
-#include "ann_1524_trimmed_config.h"
-#include "ann_1524_trimmed_data_params.h"
+#include "ann_756_config.h"
+#include "ann_756_data_params.h"
 
 AI_DEPRECATED
-#define AI_ANN_1524_TRIMMED_DATA_ACTIVATIONS(ptr_)  \
-  ai_ann_1524_trimmed_data_activations_buffer_get(AI_HANDLE_PTR(ptr_))
+#define AI_ANN_756_DATA_ACTIVATIONS(ptr_)  \
+  ai_ann_756_data_activations_buffer_get(AI_HANDLE_PTR(ptr_))
 
 AI_DEPRECATED
-#define AI_ANN_1524_TRIMMED_DATA_WEIGHTS(ptr_)  \
-  ai_ann_1524_trimmed_data_weights_buffer_get(AI_HANDLE_PTR(ptr_))
+#define AI_ANN_756_DATA_WEIGHTS(ptr_)  \
+  ai_ann_756_data_weights_buffer_get(AI_HANDLE_PTR(ptr_))
 
 
 AI_API_DECLARE_BEGIN
 
 
-extern const ai_u64 s_ann_1524_trimmed_weights_array_u64[100193];
+extern const ai_u64 s_ann_756_weights_array_u64[71785];
 
 
 
 /*!
  * @brief Get network activations buffer initialized struct.
- * @ingroup ann_1524_trimmed_data
+ * @ingroup ann_756_data
  * @param[in] ptr a pointer to the activations array storage area
  * @return an ai_buffer initialized struct
  */
 AI_DEPRECATED
 AI_API_ENTRY
-ai_buffer ai_ann_1524_trimmed_data_activations_buffer_get(const ai_handle ptr);
+ai_buffer ai_ann_756_data_activations_buffer_get(const ai_handle ptr);
 
 /*!
  * @brief Get network weights buffer initialized struct.
- * @ingroup ann_1524_trimmed_data
+ * @ingroup ann_756_data
  * @param[in] ptr a pointer to the weights array storage area
  * @return an ai_buffer initialized struct
  */
 AI_DEPRECATED
 AI_API_ENTRY
-ai_buffer ai_ann_1524_trimmed_data_weights_buffer_get(const ai_handle ptr);
+ai_buffer ai_ann_756_data_weights_buffer_get(const ai_handle ptr);
 
 /*!
  * @brief Get network weights array pointer as a handle ptr.
- * @ingroup ann_1524_trimmed_data
+ * @ingroup ann_756_data
  * @return a ai_handle pointer to the weights array
  */
 AI_DEPRECATED
 AI_API_ENTRY
-ai_handle ai_ann_1524_trimmed_data_weights_get(void);
+ai_handle ai_ann_756_data_weights_get(void);
 
 
 /*!
  * @brief Get network params configuration data structure.
- * @ingroup ann_1524_trimmed_data
+ * @ingroup ann_756_data
  * @return true if a valid configuration is present, false otherwise
  */
 AI_API_ENTRY
-ai_bool ai_ann_1524_trimmed_data_params_get(ai_network_params* params);
+ai_bool ai_ann_756_data_params_get(ai_network_params* params);
 
 
 AI_API_DECLARE_END
 
-#endif /* ANN_1524_TRIMMED_DATA_H */
+#endif /* ANN_756_DATA_H */
 
