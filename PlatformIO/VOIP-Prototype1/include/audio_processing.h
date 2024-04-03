@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 void setupAudioProcessing();
-void processAudioData();
+int processAudioData(int16_t *samples, int count);
 void printPlotLimits(int limit);
 
 

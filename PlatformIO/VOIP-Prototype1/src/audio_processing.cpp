@@ -12,7 +12,7 @@
 #define I2S_SCK 32
 #define I2S_PORT I2S_NUM_0
 // Define input buffer length
-const int SAMPLE_SIZE = 512;
+extern const int SAMPLE_SIZE = 512;
 
 
 // Function prototypes for I2S setup and audio processing
@@ -27,16 +27,24 @@ void setupAudioProcessing()
    i2s_setpin_atomic();
 }
 
-void processAudioData() 
+/**
+ * Processes audio data by reading it into the provided buffer.
+ *
+ * @param samples A pointer to an array of int16_t that will hold the audio samples.
+ * @param count The size of the samples array.
+ * @return The number of samples actually read.
+ */
+int processAudioData(int16_t *samples, int count) 
 {
-   int16_t *samples = (int16_t *)malloc(sizeof(uint16_t) * SAMPLE_SIZE);
-   if (!samples)
-   {
-      Serial.println("Failed to allocate memory for samples");
-      return;
-   }
-   int samples_read = read(samples, SAMPLE_SIZE);
-   free(samples); // Don't forget to free the allocated memory
+    if (!samples || count <= 0)
+    {
+        Serial.println("Invalid buffer or count");
+        return 0; // Return 0 to indicate no data was processed
+    }
+
+    int samples_read = read(samples, std::min(count, SAMPLE_SIZE));
+    // Process the samples if needed or directly return the count of samples read
+    return samples_read;
 }
 
 void printPlotLimits(int rangelimit)
@@ -107,7 +115,7 @@ static void i2s_install_atomic()
       .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
       .communication_format = i2s_comm_format_t(I2S_COMM_FORMAT_STAND_I2S),
       .intr_alloc_flags = ESP_INTR_FLAG_LEVEL1,
-      .dma_buf_count = 4,
+      .dma_buf_count = 6,
       .dma_buf_len = 1024,
       .use_apll = false,
       .tx_desc_auto_clear = false,
