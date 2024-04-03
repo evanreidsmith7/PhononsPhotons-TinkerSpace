@@ -6,6 +6,10 @@
 		{
 			"name": "ESP32Audio",
 			"path": "."
+		},
+		{
+			"name": "ESP-STM_UART",
+			"path": "../PlatformIO/ESP-STM_UART"
 		}
 	],
 	"settings": {}

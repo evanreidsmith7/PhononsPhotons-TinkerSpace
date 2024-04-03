@@ -123,7 +123,6 @@ int main(void)
   MX_USART3_UART_Init();
   MX_ADC3_Init();
   MX_ADC1_Init();
-  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -138,11 +137,18 @@ int main(void)
 //#################################################################################
   while (1)
   {
-	  char msg[]= "toggle\r\n";
+	  HAL_GPIO_TogglePin(tx_GPIO_Port, tx_Pin);
+	  HAL_GPIO_TogglePin(rx_GPIO_Port, rx_Pin);
+	  HAL_Delay(500);
+
+	  /*
+	  char msg[] = "g";
 	  // Send the message over UART
-	  HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	  HAL_StatusTypeDef status;
+	  while ((status = HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY)) == HAL_BUSY);
 	  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	  HAL_Delay(1000);
+	  HAL_Delay(1);
+	   */
 
 //#################################################################################
 //#################################################################################

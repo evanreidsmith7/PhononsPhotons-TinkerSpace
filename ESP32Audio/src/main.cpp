@@ -70,7 +70,6 @@ void loop()
   }
 //end of function input
   while (Serial.available()){Serial.read();}
-  while (Serial2.available()){Serial2.read();}
   playToneTask();
 
   if (isMuted)
