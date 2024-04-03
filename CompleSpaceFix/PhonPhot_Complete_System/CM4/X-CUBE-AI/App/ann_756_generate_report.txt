@@ -1,0 +1,207 @@
+Neural Network Tools for STM32 family v1.7.0 (stm.ai v8.1.0-19520)
+Created date          : 2024-04-01 23:14:06
+Parameters            : generate --name ann_756 -m C:/Projects/PhononsPhotons-TinkerSpace/ML_Workspace/Output/Models/ann_756_extra_layers/04_01_223958_ann_756_extra_layers.tflite --type tflite --compression high --verbosity 1 --workspace C:\Users\agrahm\AppData\Local\Temp\mxAI_workspace34427179021170013324801541998922266 --output C:\Users\agrahm\.stm32cubemx\network_output --series stm32h7
+
+Exec/report summary (generate)
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+model file         :   C:\Projects\PhononsPhotons-TinkerSpace\ML_Workspace\Output\Models\ann_756_extra_layers\04_01_223958_ann_756_extra_layers.tflite   
+type               :   tflite                                                                                                                            
+c_name             :   ann_756                                                                                                                           
+compression        :   high                                                                                                                              
+optimization       :   balanced                                                                                                                          
+target/series      :   stm32h7                                                                                                                           
+workspace dir      :   C:\Users\agrahm\AppData\Local\Temp\mxAI_workspace34427179021170013324801541998922266                                              
+output dir         :   C:\Users\agrahm\.stm32cubemx\network_output                                                                                       
+model_fmt          :   float                                                                                                                             
+model_name         :   node_04_01_223958_ann_756_extra_layers                                                                                            
+model_hash         :   812dba3eee53e69fe6bbeb2c76d647ce                                                                                                  
+params #           :   1,125,648 items (1104.14 KiB)                                                                                                     
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+input 1/1          :   'serving_default_dense_input0' (domain:user/)                                                                                     
+                   :   756 items, 2.95 KiB, ai_float, float, (1,756)                                                                                     
+output 1/1         :   'nl_5' (domain:user/)                                                                                                             
+                   :   12 items, 48 B, ai_float, float, (1,12)                                                                                           
+macc               :   1,127,480                                                                                                                         
+weights (ro)       :   574,280 B (560.82 KiB) (1 segment) / -3,928,312(-87.2%) vs float model                                                            
+activations (rw)   :   5,072 B (4.95 KiB) (1 segment)                                                                                                    
+ram (total)        :   8,144 B (7.95 KiB) = 5,072 + 3,024 + 48                                                                                           
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Model name - node_04_01_223958_ann_756_extra_layers ['serving_default_dense_input0'] ['nl_5']
+------ ----------------------------------------------------------- --------------------- ----------------- --------- ------------------------------------------- --- ------------------- ------------------- ----------------------------- 
+m_id   layer (type,original)                                       oshape                param/size             macc                                connected to   | c_size              c_macc              c_type                        
+------ ----------------------------------------------------------- --------------------- ----------------- --------- ------------------------------------------- --- ------------------- ------------------- ----------------------------- 
+0      serving_default_dense_input0 (Input, )                      [b:1,c:756]                                                                                     | +288,856(+100.0%)   +573,048(+100.0%)   dense_wc4of32/nl_of32[0, 1]   
+       sequential_dense_MatMul (Placeholder, )                     [h:756,h:756,c:756]   571,536/571,536                                                           | -571,536(-100.0%)                       
+       sequential_dense_BiasAdd_ReadVariableOp (Placeholder, )     [c:756]               756/3,024                                                                 | -3,024(-100.0%)                         
+       gemm_0 (Gemm, FULLY_CONNECTED)                              [b:1,c:756]                               572,292                serving_default_dense_input0   |                     -572,292(-100.0%)   
+                                                                                                                                         sequential_dense_MatMul   | 
+                                                                                                                         sequential_dense_BiasAdd_ReadVariableOp   | 
+       nl_0_nl (Nonlinearity, FULLY_CONNECTED)                     [b:1,c:756]                                   756                                      gemm_0   |                     -756(-100.0%)       
+------ ----------------------------------------------------------- --------------------- ----------------- --------- ------------------------------------------- --- ------------------- ------------------- ----------------------------- 
+1      sequential_dense_1_MatMul (Placeholder, )                   [h:512,h:512,c:756]   387,072/387,072                                                           | -191,424(-49.5%)    +388,096(+100.0%)   dense_wc4of32/nl_of32[2, 3]   
+       sequential_dense_1_BiasAdd_ReadVariableOp (Placeholder, )   [c:512]               512/2,048                                                                 | -2,048(-100.0%)                         
+       gemm_1 (Gemm, FULLY_CONNECTED)                              [b:1,c:512]                               387,584                                     nl_0_nl   |                     -387,584(-100.0%)   
+                                                                                                                                       sequential_dense_1_MatMul   | 
+                                                                                                                       sequential_dense_1_BiasAdd_ReadVariableOp   | 
+       nl_1_nl (Nonlinearity, FULLY_CONNECTED)                     [b:1,c:512]                                   512                                      gemm_1   |                     -512(-100.0%)       
+------ ----------------------------------------------------------- --------------------- ----------------- --------- ------------------------------------------- --- ------------------- ------------------- ----------------------------- 
+2      sequential_dense_2_MatMul (Placeholder, )                   [h:256,h:256,c:512]   131,072/131,072                                                           | -64,448(-49.2%)     +131,584(+100.0%)   dense_wc4of32/nl_of32[4, 5]   
+       sequential_dense_2_BiasAdd_ReadVariableOp (Placeholder, )   [c:256]               256/1,024                                                                 | -1,024(-100.0%)                         
+       gemm_2 (Gemm, FULLY_CONNECTED)                              [b:1,c:256]                               131,328                                     nl_1_nl   |                     -131,328(-100.0%)   
+                                                                                                                                       sequential_dense_2_MatMul   | 
+                                                                                                                       sequential_dense_2_BiasAdd_ReadVariableOp   | 
+       nl_2_nl (Nonlinearity, FULLY_CONNECTED)                     [b:1,c:256]                                   256                                      gemm_2   |                     -256(-100.0%)       
+------ ----------------------------------------------------------- --------------------- ----------------- --------- ------------------------------------------- --- ------------------- ------------------- ----------------------------- 
+3      sequential_dense_3_MatMul (Placeholder, )                   [h:128,h:128,c:256]   32,768/32,768                                                             | -15,808(-48.2%)     +33,024(+100.0%)    dense_wc4of32/nl_of32[6, 7]   
+       sequential_dense_3_BiasAdd_ReadVariableOp (Placeholder, )   [c:128]               128/512                                                                   | -512(-100.0%)                           
+       gemm_3 (Gemm, FULLY_CONNECTED)                              [b:1,c:128]                                32,896                                     nl_2_nl   |                     -32,896(-100.0%)    
+                                                                                                                                       sequential_dense_3_MatMul   | 
+                                                                                                                       sequential_dense_3_BiasAdd_ReadVariableOp   | 
+       nl_3_nl (Nonlinearity, FULLY_CONNECTED)                     [b:1,c:128]                                   128                                      gemm_3   |                     -128(-100.0%)       
+------ ----------------------------------------------------------- --------------------- ----------------- --------- ------------------------------------------- --- ------------------- ------------------- ----------------------------- 
+4      sequential_dense_4_MatMul (Placeholder, )                   [h:12,h:12,c:128]     1,536/1,536                                                               | +4,656(+303.1%)     +1,548(+100.0%)     dense_of32[8]                 
+       sequential_dense_4_BiasAdd_ReadVariableOp (Placeholder, )   [c:12]                12/48                                                                     | -48(-100.0%)                            
+       gemm_4 (Gemm, FULLY_CONNECTED)                              [b:1,c:12]                                  1,548                                     nl_3_nl   |                     -1,548(-100.0%)     
+                                                                                                                                       sequential_dense_4_MatMul   | 
+                                                                                                                       sequential_dense_4_BiasAdd_ReadVariableOp   | 
+------ ----------------------------------------------------------- --------------------- ----------------- --------- ------------------------------------------- --- ------------------- ------------------- ----------------------------- 
+5      nl_5 (Nonlinearity, SOFTMAX)                                [b:1,c:12]                                    180                                      gemm_4   |                                         nl_of32[o][9]                 
+------ ----------------------------------------------------------- --------------------- ----------------- --------- ------------------------------------------- --- ------------------- ------------------- ----------------------------- 
+model/c-model: macc=1,127,480/1,127,480  weights=1,130,640/574,280 -556,360(-49.2%) activations=--/5,072 io=--/3,072
+
+
+
+Generated C-graph summary
+------------------------------------------------------------------------------------------------------------------------
+model name            : node_04_01_223958_ann_756_extra_layers
+c-name                : ann_756
+c-node #              : 10
+c-array #             : 21
+activations size      : 5072 (1 segment)
+weights size          : 574280 (1 segment)
+macc                  : 1127480
+inputs                : ['serving_default_dense_input0_output']
+outputs               : ['nl_5_output']
+
+C-Arrays (21)
+------ ------------------------------------- --------------- ------------------------- ------------- ----------- --------- 
+c_id   name (*_array)                        item/size       domain/mem-pool           c-type        fmt         comment   
+------ ------------------------------------- --------------- ------------------------- ------------- ----------- --------- 
+0      gemm_0_weights                        571536/285832   weights/weights           const float   c4 (LUT4)             
+1      gemm_0_bias                           756/3024        weights/weights           const float   float32               
+2      gemm_1_weights                        387072/193600   weights/weights           const float   c4 (LUT4)             
+3      gemm_1_bias                           512/2048        weights/weights           const float   float32               
+4      gemm_2_weights                        131072/65600    weights/weights           const float   c4 (LUT4)             
+5      gemm_2_bias                           256/1024        weights/weights           const float   float32               
+6      gemm_3_weights                        32768/16448     weights/weights           const float   c4 (LUT4)             
+7      gemm_3_bias                           128/512         weights/weights           const float   float32               
+8      gemm_4_weights                        1536/6144       weights/weights           const float   float32               
+9      gemm_4_bias                           12/48           weights/weights           const float   float32               
+10     serving_default_dense_input0_output   756/3024        user/                     float         float32     /input    
+11     gemm_0_output                         756/3024        activations/**default**   float         float32               
+12     nl_0_nl_output                        756/3024        activations/**default**   float         float32               
+13     gemm_1_output                         512/2048        activations/**default**   float         float32               
+14     nl_1_nl_output                        512/2048        activations/**default**   float         float32               
+15     gemm_2_output                         256/1024        activations/**default**   float         float32               
+16     nl_2_nl_output                        256/1024        activations/**default**   float         float32               
+17     gemm_3_output                         128/512         activations/**default**   float         float32               
+18     nl_3_nl_output                        128/512         activations/**default**   float         float32               
+19     gemm_4_output                         12/48           activations/**default**   float         float32               
+20     nl_5_output                           12/48           user/                     float         float32     /output   
+------ ------------------------------------- --------------- ------------------------- ------------- ----------- --------- 
+
+C-Layers (10)
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+c_id   name (*_layer)   id   layer_type   macc     rom      tensors                                  shape (array id)   
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+0      gemm_0           0    dense        572292   288856   I: serving_default_dense_input0_output   (1,756) (10)       
+                                                            W: gemm_0_weights                        (756,756) (0)      
+                                                            W: gemm_0_bias                           (756,) (1)         
+                                                            O: gemm_0_output                         (1,756) (11)       
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+1      nl_0_nl          0    nl           756      0        I: gemm_0_output                         (1,756) (11)       
+                                                            O: nl_0_nl_output                        (1,756) (12)       
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+2      gemm_1           1    dense        387584   195648   I: nl_0_nl_output                        (1,756) (12)       
+                                                            W: gemm_1_weights                        (756,512) (2)      
+                                                            W: gemm_1_bias                           (512,) (3)         
+                                                            O: gemm_1_output                         (1,512) (13)       
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+3      nl_1_nl          1    nl           512      0        I: gemm_1_output                         (1,512) (13)       
+                                                            O: nl_1_nl_output                        (1,512) (14)       
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+4      gemm_2           2    dense        131328   66624    I: nl_1_nl_output                        (1,512) (14)       
+                                                            W: gemm_2_weights                        (512,256) (4)      
+                                                            W: gemm_2_bias                           (256,) (5)         
+                                                            O: gemm_2_output                         (1,256) (15)       
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+5      nl_2_nl          2    nl           256      0        I: gemm_2_output                         (1,256) (15)       
+                                                            O: nl_2_nl_output                        (1,256) (16)       
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+6      gemm_3           3    dense        32896    16960    I: nl_2_nl_output                        (1,256) (16)       
+                                                            W: gemm_3_weights                        (256,128) (6)      
+                                                            W: gemm_3_bias                           (128,) (7)         
+                                                            O: gemm_3_output                         (1,128) (17)       
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+7      nl_3_nl          3    nl           128      0        I: gemm_3_output                         (1,128) (17)       
+                                                            O: nl_3_nl_output                        (1,128) (18)       
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+8      gemm_4           4    dense        1548     6192     I: nl_3_nl_output                        (1,128) (18)       
+                                                            W: gemm_4_weights                        (128,12) (8)       
+                                                            W: gemm_4_bias                           (12,) (9)          
+                                                            O: gemm_4_output                         (1,12) (19)        
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+9      nl_5             5    nl           180      0        I: gemm_4_output                         (1,12) (19)        
+                                                            O: nl_5_output                           (1,12) (20)        
+------ ---------------- ---- ------------ -------- -------- ---------------------------------------- ------------------ 
+
+
+
+Number of operations per c-layer
+------- ------ ---------------- ----------- ---------------- ----------- ---------- 
+c_id    m_id   name (type)              #op             type      #param   sparsity 
+------- ------ ---------------- ----------- ---------------- ----------- ---------- 
+0       0      gemm_0 (dense)       572,292   smul_f32_f32c4     572,292     0.0001 
+1       0      nl_0_nl (nl)             756       op_f32_f32             
+2       1      gemm_1 (dense)       387,584   smul_f32_f32c4     387,584     0.0000 
+3       1      nl_1_nl (nl)             512       op_f32_f32             
+4       2      gemm_2 (dense)       131,328   smul_f32_f32c4     131,328     0.0001 
+5       2      nl_2_nl (nl)             256       op_f32_f32             
+6       3      gemm_3 (dense)        32,896   smul_f32_f32c4      32,896     0.0005 
+7       3      nl_3_nl (nl)             128       op_f32_f32             
+8       4      gemm_4 (dense)         1,548     smul_f32_f32       1,548     0.0317 
+9       5      nl_5 (nl)                180       op_f32_f32             
+------- ------ ---------------- ----------- ---------------- ----------- ---------- 
+total                             1,127,480                    1,125,648     0.0001 
+
+Number of operation types
+---------------- ----------- ----------- 
+operation type             #           % 
+---------------- ----------- ----------- 
+smul_f32_f32c4     1,124,100       99.7% 
+op_f32_f32             1,832        0.2% 
+smul_f32_f32           1,548        0.1% 
+
+Complexity report (model)
+------ ------------------------------ ------------------------- ------------------------- -------- 
+m_id   name                           c_macc                    c_rom                     c_id     
+------ ------------------------------ ------------------------- ------------------------- -------- 
+0      serving_default_dense_input0   ||||||||||||||||  50.8%   ||||||||||||||||  50.3%   [0, 1]   
+1      sequential_dense_1_MatMul      |||||||||||       34.4%   |||||||||||       34.1%   [2, 3]   
+2      sequential_dense_2_MatMul      ||||              11.7%   ||||              11.6%   [4, 5]   
+3      sequential_dense_3_MatMul      |                  2.9%   |                  3.0%   [6, 7]   
+4      sequential_dense_4_MatMul      |                  0.1%   |                  1.1%   [8]      
+5      nl_5                           |                  0.0%   |                  0.0%   [9]      
+------ ------------------------------ ------------------------- ------------------------- -------- 
+macc=1,127,480 weights=574,280 act=5,072 ram_io=3,072
+
+Generated files (7)
+------------------------------------------------------------------- 
+C:\Users\agrahm\.stm32cubemx\network_output\ann_756_config.h        
+C:\Users\agrahm\.stm32cubemx\network_output\ann_756.h               
+C:\Users\agrahm\.stm32cubemx\network_output\ann_756.c               
+C:\Users\agrahm\.stm32cubemx\network_output\ann_756_data_params.h   
+C:\Users\agrahm\.stm32cubemx\network_output\ann_756_data_params.c   
+C:\Users\agrahm\.stm32cubemx\network_output\ann_756_data.h          
+C:\Users\agrahm\.stm32cubemx\network_output\ann_756_data.c          

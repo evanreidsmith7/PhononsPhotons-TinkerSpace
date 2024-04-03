@@ -70,24 +70,17 @@
   * @brief  The application entry point.
   * @retval int
   */
-int _write(int file, char *ptr, int len)
 
+int _write(int file, char *ptr, int len)
 {
 	int DataIdx;
 
 	for (DataIdx = 0; DataIdx < len; DataIdx++)
-
 	{
-
 		ITM_SendChar(*ptr++);
-
 	}
-
 	return len;
 }
-
-
-
 
 int main(void)
 {
@@ -110,6 +103,8 @@ int main(void)
 
   /* Clear HSEM flag */
   __HAL_HSEM_CLEAR_FLAG(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
+
+  __HAL_RCC_CRC_CLK_ENABLE();
 
 /* USER CODE END Boot_Mode_Sequence_1 */
   /* MCU Configuration--------------------------------------------------------*/

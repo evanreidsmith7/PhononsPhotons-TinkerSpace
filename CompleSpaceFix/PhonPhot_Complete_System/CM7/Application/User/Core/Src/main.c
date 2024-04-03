@@ -104,7 +104,16 @@ void PeriphCommonClock_Config(void);
   * @brief  The application entry point.
   * @retval int
   */
+int _write(int file, char *ptr, int len)
+{
+	int DataIdx;
 
+	for (DataIdx = 0; DataIdx < len; DataIdx++)
+	{
+		ITM_SendChar(*ptr++);
+	}
+	return len;
+}
 
 
 int main(void)
