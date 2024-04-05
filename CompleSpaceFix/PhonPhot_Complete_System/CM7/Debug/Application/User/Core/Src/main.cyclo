@@ -7,7 +7,6 @@
 ../Application/User/Core/Src/main.c:384:13:MX_DMA2D_Init	2
 ../Application/User/Core/Src/main.c:413:13:MX_LTDC_Init	3
 ../Application/User/Core/Src/main.c:475:13:MX_QUADSPI_Init	2
-../Application/User/Core/Src/main.c:509:13:MX_TIM4_Init	4
 ../Application/User/Core/Src/main.c:552:6:MX_FMC_Init	2
 ../Application/User/Core/Src/main.c:603:13:MX_GPIO_Init	1
 ../Application/User/Core/Src/main.c:677:6:StartDefaultTask	1

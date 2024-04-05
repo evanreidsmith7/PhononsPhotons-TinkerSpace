@@ -1,10 +1,10 @@
-23:16:17 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM7 ****
+00:05:38 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM7 ****
 make -j8 all 
 arm-none-eabi-size  PhonPhot_Complete_CM7.elf 
    text	   data	    bss	    dec	    hex	filename
- 627856	    408	  56196	 684460	  a71ac	PhonPhot_Complete_CM7.elf
+ 626268	    408	  56116	 682792	  a6b28	PhonPhot_Complete_CM7.elf
 Finished building: default.size.stdout
  
 
-23:16:18 Build Finished. 0 errors, 0 warnings. (took 760ms)
+00:05:39 Build Finished. 0 errors, 0 warnings. (took 709ms)
 
