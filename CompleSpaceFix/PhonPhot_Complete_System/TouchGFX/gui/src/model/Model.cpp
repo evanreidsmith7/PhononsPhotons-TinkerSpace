@@ -84,12 +84,12 @@ void Model::tick()
 	}
 
   // TIM4 serves as the encoder counter
-  if (TIM4->CNT != encoderCount)
-  {
-    int16_t encoderDelta = TIM4->CNT - encoderCount;
-    encoderCount = TIM4->CNT;
-    currentDelta = encoderDelta * 2;
+  // if (TIM4->CNT != encoderCount)
+  // {
+  //   int16_t encoderDelta = TIM4->CNT - encoderCount;
+  //   encoderCount = TIM4->CNT;
+  //   currentDelta = encoderDelta * 2;
 
-    static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(88);
-  }
+  //   static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(88);
+  // }
 }

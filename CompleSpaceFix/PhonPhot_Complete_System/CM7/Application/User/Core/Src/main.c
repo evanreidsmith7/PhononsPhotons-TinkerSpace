@@ -56,7 +56,7 @@ LTDC_HandleTypeDef hltdc;
 
 QSPI_HandleTypeDef hqspi;
 
-TIM_HandleTypeDef htim4;
+//TIM_HandleTypeDef htim4;
 
 SDRAM_HandleTypeDef hsdram2;
 
@@ -87,7 +87,7 @@ static void MX_FMC_Init(void);
 static void MX_LTDC_Init(void);
 static void MX_CRC_Init(void);
 static void MX_DMA2D_Init(void);
-static void MX_TIM4_Init(void);
+//static void MX_TIM4_Init(void);
 void StartDefaultTask(void *argument);
 void TouchGFX_Task(void *argument);
 
@@ -192,19 +192,19 @@ int main(void)
   MX_LTDC_Init();
   MX_CRC_Init();
   MX_DMA2D_Init();
-  MX_TIM4_Init();
+  //MX_TIM4_Init();
   MX_TouchGFX_Init();
   /* USER CODE BEGIN 2 */
 
-  TIM4->SMCR &= ~TIM_SMCR_SMS;
+  //TIM4->SMCR &= ~TIM_SMCR_SMS;
   // only need to set the low 3 bits of SMS
-  TIM4->SMCR |= 0b011;
+  //TIM4->SMCR |= 0b011;
 
   // set timer channel inputs
-  TIM4->CCMR1 |= (0x01 << 0) | (0x01 << 8);
+  //TIM4->CCMR1 |= (0x01 << 0) | (0x01 << 8);
 
   // start/enable timer
-  TIM4->CR1 |= TIM_CR1_CEN;
+  //TIM4->CR1 |= TIM_CR1_CEN;
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -506,47 +506,47 @@ static void MX_QUADSPI_Init(void)
   * @param None
   * @retval None
   */
-static void MX_TIM4_Init(void)
-{
+//static void MX_TIM4_Init(void)
+// {
 
-  /* USER CODE BEGIN TIM4_Init 0 */
+//   /* USER CODE BEGIN TIM4_Init 0 */
 
-  /* USER CODE END TIM4_Init 0 */
+//   /* USER CODE END TIM4_Init 0 */
 
-  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
+//   TIM_SlaveConfigTypeDef sSlaveConfig = {0};
+//   TIM_MasterConfigTypeDef sMasterConfig = {0};
 
-  /* USER CODE BEGIN TIM4_Init 1 */
+//   /* USER CODE BEGIN TIM4_Init 1 */
 
-  /* USER CODE END TIM4_Init 1 */
-  htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 0;
-  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 65535;
-  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_EXTERNAL1;
-  sSlaveConfig.InputTrigger = TIM_TS_TI1F_ED;
-  sSlaveConfig.TriggerFilter = 0;
-  if (HAL_TIM_SlaveConfigSynchro(&htim4, &sSlaveConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM4_Init 2 */
+//   /* USER CODE END TIM4_Init 1 */
+//   htim4.Instance = TIM4;
+//   htim4.Init.Prescaler = 0;
+//   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+//   htim4.Init.Period = 65535;
+//   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+//   if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+//   {
+//     Error_Handler();
+//   }
+//   sSlaveConfig.SlaveMode = TIM_SLAVEMODE_EXTERNAL1;
+//   sSlaveConfig.InputTrigger = TIM_TS_TI1F_ED;
+//   sSlaveConfig.TriggerFilter = 0;
+//   if (HAL_TIM_SlaveConfigSynchro(&htim4, &sSlaveConfig) != HAL_OK)
+//   {
+//     Error_Handler();
+//   }
+//   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+//   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+//   if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+//   {
+//     Error_Handler();
+//   }
+//   /* USER CODE BEGIN TIM4_Init 2 */
 
-  /* USER CODE END TIM4_Init 2 */
+//   /* USER CODE END TIM4_Init 2 */
 
-}
+// }
 
 /* FMC initialization function */
 void MX_FMC_Init(void)

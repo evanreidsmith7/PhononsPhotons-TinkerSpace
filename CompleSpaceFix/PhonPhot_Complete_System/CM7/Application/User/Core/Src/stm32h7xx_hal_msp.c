@@ -501,31 +501,31 @@ void HAL_QSPI_MspDeInit(QSPI_HandleTypeDef* hqspi)
 */
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(htim_base->Instance==TIM4)
-  {
-  /* USER CODE BEGIN TIM4_MspInit 0 */
+  //GPIO_InitTypeDef GPIO_InitStruct = {0};
+  // if(htim_base->Instance==TIM4)
+  // {
+  // /* USER CODE BEGIN TIM4_MspInit 0 */
 
-  /* USER CODE END TIM4_MspInit 0 */
-    /* Peripheral clock enable */
-    __HAL_RCC_TIM4_CLK_ENABLE();
+  // /* USER CODE END TIM4_MspInit 0 */
+  //   /* Peripheral clock enable */
+  //   __HAL_RCC_TIM4_CLK_ENABLE();
 
-    __HAL_RCC_GPIOB_CLK_ENABLE();
-    /**TIM4 GPIO Configuration
-    PB6     ------> TIM4_CH1
-    PB7     ------> TIM4_CH2
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    GPIO_InitStruct.Alternate = GPIO_AF2_TIM4;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  //   __HAL_RCC_GPIOB_CLK_ENABLE();
+  //   /**TIM4 GPIO Configuration
+  //   PB6     ------> TIM4_CH1
+  //   PB7     ------> TIM4_CH2
+  //   */
+  //   GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+  //   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  //   GPIO_InitStruct.Pull = GPIO_PULLUP;
+  //   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  //   GPIO_InitStruct.Alternate = GPIO_AF2_TIM4;
+  //   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /* USER CODE BEGIN TIM4_MspInit 1 */
+  // /* USER CODE BEGIN TIM4_MspInit 1 */
 
-  /* USER CODE END TIM4_MspInit 1 */
-  }
+  // /* USER CODE END TIM4_MspInit 1 */
+  // }
 
 }
 
@@ -537,24 +537,24 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
 */
 void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
 {
-  if(htim_base->Instance==TIM4)
-  {
-  /* USER CODE BEGIN TIM4_MspDeInit 0 */
+  // if(htim_base->Instance==TIM4)
+  // {
+  // /* USER CODE BEGIN TIM4_MspDeInit 0 */
 
-  /* USER CODE END TIM4_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_TIM4_CLK_DISABLE();
+  // /* USER CODE END TIM4_MspDeInit 0 */
+  //   /* Peripheral clock disable */
+  //   __HAL_RCC_TIM4_CLK_DISABLE();
 
-    /**TIM4 GPIO Configuration
-    PD12     ------> TIM4_CH1
-    PD13     ------> TIM4_CH2
-    */
-    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_12|GPIO_PIN_13);
+  //   /**TIM4 GPIO Configuration
+  //   PD12     ------> TIM4_CH1
+  //   PD13     ------> TIM4_CH2
+  //   */
+  //   HAL_GPIO_DeInit(GPIOD, GPIO_PIN_12|GPIO_PIN_13);
 
-  /* USER CODE BEGIN TIM4_MspDeInit 1 */
+  // /* USER CODE BEGIN TIM4_MspDeInit 1 */
 
-  /* USER CODE END TIM4_MspDeInit 1 */
-  }
+  // /* USER CODE END TIM4_MspDeInit 1 */
+  // }
 
 }
 
