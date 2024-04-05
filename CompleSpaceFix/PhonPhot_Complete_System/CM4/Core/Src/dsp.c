@@ -82,6 +82,8 @@
 #include "main.h"
 #include "math.h"
 #include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 #include "arm_math.h"
 #include "dsp.h"
 #include <output_audio.h>
@@ -103,6 +105,7 @@ extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_adc3;
 extern TIM_HandleTypeDef htim3;
 extern UART_HandleTypeDef huart3;
+extern UART_HandleTypeDef huart1;
 
 // number of ADC DMA HT interrupts before data is used for FFT
 // ADC batches in 1/400th second, skip 4, op on 5th -> 20 fft ops per second
@@ -394,6 +397,10 @@ void dspEntry( void )
   while (1)
   {
 	// USER CODE BEGIN
+	char msg[] = "hello from stm \r\n";
+	// Send the message over UART
+	HAL_StatusTypeDef status;
+	while ((status = HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY)) == HAL_BUSY);
 
     if ( fft_samples_ready )
     {

@@ -361,3 +361,5 @@
 2024-04-05 00:33:39,197 [INFO] AInterface:109 - AInterface using toolDir: C:/Users/evanr/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/8.1.0/Utilities/windows
 2024-04-05 00:33:39,205 [INFO] AIModelDetailledView:2080 - Analysis status: -
 2024-04-05 00:33:39,206 [INFO] AIModelDetailledView:861 - Selected model: TFLite
+2024-04-05 01:37:45,177 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2024-04-05 01:37:45,178 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 

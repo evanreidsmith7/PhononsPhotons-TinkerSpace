@@ -1,49 +1,91 @@
-00:23:43 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM4 ****
+01:27:10 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 718284	   3392	 114560	 836236	  cc28c	PhonPhot_Complete_CM4.elf
+Finished building: default.size.stdout
+ 
+01:27:21 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 718284	   3392	 114560	 836236	  cc28c	PhonPhot_Complete_CM4.elf
+Finished building: default.size.stdout
+ 
+01:27:22 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM7 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM7.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 626268	    408	  56116	 682792	  a6b28	PhonPhot_Complete_CM7.elf
+Finished building: default.size.stdout
+ 
+01:27:24 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 718284	   3392	 114560	 836236	  cc28c	PhonPhot_Complete_CM4.elf
+Finished building: default.size.stdout
+ 
+01:28:36 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 718284	   3392	 114560	 836236	  cc28c	PhonPhot_Complete_CM4.elf
+Finished building: default.size.stdout
+ 
+01:34:45 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 718284	   3392	 114560	 836236	  cc28c	PhonPhot_Complete_CM4.elf
+Finished building: default.size.stdout
+ 
+01:34:47 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM7 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM7.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 626268	    408	  56116	 682792	  a6b28	PhonPhot_Complete_CM7.elf
+Finished building: default.size.stdout
+ 
+01:34:48 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 718284	   3392	 114560	 836236	  cc28c	PhonPhot_Complete_CM4.elf
+Finished building: default.size.stdout
+ 
+01:37:13 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 718284	   3392	 114560	 836236	  cc28c	PhonPhot_Complete_CM4.elf
+Finished building: default.size.stdout
+ 
+01:37:14 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM7 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM7.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 626268	    408	  56116	 682792	  a6b28	PhonPhot_Complete_CM7.elf
+Finished building: default.size.stdout
+ 
+01:37:17 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+make -j8 all 
+arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 718284	   3392	 114560	 836236	  cc28c	PhonPhot_Complete_CM4.elf
+Finished building: default.size.stdout
+ 
+01:37:32 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM4 ****
 make -j8 all 
 arm-none-eabi-size  IntegrationEmulator_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
   43672	     16	   2504	  46192	   b470	IntegrationEmulator_CM4.elf
 Finished building: default.size.stdout
  
-00:24:23 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM4 ****
-make -j8 all 
-arm-none-eabi-size  IntegrationEmulator_CM4.elf 
-   text	   data	    bss	    dec	    hex	filename
-  43672	     16	   2504	  46192	   b470	IntegrationEmulator_CM4.elf
-Finished building: default.size.stdout
- 
-00:24:23 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM7 ****
+01:37:32 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM7 ****
 make -j8 all 
 arm-none-eabi-size  IntegrationEmulator_CM7.elf 
    text	   data	    bss	    dec	    hex	filename
   23408	     16	   8712	  32136	   7d88	IntegrationEmulator_CM7.elf
-Finished building: default.size.stdout
- 
-00:24:47 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM4 ****
-make -j8 all 
-arm-none-eabi-size  IntegrationEmulator_CM4.elf 
-   text	   data	    bss	    dec	    hex	filename
-  43672	     16	   2504	  46192	   b470	IntegrationEmulator_CM4.elf
-Finished building: default.size.stdout
- 
-00:25:29 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM4 ****
-make -j8 all 
-arm-none-eabi-size  IntegrationEmulator_CM4.elf 
-   text	   data	    bss	    dec	    hex	filename
-  43672	     16	   2504	  46192	   b470	IntegrationEmulator_CM4.elf
-Finished building: default.size.stdout
- 
-00:25:30 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM7 ****
-make -j8 all 
-arm-none-eabi-size  IntegrationEmulator_CM7.elf 
-   text	   data	    bss	    dec	    hex	filename
-  23408	     16	   8712	  32136	   7d88	IntegrationEmulator_CM7.elf
-Finished building: default.size.stdout
- 
-00:25:33 **** Incremental Build of configuration Debug for project IntegrationEmulator_CM4 ****
-make -j8 all 
-arm-none-eabi-size  IntegrationEmulator_CM4.elf 
-   text	   data	    bss	    dec	    hex	filename
-  43672	     16	   2504	  46192	   b470	IntegrationEmulator_CM4.elf
 Finished building: default.size.stdout
  

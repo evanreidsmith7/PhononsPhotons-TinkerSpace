@@ -1,6 +1,6 @@
 ../Core/Src/main.c:74:5:_write	12	static,ignoring_inline_asm
 ../Core/Src/main.c:85:5:main	16	static
-../Core/Src/main.c:149:11:getUserButtonState	8	static
-../Core/Src/main.c:154:6:setUserLED1State	0	static
-../Core/Src/main.c:159:6:setUserLED2State	0	static
-../Core/Src/main.c:169:6:Error_Handler	0	static,ignoring_inline_asm
+../Core/Src/main.c:150:11:getUserButtonState	8	static
+../Core/Src/main.c:155:6:setUserLED1State	0	static
+../Core/Src/main.c:160:6:setUserLED2State	0	static
+../Core/Src/main.c:170:6:Error_Handler	0	static,ignoring_inline_asm
