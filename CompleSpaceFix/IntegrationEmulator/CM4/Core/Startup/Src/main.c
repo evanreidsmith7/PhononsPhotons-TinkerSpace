@@ -136,14 +136,14 @@ int main(void)
 //#################################################################################
 //#################################################################################
 //#################################################################################
+  HAL_StatusTypeDef status;
   while (1)
   {
-	  char msg[] = "hello from stm \r\n";
+	  char msg[] = "Z";
 	  // Send the message over UART
-	  HAL_StatusTypeDef status;
+
 	  while ((status = HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY)) == HAL_BUSY);
-	  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	  HAL_Delay(10);
+	  HAL_Delay(500);
 
 
 //#################################################################################

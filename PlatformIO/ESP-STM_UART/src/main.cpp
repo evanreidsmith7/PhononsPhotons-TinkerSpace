@@ -11,6 +11,7 @@ void setup()
   Serial.println("Hello, World!");
   Serial2.begin(115200, SERIAL_8N1); // RX, TX
   while (Serial.available() > 0){Serial.read();}
+  while (Serial2.available() > 0){Serial2.read();}
 }
 
 void loop() 
@@ -24,8 +25,8 @@ void loop()
       char input = Serial2.read();
       Serial.println(input);
       Serial.println("\n\n\n\n\n\n");
-      
-
+      Serial.println("Data read");
+      while (Serial2.available() > 0){Serial2.read();}
     }
   }
   while (Serial2.available() > 0){Serial2.read();}
