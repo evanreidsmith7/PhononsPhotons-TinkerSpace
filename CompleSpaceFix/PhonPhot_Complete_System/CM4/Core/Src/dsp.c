@@ -229,7 +229,8 @@ static int       SKIP_N_SAMPLES_READY = 0;
 
 // mesage
 
-static char msg[] = "Hello ESP via DMA\n";
+char msg[] = "Hello ESP via DMA\n";
+volatile uint8_t uart_tx_complete = 1; // Transmission complete flag, set to 1 initially to send the first message
 // Private functions
 // Calc magnitude of complex vector
 static float complexABS(float real, float compl);
@@ -317,7 +318,13 @@ void dspGetMicrophoneAnomalyMagnitudes( float *_mic_1_db, float *_mic_2_db, floa
   *_mic_6_db = fft_channel_magnitude_db[5];
 }
 
-
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if(huart->Instance == USART1)
+  {
+	  uart_tx_complete = 1; // Transmission completed, ready to send the next message
+  }
+}
 void dspEntry( void )
 {
   // init output audio subsystem
@@ -397,7 +404,11 @@ void dspEntry( void )
   while (1)
   {
 	// USER CODE BEGIN
-
+	if (uart_tx_complete == 1)
+	{
+		HAL_UART_Transmit_DMA(&huart1, (uint8_t*)msg, strlen(msg));
+		uart_tx_complete = 0;
+	}
     if ( fft_samples_ready )
     {
       performFFT( );
