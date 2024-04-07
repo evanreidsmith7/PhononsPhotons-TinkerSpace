@@ -140,7 +140,7 @@ int main(void)
   {
 	  if (uart_tx_complete == 1) {
 
-	              HAL_UART_Transmit_IT(&huart1, (uint8_t*)msg, strlen(msg));
+	              HAL_UART_Transmit_DMA(&huart1, (uint8_t*)msg, strlen(msg));
 
 	              uart_tx_complete = 0; // Clear the flag
 	  }

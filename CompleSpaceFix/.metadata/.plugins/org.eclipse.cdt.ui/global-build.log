@@ -1,28 +1,42 @@
-00:09:59 **** Incremental Build of configuration Debug for project SendingMsg_CM7 ****
+00:14:00 **** Incremental Build of configuration Debug for project SendingMsg_CM4 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DCORE_CM4 -DUSE_HAL_DRIVER -DSTM32H745xx -c -I../Core/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc -I../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32H7xx/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "SendingMsg_CM4.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleSpaceFix\SendingMsg\CM4\STM32H745XIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SendingMsg_CM4.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SendingMsg_CM4.elf
+ 
+arm-none-eabi-size  SendingMsg_CM4.elf 
+arm-none-eabi-objdump -h -S SendingMsg_CM4.elf  > "SendingMsg_CM4.list"
+   text	   data	    bss	    dec	    hex	filename
+  48340	    212	   3156	  51708	   c9fc	SendingMsg_CM4.elf
+Finished building: default.size.stdout
+ 
+Finished building: SendingMsg_CM4.list
+ 
+00:14:09 **** Incremental Build of configuration Debug for project SendingMsg_CM7 ****
 make -j8 all 
 arm-none-eabi-size  SendingMsg_CM7.elf 
    text	   data	    bss	    dec	    hex	filename
    6856	     16	   1568	   8440	   20f8	SendingMsg_CM7.elf
 Finished building: default.size.stdout
  
-00:10:04 **** Incremental Build of configuration Debug for project SendingMsg_CM4 ****
+00:14:28 **** Incremental Build of configuration Debug for project SendingMsg_CM4 ****
 make -j8 all 
 arm-none-eabi-size  SendingMsg_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
-  46668	    212	   3156	  50036	   c374	SendingMsg_CM4.elf
+  48340	    212	   3156	  51708	   c9fc	SendingMsg_CM4.elf
 Finished building: default.size.stdout
  
-00:10:16 **** Incremental Build of configuration Debug for project SendingMsg_CM7 ****
+00:15:02 **** Incremental Build of configuration Debug for project SendingMsg_CM7 ****
 make -j8 all 
 arm-none-eabi-size  SendingMsg_CM7.elf 
    text	   data	    bss	    dec	    hex	filename
    6856	     16	   1568	   8440	   20f8	SendingMsg_CM7.elf
 Finished building: default.size.stdout
  
-00:10:28 **** Incremental Build of configuration Debug for project SendingMsg_CM4 ****
+00:15:14 **** Incremental Build of configuration Debug for project SendingMsg_CM4 ****
 make -j8 all 
 arm-none-eabi-size  SendingMsg_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
-  46668	    212	   3156	  50036	   c374	SendingMsg_CM4.elf
+  48340	    212	   3156	  51708	   c9fc	SendingMsg_CM4.elf
 Finished building: default.size.stdout
  
