@@ -9,7 +9,8 @@ void setup()
   // put your setup code here, to run once:
   Serial.begin(115200);
   Serial.println("Hello, World!");
-  Serial2.begin(115200, SERIAL_8N1); // RX, TX
+  //Serial2.begin(115200, SERIAL_8N1); // RX, TX
+  Serial2.begin(1800000, SERIAL_8N1); // RX, TX
   while (Serial.available() > 0){Serial.read();}
   while (Serial2.available() > 0){Serial2.read();}
 }

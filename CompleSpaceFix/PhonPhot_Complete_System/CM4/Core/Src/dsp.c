@@ -393,27 +393,30 @@ void dspEntry( void )
   float_union.valueu8[1] = 0x55;
   float_union.valueu8[2] = 0x55;
   float_union.valueu8[3] = 0x55;
+  char msg[] = "Q";
 
   while (1)
   {
 	// USER CODE BEGIN
-	char msg[] = "hello from stm \r\n";
-	// Send the message over UART
-	HAL_StatusTypeDef status;
-	while ((status = HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY)) == HAL_BUSY);
 
     if ( fft_samples_ready )
     {
-
       performFFT( );
       anomalyDetectionLogic( );
       fft_results_ready = TRUE;
       fft_samples_ready = FALSE;
       anomalyUpdateCharacteristics( );
 
+		//uart1 test
+		// Send the message over UART
+		//status = HAL_UART_Transmit_DMA( &huart1, float_union.valueu8, 4 );
+
+		//while ((status = HAL_UART_Transmit_DMA(&huart1, (uint8_t *)msg, 2)) == HAL_BUSY);
+		//uart1 test
       // Inference ANN every 40 FFT's (~3 seconds) when anomaly active.
       if(anomaly_detect_state_current & (((SKIP_N_SAMPLES_READY % 40) == 0) || (SKIP_N_SAMPLES_READY == 0)))
       {
+
     	    MX_X_CUBE_AI_Process(fft_frequency_magnitude_db_average);
       	    SKIP_N_SAMPLES_READY = 1;
       	    //RUN_ONCE = FALSE;
@@ -442,15 +445,20 @@ void dspEntry( void )
         {
           usart_data_skip_counter = 0;
 
-          status = HAL_UART_Transmit_DMA( &huart3, float_union.valueu8, 4 );
-
+          //status = HAL_UART_Transmit_DMA( &huart3, float_union.valueu8, 4 );
+          status = HAL_UART_Transmit_DMA( &huart1, float_union.valueu8, 4 );
 #ifdef FFT_AVERAGING
 
           // wait for uart available, transmit fft average data
-          while ( (status = HAL_UART_Transmit_DMA( &huart3,
+          //while ( (status = HAL_UART_Transmit_DMA( &huart3,
+          //                                      (uint8_t*)fft_frequency_magnitude_db_average,
+          //                                      ((ADC1_CHANNELS + ADC3_CHANNELS) * FFT_BATCH_SIZE / 2) * 4 ))
+          //      == HAL_BUSY );
+          while ( (status = HAL_UART_Transmit_DMA( &huart1,
                                                 (uint8_t*)fft_frequency_magnitude_db_average,
                                                 ((ADC1_CHANNELS + ADC3_CHANNELS) * FFT_BATCH_SIZE / 2) * 4 ))
                 == HAL_BUSY );
+
 #else
           // wait for uart available
           while ( ( status = HAL_UART_Transmit_DMA( &huart3,

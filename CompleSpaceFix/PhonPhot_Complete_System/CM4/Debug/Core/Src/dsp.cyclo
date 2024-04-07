@@ -1,6 +1,6 @@
-../Core/Src/dsp.c:762:13:copySamplesForFFT	2
-../Core/Src/dsp.c:563:6:ADC3DMATransferCompleteIRQCallback	9
-../Core/Src/dsp.c:470:6:ADC3DMAHalfTransferIRQCallback	9
+../Core/Src/dsp.c:770:13:copySamplesForFFT	2
+../Core/Src/dsp.c:571:6:ADC3DMATransferCompleteIRQCallback	9
+../Core/Src/dsp.c:478:6:ADC3DMAHalfTransferIRQCallback	9
 ../Core/Src/dsp.c:258:11:dspGetIsAnomalyDetected	1
 ../Core/Src/dsp.c:264:7:dspGetAnomalyFrequency	1
 ../Core/Src/dsp.c:270:7:dspGetAnomalyFrequencyNormalized	1
@@ -8,4 +8,4 @@
 ../Core/Src/dsp.c:284:6:dspGetMicrophoneAnomalyDetectStates	1
 ../Core/Src/dsp.c:296:6:dspGetMicrophoneAnomalyDetectFrequencies	1
 ../Core/Src/dsp.c:307:6:dspGetMicrophoneAnomalyMagnitudes	1
-../Core/Src/dsp.c:319:6:dspEntry	34
+../Core/Src/dsp.c:319:6:dspEntry	32
