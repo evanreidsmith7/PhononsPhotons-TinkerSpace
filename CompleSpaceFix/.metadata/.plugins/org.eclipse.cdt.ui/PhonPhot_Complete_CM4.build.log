@@ -1,4 +1,4 @@
-19:41:43 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+23:53:25 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
 make -j8 all 
 arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  PhonPhot_Complete_CM4.elf
 Finished building: default.size.stdout
  
 
-19:41:44 Build Finished. 0 errors, 0 warnings. (took 372ms)
+23:53:26 Build Finished. 0 errors, 0 warnings. (took 554ms)
 

@@ -1,28 +1,28 @@
-19:41:05 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+00:09:59 **** Incremental Build of configuration Debug for project SendingMsg_CM7 ****
 make -j8 all 
-arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+arm-none-eabi-size  SendingMsg_CM7.elf 
    text	   data	    bss	    dec	    hex	filename
- 718148	   3392	 114656	 836196	  cc264	PhonPhot_Complete_CM4.elf
+   6856	     16	   1568	   8440	   20f8	SendingMsg_CM7.elf
 Finished building: default.size.stdout
  
-19:41:12 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+00:10:04 **** Incremental Build of configuration Debug for project SendingMsg_CM4 ****
 make -j8 all 
-arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+arm-none-eabi-size  SendingMsg_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
- 718148	   3392	 114656	 836196	  cc264	PhonPhot_Complete_CM4.elf
+  46668	    212	   3156	  50036	   c374	SendingMsg_CM4.elf
 Finished building: default.size.stdout
  
-19:41:13 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM7 ****
+00:10:16 **** Incremental Build of configuration Debug for project SendingMsg_CM7 ****
 make -j8 all 
-arm-none-eabi-size  PhonPhot_Complete_CM7.elf 
+arm-none-eabi-size  SendingMsg_CM7.elf 
    text	   data	    bss	    dec	    hex	filename
- 626268	    408	  56116	 682792	  a6b28	PhonPhot_Complete_CM7.elf
+   6856	     16	   1568	   8440	   20f8	SendingMsg_CM7.elf
 Finished building: default.size.stdout
  
-19:41:43 **** Incremental Build of configuration Debug for project PhonPhot_Complete_CM4 ****
+00:10:28 **** Incremental Build of configuration Debug for project SendingMsg_CM4 ****
 make -j8 all 
-arm-none-eabi-size  PhonPhot_Complete_CM4.elf 
+arm-none-eabi-size  SendingMsg_CM4.elf 
    text	   data	    bss	    dec	    hex	filename
- 718148	   3392	 114656	 836196	  cc264	PhonPhot_Complete_CM4.elf
+  46668	    212	   3156	  50036	   c374	SendingMsg_CM4.elf
 Finished building: default.size.stdout
  
