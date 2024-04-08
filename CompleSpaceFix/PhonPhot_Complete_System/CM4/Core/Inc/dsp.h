@@ -9,7 +9,6 @@
 #define INC_DSP_H_
 
 #include "common.h"
-
 // initializes and runs the dsp subsystem
 // contains infinite loop
 void dspEntry( void );

@@ -82,6 +82,8 @@
 #include "main.h"
 #include "math.h"
 #include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 #include "arm_math.h"
 #include "dsp.h"
 #include <output_audio.h>
@@ -103,6 +105,7 @@ extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_adc3;
 extern TIM_HandleTypeDef htim3;
 extern UART_HandleTypeDef huart3;
+extern UART_HandleTypeDef huart1;
 
 // number of ADC DMA HT interrupts before data is used for FFT
 // ADC batches in 1/400th second, skip 4, op on 5th -> 20 fft ops per second
@@ -224,7 +227,10 @@ static boolean_t debug_output_enable = FALSE;
 static boolean_t RUN_ONCE   = TRUE;
 static int       SKIP_N_SAMPLES_READY = 0;
 
+// mesage
 
+char msg[] = "Hello ESP via DMA\n";
+volatile uint8_t uart_tx_complete = 1; // Transmission complete flag, set to 1 initially to send the first message
 // Private functions
 // Calc magnitude of complex vector
 static float complexABS(float real, float compl);
@@ -312,7 +318,13 @@ void dspGetMicrophoneAnomalyMagnitudes( float *_mic_1_db, float *_mic_2_db, floa
   *_mic_6_db = fft_channel_magnitude_db[5];
 }
 
-
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if(huart->Instance == USART1)
+  {
+	  uart_tx_complete = 1; // Transmission completed, ready to send the next message
+  }
+}
 void dspEntry( void )
 {
   // init output audio subsystem
@@ -384,29 +396,32 @@ void dspEntry( void )
   arm_rfft_fast_init_f32( &fft_handler, FFT_BATCH_SIZE );
 
   HAL_StatusTypeDef status;
-
   // union used to set start bytes of uart tx
   float_union.valueu8[0] = 0x55;
   float_union.valueu8[1] = 0x55;
   float_union.valueu8[2] = 0x55;
   float_union.valueu8[3] = 0x55;
-
   while (1)
   {
 	// USER CODE BEGIN
-
+	if (uart_tx_complete == 1)
+	{
+		HAL_UART_Transmit_DMA(&huart1, (uint8_t*)msg, strlen(msg));
+		uart_tx_complete = 0;
+	}
     if ( fft_samples_ready )
     {
-
       performFFT( );
       anomalyDetectionLogic( );
       fft_results_ready = TRUE;
       fft_samples_ready = FALSE;
       anomalyUpdateCharacteristics( );
 
+
       // Inference ANN every 40 FFT's (~3 seconds) when anomaly active.
       if(anomaly_detect_state_current & (((SKIP_N_SAMPLES_READY % 40) == 0) || (SKIP_N_SAMPLES_READY == 0)))
       {
+
     	    MX_X_CUBE_AI_Process(fft_frequency_magnitude_db_average);
       	    SKIP_N_SAMPLES_READY = 1;
       	    //RUN_ONCE = FALSE;
@@ -436,7 +451,6 @@ void dspEntry( void )
           usart_data_skip_counter = 0;
 
           status = HAL_UART_Transmit_DMA( &huart3, float_union.valueu8, 4 );
-
 #ifdef FFT_AVERAGING
 
           // wait for uart available, transmit fft average data
@@ -444,6 +458,7 @@ void dspEntry( void )
                                                 (uint8_t*)fft_frequency_magnitude_db_average,
                                                 ((ADC1_CHANNELS + ADC3_CHANNELS) * FFT_BATCH_SIZE / 2) * 4 ))
                 == HAL_BUSY );
+
 #else
           // wait for uart available
           while ( ( status = HAL_UART_Transmit_DMA( &huart3,

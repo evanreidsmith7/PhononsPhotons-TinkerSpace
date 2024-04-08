@@ -129,6 +129,7 @@ int main(void)
   MX_ADC1_Init();
   MX_X_CUBE_AI_Init();
   /* USER CODE BEGIN 2 */
+  MX_USART1_UART_Init();
 
   dspEntry( );
   /* USER CODE END 2 */
