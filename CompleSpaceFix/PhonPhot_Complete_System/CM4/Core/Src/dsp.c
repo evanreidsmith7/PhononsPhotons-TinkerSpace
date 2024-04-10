@@ -221,7 +221,7 @@ static boolean_t user_button_state_current = FALSE;
 static boolean_t anomaly_detect_state_previous;
 static boolean_t anomaly_detect_state_current = FALSE;
 
-static boolean_t debug_output_enable = FALSE;
+static boolean_t debug_output_enable = TRUE;
 
 // AI Inference flags
 static boolean_t RUN_ONCE   = TRUE;
@@ -335,7 +335,7 @@ void dspEntry( void )
   IPCInitialize( );
 
   // get state of debug enable input, active low
-  debug_output_enable = (boolean_t)(HAL_GPIO_ReadPin( DEBUG_EN_IN_GPIO_Port, DEBUG_EN_IN_Pin ) == GPIO_PIN_RESET);
+  //debug_output_enable = (boolean_t)(HAL_GPIO_ReadPin( DEBUG_EN_IN_GPIO_Port, DEBUG_EN_IN_Pin ) == GPIO_PIN_RESET);
 
   // Enable ADC boost level 3, required for 50 MHz ADC clock
   ADC1->CR |= ADC_CR_BOOST;
@@ -404,11 +404,11 @@ void dspEntry( void )
   while (1)
   {
 	// USER CODE BEGIN
-	if (uart_tx_complete == 1)
-	{
-		HAL_UART_Transmit_DMA(&huart1, (uint8_t*)msg, strlen(msg));
-		uart_tx_complete = 0;
-	}
+	// if (uart_tx_complete == 1)
+	// {
+	// 	HAL_UART_Transmit_DMA(&huart1, (uint8_t*)msg, strlen(msg));
+	// 	uart_tx_complete = 0;
+	// }
     if ( fft_samples_ready )
     {
       performFFT( );
@@ -477,11 +477,16 @@ uint32_t adc_dma_irq_count = 0;
 
 void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
 {
-
+  
   if ( debug_output_enable )
   {
-    HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_SET );
+    HAL_GPIO_TogglePin(DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin);
   }
+
+  // if ( debug_output_enable )
+  // {
+  //   HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_SET );
+  // }
 
   setUserLED1State(TRUE);
 
@@ -562,10 +567,10 @@ void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
 
   setUserLED1State(FALSE);
 
-  if ( debug_output_enable )
-  {
-    HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_RESET );
-  }
+  // if ( debug_output_enable )
+  // {
+  //   HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_RESET );
+  // }
 }
 
 void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
@@ -573,9 +578,13 @@ void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
 
   //if (AI_RUNNING) return;
 
+  // if ( debug_output_enable )
+  // {
+  //   HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_SET );
+  // }
   if ( debug_output_enable )
   {
-    HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_SET );
+    HAL_GPIO_TogglePin(DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin);
   }
 
   setUserLED1State(TRUE);
@@ -659,10 +668,10 @@ void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
 
   setUserLED1State(FALSE);
 
-  if ( debug_output_enable )
-  {
-    HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_RESET );
-  }
+  // if ( debug_output_enable )
+  // {
+  //   HAL_GPIO_WritePin( DEBUG_GPIO_0_GPIO_Port, DEBUG_GPIO_0_Pin, GPIO_PIN_RESET );
+  // }
 }
 
 ////////////////////////////////////

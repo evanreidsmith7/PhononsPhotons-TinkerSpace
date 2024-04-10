@@ -8,7 +8,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:IntegrationEmulator_CM4\ Debug/
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:IntegrationEmulator_CM7\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_CM4\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_CM4\ Debug/activeLaunchTarget=null\:---
-org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_CM7\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_CM7\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhonPhot_Complete_CM7\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SendingMsg_CM4/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:SendingMsg_CM4/activeLaunchTarget=null\:---
