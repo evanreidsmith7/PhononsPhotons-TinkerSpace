@@ -31,6 +31,7 @@ char vUnMute[] = "vUnMute\n";
 char Nalarm[] = "!alarm\n";
 volatile uint8_t uart_tx_complete = 1; // Transmission complete flag, set to 1 initially to send the first message
 volatile uint8_t voiceActive = 0;
+volatile uint8_t alarmActive = 0;
 //**************************************************************************************************************************************************************************************************
 //**************************************************************************************************************************************************************************************************
 //**************************************************************************************************************************************************************************************************
@@ -72,13 +73,43 @@ void playAudio( )
 
     // set global mute state in IPC
     IPCSetAlarmMuteState( FALSE );
+
     // get freq and magnitude from DSP
+    float freq = dspGetAnomalyFrequency( );
+    float magnitude = dspGetAnomalyMagnitude( );
+    // create alarm message "alarm: <freq>, <magnitude>"
+    char msg[100];
+    sprintf(msg, "alarm: %f, %f\n", freq, magnitude);
+    // send alarm message to ESP
+    if (uart_tx_complete == 1)
+    {
+      HAL_UART_Transmit_DMA(&huart1, (uint8_t*)msg, strlen(msg));
+      uart_tx_complete = 0;
+      alarmActive = 1;
+    }
 	}
 	else
 	{
 	  // update mute state from IPC
 	  alarm_mute = IPCGetAlarmMuteState( );
     // if alarm is muted send !alarm to esp
+    if ((uart_tx_complete == 1) && (alarmActive == 1) && !alarm_state_current)
+    {
+      HAL_UART_Transmit_DMA(&huart1, (uint8_t*)Nalarm, strlen(Nalarm));
+      uart_tx_complete = 0;
+      alarmActive = 0;
+    }
+    else if (alarm_mute)
+    {
+      // alarm is muted, send !alarm to esp
+      if ((uart_tx_complete == 1) && (alarmActive == 1))
+      {
+        HAL_UART_Transmit_DMA(&huart1, (uint8_t*)Nalarm, strlen(Nalarm));
+        uart_tx_complete = 0;
+        alarmActive = 0;
+      }
+    }
+
 	}
 
 	if ( IPCGetVoiceMuteState( ) )

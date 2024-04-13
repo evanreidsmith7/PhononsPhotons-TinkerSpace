@@ -45,7 +45,7 @@ void micTask(void *parameter)
    {
       if (i2s_read(I2S_NUM_0, &sBuffer, sizeof(sBuffer), &bytesIn, portMAX_DELAY) == ESP_OK && isWebSocketConnected)
       {
-         client.sendBinary((const char*)sBuffer, bytesIn);
+        client.sendBinary((const char*)sBuffer, bytesIn);
       }
    }
 }
@@ -63,4 +63,8 @@ void checkVoiceMute()
   {
     i2s_zero_dma_buffer(I2S_NUM_0);
   }
+}
+void zeroIt()
+{
+  i2s_zero_dma_buffer(I2S_NUM_0);
 }

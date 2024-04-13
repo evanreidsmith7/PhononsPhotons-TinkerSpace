@@ -1,2 +1,2 @@
-../Core/Src/output_audio.c:44:6:HAL_UART_TxCpltCallback	0	static
-../Core/Src/output_audio.c:62:6:playAudio	24	static
+../Core/Src/output_audio.c:45:6:HAL_UART_TxCpltCallback	0	static
+../Core/Src/output_audio.c:63:6:playAudio	144	static

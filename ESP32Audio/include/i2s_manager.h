@@ -7,3 +7,4 @@ void micTask(void *parameter);
 void toggleMuteOn();
 void toggleMuteOff();
 void checkVoiceMute();
+void zeroIt();

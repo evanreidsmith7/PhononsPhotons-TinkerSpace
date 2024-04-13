@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "alert_manager.h"
+#include "i2s_manager.h"
 volatile bool alarmIsMuted = true;
 int minInputFreq = 15000;  // Minimum input frequency
 int maxInputFreq = 120000; // Maximum input frequency
