@@ -49,10 +49,13 @@ void micTask(void *parameter)
       }
    }
 }
-void toggleMute()
+void toggleMuteOff()
 {
-  isMuted = !isMuted;
-  Serial.println(isMuted ? "Muted" : "Unmuted");
+  isMuted = false;
+}
+void toggleMuteOn()
+{
+  isMuted = true;
 }
 void checkVoiceMute()
 {

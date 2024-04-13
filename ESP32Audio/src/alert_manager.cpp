@@ -8,9 +8,14 @@ int maxBuzzerFreq = 6700;  // Maximum frequency the buzzer can handle
 int alarmFreq = 0;
 int alarmTime = 0;
 
-void toggleAlarm()
+void toggleAlarmOn()
 {
-   alarmIsMuted = !alarmIsMuted;
+   alarmIsMuted = 0;
+   Serial.println(alarmIsMuted ? "Alarm Off" : "Alarm On");
+}
+void toggleAlarmOff()
+{
+   alarmIsMuted = 1;
    Serial.println(alarmIsMuted ? "Alarm Off" : "Alarm On");
 }
 void setTone(int freq, int magnitude)

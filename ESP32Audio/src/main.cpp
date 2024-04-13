@@ -31,19 +31,20 @@ void loop()
     input.trim();
     Serial.println(input);
 
-    // TODO: ADD SONIFY FUNCTIONALITY
-    if (input.startsWith("toggle"))
+    if (input.startsWith("vMute") && (!isMuted)) // if not muted, need to mute, else, its already muted
     {
-      toggleMute();
+      toggleMuteOn();
     }
-    else if (input.startsWith("tAlarm"))
+    else if (input.startsWith("vUnMute") && (isMuted)) // if muted, need to unmute, else, its already unmuted
     {
-      toggleAlarm();
+      toggleMuteOff();
+    }
+    else if (input.startsWith("!alarm") && (!alarmIsMuted))
+    {
+      toggleAlarmOff();
     }
     else if (input.startsWith("alarm"))
     {//get freq and magnitude from mesage: "<freq>, <magnitude>"
-      //String toneInput = Serial.readStringUntil('\n');
-      //toneInput.trim();
       String data = input.substring(input.indexOf(':') + 1);
       data.trim();  // Now data should be "20000, 4"
 
@@ -71,8 +72,6 @@ void loop()
       Serial.println("input not recognized");
     }
   }
-//end of function input
-  while (Serial.available()){Serial.read();}
   playToneTask();
   checkVoiceMute();
 }
