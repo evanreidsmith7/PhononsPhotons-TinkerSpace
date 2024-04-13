@@ -1,2 +1,2 @@
-../Core/Src/output_audio.c:67:6:alarminit	2
-../Core/Src/output_audio.c:78:6:playAudio	27
+../Core/Src/output_audio.c:43:6:HAL_UART_TxCpltCallback	2
+../Core/Src/output_audio.c:61:6:playAudio	6
