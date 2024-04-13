@@ -32,23 +32,28 @@ void loop()
     Serial.println(input);
 
     // TODO: ADD SONIFY FUNCTIONALITY
-    if (input == "toggle")
+    if (input.startsWith("toggle"))
     {
       toggleMute();
     }
-    else if (input == "tAlarm")
+    else if (input.startsWith("tAlarm"))
     {
       toggleAlarm();
     }
-    else if (input == "alarm")
+    else if (input.startsWith("alarm"))
     {//get freq and magnitude from mesage: "<freq>, <magnitude>"
-      String toneInput = Serial.readStringUntil('\n');
-      toneInput.trim();
-      int delimiterIndex = toneInput.indexOf(',');
-      if (delimiterIndex != -1 && delimiterIndex < toneInput.length() - 1)
-      {
-        String freqString = toneInput.substring(0, delimiterIndex);
-        String magnitudeString = toneInput.substring(delimiterIndex + 1);
+      //String toneInput = Serial.readStringUntil('\n');
+      //toneInput.trim();
+      String data = input.substring(input.indexOf(':') + 1);
+      data.trim();  // Now data should be "20000, 4"
+
+      // Split the string by comma to isolate frequency and magnitude
+      int commaIndex = data.indexOf(',');
+      if (commaIndex != -1) {
+        String freqString = data.substring(0, commaIndex);
+        String magnitudeString = data.substring(commaIndex + 1);
+        freqString.trim();
+        magnitudeString.trim();
 
         int freq = freqString.toInt();
         int magnitude = magnitudeString.toInt();

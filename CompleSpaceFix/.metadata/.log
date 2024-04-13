@@ -11826,3 +11826,24 @@ java.net.ConnectException: Connection refused: connect
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-12 23:00:44.438
 !MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 12000000; CPU: 180000000; div: 15
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-13 00:53:55.764
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 8000000; CPU: 16000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-13 00:54:39.257
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 12000000; CPU: 180000000; div: 15
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-13 01:00:10.163
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 8000000; CPU: 16000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-13 01:01:11.031
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 12000000; CPU: 180000000; div: 15
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-13 01:23:32.328
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 8000000; CPU: 16000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-13 01:23:57.696
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 12000000; CPU: 180000000; div: 15
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-13 01:29:22.297
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 8000000; CPU: 16000000; div: 2
