@@ -27,9 +27,10 @@ static boolean_t alarm_mute = FALSE;
 //**************************************************************************************************************************************************************************************************
 // mesage 
 char vMute[] = "vMute\n";
-char vUnmute[] = "vUnmute\n";
+char vUnMute[] = "vUnMute\n";
 char Nalarm[] = "!alarm\n";
 volatile uint8_t uart_tx_complete = 1; // Transmission complete flag, set to 1 initially to send the first message
+volatile uint8_t voiceActive = 0;
 //**************************************************************************************************************************************************************************************************
 //**************************************************************************************************************************************************************************************************
 //**************************************************************************************************************************************************************************************************
@@ -83,20 +84,23 @@ void playAudio( )
 	if ( IPCGetVoiceMuteState( ) )
 	{
     // voice is muted, send vmute to esp
-    if (uart_tx_complete == 1)
+    if (uart_tx_complete == 1 && voiceActive == 1)
     {
       HAL_UART_Transmit_DMA(&huart1, (uint8_t*)vMute, strlen(vMute));
       uart_tx_complete = 0;
+      voiceActive = 0;
     }
 
 	}
 	else
   {
 	  // voice is active, adjust volume
-    if (uart_tx_complete == 1)
+
+    if (uart_tx_complete == 1 && voiceActive == 0)
     {
-      HAL_UART_Transmit_DMA(&huart1, (uint8_t*)vUnmute, strlen(vUnmute));
+      HAL_UART_Transmit_DMA(&huart1, (uint8_t*)vUnMute, strlen(vUnMute));
       uart_tx_complete = 0;
+      voiceActive = 1;
     }
 	}
 }

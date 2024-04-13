@@ -541,7 +541,7 @@ void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
 
   // REMOVED OUTPUT AUDIO EXTERNALIZED
   //performOutputAudioFIR( &output_audio_filter_input_buffer[0], &output_audio_filter_input_buffer[ADC_BUFFER_SAMPLES_PER_CHANNEL / 2] );
-
+  playAudio();
   setUserLED1State(FALSE);
 
   if ( debug_output_enable )
@@ -638,6 +638,7 @@ void ADC3DMATransferCompleteIRQCallback(DMA_HandleTypeDef *_hdma)
 
   // REMOVED OUTPUT AUDIO EXTERNALIZED
   //performOutputAudioFIR( &output_audio_filter_input_buffer[ADC_BUFFER_SAMPLES_PER_CHANNEL / 2], &output_audio_filter_input_buffer[0] );
+  playAudio();
   setUserLED1State(FALSE);
 
   if ( debug_output_enable )

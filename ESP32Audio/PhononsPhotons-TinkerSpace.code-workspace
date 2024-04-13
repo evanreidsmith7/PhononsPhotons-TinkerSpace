@@ -7,14 +7,6 @@
 			"name": "ESP32Audio",
 			"path": "."
 		},
-		{
-			"name": "ESP-STM_UART",
-			"path": "../PlatformIO/ESP-STM_UART"
-		},
-		{
-			"name": "VOIP-Prototype2",
-			"path": "../PlatformIO/VOIP-Prototype2"
-		}
 	],
 	"settings": {}
 }
