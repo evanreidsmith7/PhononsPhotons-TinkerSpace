@@ -6,7 +6,7 @@
 const char *ssid = "schmittttty";
 const char *password = "12345678";
 
-const char *websocket_server_host = "10.218.151.104"; // see wireless lan adapter wifi IPv4 Address. . . . . . . . . . . : 10.218.151.104
+const char *websocket_server_host = "10.218.151.61"; // powershell: ipconfig, see wireless lan adapter wifi IPv4 Address. . . . . . . . . . . : 10.218.151.104
 const uint16_t websocket_server_port = 8888;          // <WEBSOCKET_SERVER_PORT>
 
 void setup()
@@ -19,10 +19,8 @@ void setup()
   xTaskCreatePinnedToCore(micTask, "micTask", 10000, NULL, 1, NULL, 1);
   
   // clear the serial buffer
-  while (Serial.available())
-  {
-    Serial.read();
-  }
+  while (Serial.available()){Serial.read();}
+  while (Serial2.available()){Serial2.read();}
 }
 
 void loop()
@@ -71,9 +69,5 @@ void loop()
 //end of function input
   while (Serial.available()){Serial.read();}
   playToneTask();
-
-  if (isMuted)
-  {
-    i2s_zero_dma_buffer(I2S_NUM_0);
-  }
+  checkVoiceMute();
 }

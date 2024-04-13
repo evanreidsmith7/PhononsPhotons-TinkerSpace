@@ -7,6 +7,7 @@ void i2s_install()
 {
   const i2s_config_t i2s_config = {
     .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX),
+    //.sample_rate = 44100,
     .sample_rate = 44100,
     .bits_per_sample = i2s_bits_per_sample_t(16),
     .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
@@ -52,4 +53,11 @@ void toggleMute()
 {
   isMuted = !isMuted;
   Serial.println(isMuted ? "Muted" : "Unmuted");
+}
+void checkVoiceMute()
+{
+  if (isMuted)
+  {
+    i2s_zero_dma_buffer(I2S_NUM_0);
+  }
 }
