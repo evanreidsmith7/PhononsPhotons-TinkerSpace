@@ -4,4 +4,7 @@ extern bool isMuted;
 void i2s_install();
 void i2s_setpin();
 void micTask(void *parameter);
-void toggleMute();
+void toggleMuteOn();
+void toggleMuteOff();
+void checkVoiceMute();
+void zeroIt();

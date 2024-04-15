@@ -7,6 +7,7 @@ void i2s_install()
 {
   const i2s_config_t i2s_config = {
     .mode = i2s_mode_t(I2S_MODE_MASTER | I2S_MODE_RX),
+    //.sample_rate = 44100,
     .sample_rate = 44100,
     .bits_per_sample = i2s_bits_per_sample_t(16),
     .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
@@ -44,12 +45,26 @@ void micTask(void *parameter)
    {
       if (i2s_read(I2S_NUM_0, &sBuffer, sizeof(sBuffer), &bytesIn, portMAX_DELAY) == ESP_OK && isWebSocketConnected)
       {
-         client.sendBinary((const char*)sBuffer, bytesIn);
+        client.sendBinary((const char*)sBuffer, bytesIn);
       }
    }
 }
-void toggleMute()
+void toggleMuteOff()
 {
-  isMuted = !isMuted;
-  Serial.println(isMuted ? "Muted" : "Unmuted");
+  isMuted = false;
+}
+void toggleMuteOn()
+{
+  isMuted = true;
+}
+void checkVoiceMute()
+{
+  if (isMuted)
+  {
+    i2s_zero_dma_buffer(I2S_NUM_0);
+  }
+}
+void zeroIt()
+{
+  i2s_zero_dma_buffer(I2S_NUM_0);
 }

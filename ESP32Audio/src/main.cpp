@@ -6,22 +6,26 @@
 const char *ssid = "schmittttty";
 const char *password = "12345678";
 
-const char *websocket_server_host = "10.218.151.104"; // see wireless lan adapter wifi IPv4 Address. . . . . . . . . . . : 10.218.151.104
-const uint16_t websocket_server_port = 8888;          // <WEBSOCKET_SERVER_PORT>
+const char *websocket_server_host = "10.218.151.61"; // powershell: ipconfig, see wireless lan adapter wifi IPv4 Address. . . . . . . . . . . : 10.218.151.104
+const uint16_t websocket_server_port = 8888;         // <WEBSOCKET_SERVER_PORT>
 
 void setup()
 {
   Serial.begin(115200);
-  //TODO: ADD SERIAL2 and test with another mcu
+  // TODO: ADD SERIAL2 and test with another mcu
   Serial2.begin(115200); // RX, TX
   connectWiFi(ssid, password);
   connectWSServer(websocket_server_host, websocket_server_port);
   xTaskCreatePinnedToCore(micTask, "micTask", 10000, NULL, 1, NULL, 1);
-  
+
   // clear the serial buffer
   while (Serial.available())
   {
     Serial.read();
+  }
+  while (Serial2.available())
+  {
+    Serial2.read();
   }
 }
 
@@ -33,24 +37,31 @@ void loop()
     input.trim();
     Serial.println(input);
 
-    // TODO: ADD SONIFY FUNCTIONALITY
-    if (input == "toggle")
+    if (input.startsWith("vMute") && (!isMuted)) // if not muted, need to mute, else, its already muted
     {
-      toggleMute();
+      toggleMuteOn();
     }
-    else if (input == "tAlarm")
+    else if (input.startsWith("vUnMute") && (isMuted)) // if muted, need to unmute, else, its already unmuted
     {
-      toggleAlarm();
+      toggleMuteOff();
     }
-    else if (input == "alarm")
-    {//get freq and magnitude from mesage: "<freq>, <magnitude>"
-      String toneInput = Serial.readStringUntil('\n');
-      toneInput.trim();
-      int delimiterIndex = toneInput.indexOf(',');
-      if (delimiterIndex != -1 && delimiterIndex < toneInput.length() - 1)
+    else if (input.startsWith("!alarm") && (!alarmIsMuted))
+    {
+      toggleAlarmOff();
+    }
+    else if (input.startsWith("alarm"))
+    { // get freq and magnitude from mesage: "<freq>, <magnitude>"
+      String data = input.substring(input.indexOf(':') + 1);
+      data.trim(); // Now data should be "20000, 4"
+
+      // Split the string by comma to isolate frequency and magnitude
+      int commaIndex = data.indexOf(',');
+      if (commaIndex != -1)
       {
-        String freqString = toneInput.substring(0, delimiterIndex);
-        String magnitudeString = toneInput.substring(delimiterIndex + 1);
+        String freqString = data.substring(0, commaIndex);
+        String magnitudeString = data.substring(commaIndex + 1);
+        freqString.trim();
+        magnitudeString.trim();
 
         int freq = freqString.toInt();
         int magnitude = magnitudeString.toInt();
@@ -68,12 +79,6 @@ void loop()
       Serial.println("input not recognized");
     }
   }
-//end of function input
-  while (Serial.available()){Serial.read();}
   playToneTask();
-
-  if (isMuted)
-  {
-    i2s_zero_dma_buffer(I2S_NUM_0);
-  }
+  checkVoiceMute();
 }

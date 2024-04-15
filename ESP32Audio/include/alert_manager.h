@@ -8,6 +8,7 @@ extern int minBuzzerFreq;    // Minimum frequency the buzzer can handle
 extern int maxBuzzerFreq;   // Maximum frequency the buzzer can handle
 extern int alarmFreq;
 extern int alarmTime;
-void toggleAlarm();
+void toggleAlarmOff();
+void toggleAlarmOn();
 void setTone(int freq, int magnitude);
 void playToneTask();
