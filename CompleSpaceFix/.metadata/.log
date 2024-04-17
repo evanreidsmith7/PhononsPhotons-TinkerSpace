@@ -110,3 +110,52 @@ java.util.ConcurrentModificationException
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-17 11:11:08.112
 !MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 12000000; CPU: 180000000; div: 15
+!SESSION 2024-04-17 11:20:54.746 -----------------------------------------------
+eclipse.buildId=Version 1.15.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-17 11:21:02.158
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-17 11:21:02.160
+!MESSAGE Log4j2 initialized with config file C:\Users\evanr\MiniMachineSTM32Work\PhononsPhotons-TinkerSpace\CompleSpaceFix\.metadata\.log4j2.xml
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-04-17 11:21:03.685
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.1083515996.685340328.8845227"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-04-17 11:21:03.687
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.932644342.432858257.2032187309"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-04-17 11:21:03.688
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1266310800.1512855022.1497122627"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-04-17 11:21:03.688
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.958419604.801951188.1620388759"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-04-17 11:21:03.689
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1627416446.568202157.1570193934"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-04-17 11:21:03.690
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.763593129.774524369.1639782494"
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2024-04-17 11:21:03.691
+!MESSAGE Missing superclass "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941" for "com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.704011020.213368941.2096740761"
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-04-17 11:21:06.140
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\evanr'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-17 11:21:08.483
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-17 11:21:35.128
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 8000000; CPU: 16000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-17 11:22:09.104
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 12000000; CPU: 180000000; div: 15
