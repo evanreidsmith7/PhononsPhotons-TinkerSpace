@@ -26,7 +26,7 @@
     }
 </style>
 <body>
-    <h1>ESP32-S3 + I²S Digital Microphone</h1>
+    <h1>PHONONS & PHOTONS VOIP</h1>
     <p>Connect to WebSocket by pressing the [Connect] button first!</p>
     <button id="connectBtn" class="button" onclick="connect()">Connect</button>
     <input type="range" max="1" value="0.5" min="0" id="range" onchange="changeVolume(event)" step="0.1"><br />
@@ -79,6 +79,7 @@
             yaxis: { domain: [0, 1],
             color: "#FFF",
             rangemode: "auto",
+            range: [-100, 100]
             },
         }
 
@@ -106,7 +107,7 @@
         ws.addEventListener('message', function (event) {
             if(continueBtn.disabled){
                 player.feed(event.data)
-                //worker.postMessage(event.data) // Remove if it makes the web browser slow.
+                worker.postMessage(event.data) // Remove if it makes the web browser slow.
             }
         });
     }
