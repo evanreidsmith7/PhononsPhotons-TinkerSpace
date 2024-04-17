@@ -37,7 +37,7 @@ void Model::tick()
     static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(87);
   }
 
-  // update anomaly detect state from IPC
+  // Update predicted region if changed.
   predicted_region_previous = predicted_region_current;
   // a direct cast to bool doesnt work here, need a conditional
   predicted_region_current = (IPCGetPredictedRegion());
