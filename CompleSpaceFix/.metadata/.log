@@ -104,3 +104,9 @@ java.util.ConcurrentModificationException
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-17 11:06:53.523
 !MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 12000000; CPU: 180000000; div: 15
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-17 11:10:36.070
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 8000000; CPU: 16000000; div: 2
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-04-17 11:11:08.112
+!MESSAGE SWV configuration; base: 192000000; minDiv: 16; maxDiv: 65535; maxSWO: 12000000; limit: 12000000 => SWO: 12000000; CPU: 180000000; div: 15
