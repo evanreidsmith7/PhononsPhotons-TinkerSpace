@@ -6,7 +6,7 @@
 const char *ssid = "schmittttty";
 const char *password = "12345678";
 
-const char *websocket_server_host = "10.218.151.61"; // powershell: ipconfig, see wireless lan adapter wifi IPv4 Address. . . . . . . . . . . : 10.218.151.104
+const char *websocket_server_host = "192.168.137.1"; // powershell: ipconfig, see wireless lan adapter wifi IPv4 Address. . . . . . . . . . . : 10.218.151.104
 const uint16_t websocket_server_port = 8888;         // <WEBSOCKET_SERVER_PORT>
 
 void setup()
