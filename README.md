@@ -2,7 +2,7 @@
 
 ## Currently
 
-We now have a complete system of ours that contains a .ioc configuration file! **CompleteSpace\PhonPhot_Complete_System** although, it is only compatible for the CM4 core, not the CM7. Avoid usking the .ioc file for now, unless you are absolutely sure that youre ready to configure your pins for the CM4 core. 
+We kicked ass. This will be updated... at some point (:
 
 ### Using the .ioc file (CubeMX) to configure CM4 pins
 
